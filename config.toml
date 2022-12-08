@@ -9,4 +9,8 @@ title = true
 
 [taxonomies]
 tag = "tags"
+<<<<<<< HEAD
 category = "categories"
+=======
+category = "categories"
+>>>>>>> dc87bfbf74a3b6db4a26edf25793abbe2ce6a6d2
