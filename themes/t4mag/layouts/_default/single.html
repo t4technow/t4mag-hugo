@@ -12,12 +12,11 @@
 						</a>
 					</li>
 					<li class="breadcrumb-item">
-						<a href="index.html"> Technology </a>
+						<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}"> {{ .Params.category }} </a>
 					</li>
 					<li class="breadcrumb-item active" aria-current="page">
 						<span class="rt-text-truncate">
-							Best Tech Accessories 10 Work From Home Essentials We Have
-							Delivery For All Area
+							{{ .Title }}
 						</span>
 					</li>
 				</ol>
@@ -53,23 +52,19 @@
 							<div class="rt-main-post-single grid-meta">
 								<!-- start post header -->
 								<div class="post-header">
-									<span class="rt-cat-primary">Technology</span>
+									<span class="rt-cat-primary">{{ .Params.category }}</span>
 									<h2 class="title">
-										Best Tech Accessories 10 Work From Home Essentials We Have
-										Delivery For All Area
+										{{ .Title }}
 									</h2>
 									<div class="post-meta">
 										<ul>
 											<li>
 												<span class="rt-meta">
-													by <a href="author.html" class="name">Willum Skeem</a>
+													by <a href="author.html" class="name">T4Technow</a>
 												</span>
 											</li>
 											<li>
-												<span class="rt-meta">
-													<i class="far fa-calendar-alt icon"></i>
-													DECEMBER 9, 2022
-												</span>
+												{{- partial "published-date.html" . -}}
 											</li>
 											<li>
 												<span class="rt-meta">
