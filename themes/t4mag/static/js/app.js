@@ -23,23 +23,23 @@
 		}
 	});
 	// Fixed header mobile
-	$(window).on("scroll", function () {
-		if ($(".rt-mobile-header").hasClass("mobile-sticky-on")) {
-			const stickyPlaceHolder = $("#mobile-sticky-placeholder"),
-				menu = $("#mobile-menu-bar-wrap"),
-				menuH = menu.outerHeight(),
-				topbarH = $("#mobile-top-bar").outerHeight() || 0,
-				targrtScroll = topbarH,
-				header = $(".rt-mobile-header");
-			if ($(window).scrollTop() > targrtScroll) {
-				header.addClass("mobile-sticky");
-				stickyPlaceHolder.height(menuH);
-			} else {
-				header.removeClass("mobile-sticky");
-				stickyPlaceHolder.height(0);
-			}
-		}
-	});
+	// $(window).on("scroll", function () {
+	// 	if ($(".rt-mobile-header").hasClass("mobile-sticky-on")) {
+	// 		const stickyPlaceHolder = $("#mobile-sticky-placeholder"),
+	// 			menu = $("#mobile-menu-bar-wrap"),
+	// 			menuH = menu.outerHeight(),
+	// 			topbarH = $("#mobile-top-bar").outerHeight() || 0,
+	// 			targrtScroll = topbarH,
+	// 			header = $(".rt-mobile-header");
+	// 		if ($(window).scrollTop() > targrtScroll) {
+	// 			header.addClass("mobile-sticky");
+	// 			stickyPlaceHolder.height(menuH);
+	// 		} else {
+	// 			header.removeClass("mobile-sticky");
+	// 			stickyPlaceHolder.height(0);
+	// 		}
+	// 	}
+	// });
 
 	// humburger
 	$(".humburger").on("click", function () {
