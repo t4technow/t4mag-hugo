@@ -1295,7 +1295,7 @@ section,
 .tr-america,
 .tr-asia,
 .tr-europe,
-.basketball,
+.android,
 .sports,
 .swimming,
 .animations,
@@ -1311,7 +1311,7 @@ section,
 .football,
 .action,
 .games,
-.world,
+.software,
 .ragbi,
 .downloads-black,
 .downloads,
@@ -1341,7 +1341,7 @@ section,
 .tr-america:hover,
 .tr-asia:hover,
 .tr-europe:hover,
-.basketball:hover,
+.android:hover,
 .sports:hover,
 .swimming:hover,
 .animations:hover,
@@ -1357,7 +1357,7 @@ section,
 .football:hover,
 .action:hover,
 .games:hover,
-.world:hover,
+.software:hover,
 .ragbi:hover,
 .downloads-black:hover,
 .downloads:hover,
@@ -1378,7 +1378,7 @@ section,
 [data-theme="dark"] .tr-america,
 [data-theme="dark"] .tr-asia,
 [data-theme="dark"] .tr-europe,
-[data-theme="dark"] .basketball,
+[data-theme="dark"] .android,
 [data-theme="dark"] .sports,
 [data-theme="dark"] .swimming,
 [data-theme="dark"] .animations,
@@ -1394,7 +1394,7 @@ section,
 [data-theme="dark"] .football,
 [data-theme="dark"] .action,
 [data-theme="dark"] .games,
-[data-theme="dark"] .world,
+[data-theme="dark"] .software,
 [data-theme="dark"] .ragbi,
 [data-theme="dark"] .downloads-black,
 [data-theme="dark"] .downloads,
@@ -1424,7 +1424,7 @@ section,
 
 .action,
 .games,
-.world,
+.software,
 .ragbi {
 	background-color: #ffaf25;
 }
@@ -1463,7 +1463,7 @@ section,
 	background-color: #00a651;
 }
 
-.basketball {
+.android {
 	background-color: #7747ff;
 }
 
@@ -5710,6 +5710,14 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 	content: counter(post-counter);
 	font-weight: 500;
 }
+
+.post-sm.style-2 .post-img img{
+	height: 112px;
+	width: 145px;
+	object-position: center;
+    object-fit: cover;
+}
+
 .whats-new-wrap .post-sm.style-2 .post-img::after {
 	background-color: var(--color-black);
 	color: var(--color-white);
@@ -6669,6 +6677,17 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 	-moz-transition: all 0.8s ease;
 	-ms-transition: all 0.8s ease;
 }
+
+.rt-post-grid:not(.popular) .post-img img{
+	min-height:220px;
+	height: 239.13px;
+}
+
+.rt-post-grid.popular .post-img img{
+	min-height:110px;
+	height: 110px;
+}
+
 .rt-post-grid .post-img .rt-meta-over {
 	position: absolute;
 	left: 20px;

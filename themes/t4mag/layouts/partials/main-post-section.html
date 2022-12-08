@@ -1,6 +1,7 @@
 <section class="rt-main-post-section main-post-section-style-1 section-padding">
 	<div class="container">
 		<div class="row gutter-24">
+			{{ range ( where .Site.RegularPages "Type" "posts" | first 1 ) }}
 			<div
 				class="col-xl-7 col-lg-6 wow fadeInUp"
 				data-wow-delay="200ms"
@@ -8,20 +9,29 @@
 			>
 				<div class="rt-post-overlay rt-post-overlay-xl layout-1">
 					<div class="post-img">
-						<a href="single-post1.html" class="img-link">
+						<a href="{{ .Permalink }}" class="img-link">
+
+							{{ with .Param "featured_image" }}
 							<img
-								src="/images/gallery/post-xl_1.jpg"
-								alt="post-xl_1"
+								src="{{ . }}" alt="{{ $.Title }}"
 								width="900"
 								height="600"
 							/>
+							{{ else }}
+							<img
+								src="/images/gallery/post-lg_5.jpg"
+								alt="{{ .Title }}"
+								width="900"
+								height="600"
+							/>
+							{{end}}		
 						</a>
 					</div>
 					<div class="post-content">
-						<a href="life-style.html" class="fashion">Fashion</a>
+						<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="{{ .Params.category }}">{{ .Params.category }}</a>
 						<h3 class="post-title bold-underline">
-							<a href="single-post1.html">
-								How childhood viral infections may year 2021 Section
+							<a href="{{ .Permalink }}">
+								{{ .Title }}
 							</a>
 						</h3>
 						<div class="post-meta">
@@ -29,14 +39,11 @@
 								<li>
 									<span class="rt-meta">
 										by
-										<a href="author.html" class="name">Willum Skeem</a>
+										<a href="author.html" class="name">T4Technow</a>
 									</span>
 								</li>
 								<li>
-									<span class="rt-meta">
-										<i class="far fa-calendar-alt icon"></i>
-										DECEMBER 9, 2022
-									</span>
+									{{- partial "published-date.html" . -}}
 								</li>
 								<li>
 									<span class="rt-meta">
@@ -49,11 +56,15 @@
 					</div>
 				</div>
 			</div>
+			{{ end }}
 			<!-- end col -->
 
 			<div class="col-xl-5 col-lg-6">
 				<div class="row gutter-24">
-					{{ range ( where .Site.RegularPages "Type" "posts" | first 3 ) }}
+					{{ $counter := 0 }}
+					{{ range ( where .Site.RegularPages "Type" "posts" | first 4 ) }}
+					{{ $counter = add $counter 1 }}
+					{{ if (gt $counter 1) }} 
 					<div
 						class="col-12 wow fadeInUp"
 						data-wow-delay="400ms"
@@ -70,7 +81,7 @@
 									/>
 									{{ else }}
 									<img
-										src="/images/gallery/post-lg_2.jpg"
+										src="/images/gallery/post-lg_5.jpg"
 										alt="{{ .Title }}"
 										width="696"
 										height="491"
@@ -87,17 +98,14 @@
 								<h3 class="post-title">
 									<a href="{{ .Permalink }}"> {{ .Title }} </a>
 								</h3>
-								{{ $dateTime := .PublishDate.Format "2006-01-02" }} {{
-								$dateFormat := .Site.Params.dateFormat | default "January 2,2006" }}
-								<span class="rt-meta">
-									<i class="far fa-calendar-alt icon"></i>
-									{{ .PublishDate.Format $dateFormat }}
-								</span>
+								
+								{{- partial "published-date.html" . -}}
 							</div>
 						</div>
 					</div>
 					<!-- end col -->
-					{{end}}
+					{{ end }}
+					{{ end }}
 					<!-- end col -->
 				</div>
 			</div>

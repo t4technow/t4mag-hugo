@@ -45,6 +45,12 @@
 			</div>
 		</div>
 		<div class="row gutter-24">
+			{{ $counter := 0 }}
+			{{ range ( where .Site.RegularPages "Type" "posts" | first 8 ) }}
+			{{ $counter = add $counter 1 }}
+			{{ if (lt $counter 5) }}
+
+			{{ else }}
 			<div
 				class="col-xl-3 col-md-6 wow fadeInUp"
 				data-wow-delay="200ms"
@@ -52,20 +58,29 @@
 			>
 				<div class="rt-post-grid grid-meta">
 					<div class="post-img">
-						<a href="single-post1.html">
+						<a href="{{ .Permalink }}">
+							{{ with .Param "featured_image" }}
 							<img
-								src="/images/gallery/post-md_1.jpg"
-								alt="post"
+								src="{{ . }}" 
+								alt="{{ $.Title }}"
 								width="551"
 								height="431"
 							/>
+							{{ else }}
+								<img
+									src="/images/gallery/post-lg_5.jpg"
+									alt="{{ $.Title }}"
+									width="900"
+									height="600"
+								/>
+								{{ end }}
 						</a>
 					</div>
 					<div class="post-content">
-						<a href="gaming.html" class="rt-post-cat-normal">Music</a>
+						<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="rt-post-cat-normal">{{ .Params.category }}</a>
 						<h3 class="post-title">
 							<a href="single-post1.html">
-								After The Moon How Close gear Is Space Travel Really?
+								{{ .Page.Title }}
 							</a>
 						</h3>
 						<div class="post-meta">
@@ -73,14 +88,11 @@
 								<li>
 									<span class="rt-meta">
 										by
-										<a href="author.html" class="name">Willum Skeem</a>
+										<a href="author.html" class="name">T4Technow</a>
 									</span>
 								</li>
 								<li>
-									<span class="rt-meta">
-										<i class="far fa-calendar-alt icon"></i>
-										DECEMBER 9, 2022
-									</span>
+									{{- partial "published-date.html" . -}}
 								</li>
 							</ul>
 						</div>
@@ -88,137 +100,8 @@
 				</div>
 			</div>
 			<!-- end col -->
-
-			<div
-				class="col-xl-3 col-md-6 wow fadeInUp"
-				data-wow-delay="400ms"
-				data-wow-duration="800ms"
-			>
-				<div class="rt-post-grid grid-meta">
-					<div class="post-img">
-						<a href="single-post1.html">
-							<img
-								src="/images/gallery/post-md_2.jpg"
-								alt="post"
-								width="551"
-								height="431"
-							/>
-						</a>
-					</div>
-					<div class="post-content">
-						<a href="life-style.html" class="rt-post-cat-normal">Animal</a>
-						<h3 class="post-title">
-							<a href="single-post1.html">
-								After The Moon How Close gear Is Space Travel Really?
-							</a>
-						</h3>
-						<div class="post-meta">
-							<ul>
-								<li>
-									<span class="rt-meta">
-										by
-										<a href="author.html" class="name">Willum Skeem</a>
-									</span>
-								</li>
-								<li>
-									<span class="rt-meta">
-										<i class="far fa-calendar-alt icon"></i>
-										DECEMBER 9, 2022
-									</span>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end col -->
-
-			<div
-				class="col-xl-3 col-md-6 wow fadeInUp"
-				data-wow-delay="600ms"
-				data-wow-duration="800ms"
-			>
-				<div class="rt-post-grid grid-meta">
-					<div class="post-img">
-						<a href="single-post1.html">
-							<img
-								src="/images/gallery/post-md_3.jpg"
-								alt="post"
-								width="551"
-								height="431"
-							/>
-						</a>
-					</div>
-					<div class="post-content">
-						<a href="life-style.html" class="rt-post-cat-normal">Travel</a>
-						<h3 class="post-title">
-							<a href="single-post1.html">
-								After The Moon How Close gear Is Space Travel Really?
-							</a>
-						</h3>
-						<div class="post-meta">
-							<ul>
-								<li>
-									<span class="rt-meta">
-										by
-										<a href="author.html" class="name">Willum Skeem</a>
-									</span>
-								</li>
-								<li>
-									<span class="rt-meta">
-										<i class="far fa-calendar-alt icon"></i>
-										DECEMBER 9, 2022
-									</span>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end col -->
-
-			<div
-				class="col-xl-3 col-md-6 wow fadeInUp"
-				data-wow-delay="800ms"
-				data-wow-duration="800ms"
-			>
-				<div class="rt-post-grid grid-meta">
-					<div class="post-img">
-						<a href="single-post1.html">
-							<img
-								src="/images/gallery/post-md_4.jpg"
-								alt="post"
-								width="551"
-								height="431"
-							/>
-						</a>
-					</div>
-					<div class="post-content">
-						<a href="life-style.html" class="rt-post-cat-normal">Food</a>
-						<h3 class="post-title">
-							<a href="single-post1.html">
-								After The Moon How Close gear Is Space Travel Really?
-							</a>
-						</h3>
-						<div class="post-meta">
-							<ul>
-								<li>
-									<span class="rt-meta">
-										by
-										<a href="author.html" class="name">Willum Skeem</a>
-									</span>
-								</li>
-								<li>
-									<span class="rt-meta">
-										<i class="far fa-calendar-alt icon"></i>
-										DECEMBER 9, 2022
-									</span>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+			{{ end }}
+			{{ end }}
 			<!-- end col -->
 		</div>
 		<!-- end row -->

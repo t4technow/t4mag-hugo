@@ -71,16 +71,7 @@
 		<!-- end slidebar wrap  -->
 
 		<div class="sidebar-wrap mb--40">
-			<div class="ad-banner-img">
-				<a href="#">
-					<img
-						src="/images/gallery/ad-post_1.jpg"
-						alt="ad-banner"
-						width="310"
-						height="250"
-					/>
-				</a>
-			</div>
+			{{- partial "ad-banner-sidebar.html" . -}}
 		</div>
 		<!-- end slidebar wrap  -->
 
@@ -91,161 +82,39 @@
 				<span class="rt-section-line"></span>
 			</h2>
 			<div class="row rt-gutter-10">
+				{{ range ( shuffle ( where .Site.RegularPages "Type" "posts" | first 6 )) }}
 				<div class="col-6">
-					<div class="rt-post-grid post-grid-md grid-meta">
+					<div class="rt-post-grid post-grid-md popular grid-meta">
 						<div class="post-img">
-							<a href="single-post1.html">
-								<img
-									src="/images/gallery/post-grid-md_1.jpg"
-									alt="post"
+							<a href="{{ .Permalink }}">
+								{{ with .Param "featured_image" }}
+								<img 
+									src="{{ . }}" 
+									alt="{{ $.Title }}" 
 									width="343"
 									height="250"
 								/>
+								{{ else }}
+								<img
+									src="/images/gallery/post-sm_2.jpg"
+									alt="{{ .Title }}"
+									width="343"
+									height="250"
+								/>
+								{{end}}
 							</a>
 						</div>
 						<div class="post-content">
-							<a href="life-style.html" class="rt-post-cat-normal">Fashion</a>
+							<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="rt-post-cat-normal">{{ .Params.category }}</a>
 							<h4 class="post-title">
-								<a href="single-post1.html"> Beste ampute Speak Market </a>
+								<a href="{{ .Permalink }}"> {{ .Title | truncate 25 }} </a>
 							</h4>
-							<span class="rt-meta">
-								<i class="far fa-calendar-alt icon"></i>
-								DECEMBER 9, 2022
-							</span>
+							{{- partial "published-date.html" . -}}
 						</div>
 					</div>
 				</div>
 				<!-- col-6 -->
-
-				<div class="col-6">
-					<div class="rt-post-grid post-grid-md grid-meta">
-						<div class="post-img">
-							<a href="single-post1.html">
-								<img
-									src="/images/gallery/post-grid-md_2.jpg"
-									alt="post"
-									width="343"
-									height="250"
-								/>
-							</a>
-						</div>
-						<div class="post-content">
-							<a href="gaming.html" class="rt-post-cat-normal">Music</a>
-							<h4 class="post-title">
-								<a href="single-post1.html"> Beste ampute arey Market </a>
-							</h4>
-							<span class="rt-meta">
-								<i class="far fa-calendar-alt icon"></i>
-								DECEMBER 9, 2022
-							</span>
-						</div>
-					</div>
-				</div>
-				<!-- col-6 -->
-
-				<div class="col-6">
-					<div class="rt-post-grid post-grid-md grid-meta">
-						<div class="post-img">
-							<a href="single-post1.html">
-								<img
-									src="/images/gallery/post-grid-md_3.jpg"
-									alt="post"
-									width="343"
-									height="250"
-								/>
-							</a>
-						</div>
-						<div class="post-content">
-							<a href="life-style.html" class="rt-post-cat-normal">Fashion</a>
-							<h4 class="post-title">
-								<a href="single-post1.html"> Beste ampute Speak Market </a>
-							</h4>
-							<span class="rt-meta">
-								<i class="far fa-calendar-alt icon"></i>
-								DECEMBER 9, 2022
-							</span>
-						</div>
-					</div>
-				</div>
-				<!-- col-6 -->
-
-				<div class="col-6">
-					<div class="rt-post-grid post-grid-md grid-meta">
-						<div class="post-img">
-							<a href="single-post1.html">
-								<img
-									src="/images/gallery/post-grid-md_4.jpg"
-									alt="post"
-									width="343"
-									height="250"
-								/>
-							</a>
-						</div>
-						<div class="post-content">
-							<a href="gaming.html" class="rt-post-cat-normal">Music</a>
-							<h4 class="post-title">
-								<a href="single-post1.html"> Beste ampute arey Market </a>
-							</h4>
-							<span class="rt-meta">
-								<i class="far fa-calendar-alt icon"></i>
-								DECEMBER 9, 2022
-							</span>
-						</div>
-					</div>
-				</div>
-				<!-- col-6 -->
-
-				<div class="col-6">
-					<div class="rt-post-grid post-grid-md grid-meta">
-						<div class="post-img">
-							<a href="single-post1.html">
-								<img
-									src="/images/gallery/post-grid-md_5.jpg"
-									alt="post"
-									width="343"
-									height="250"
-								/>
-							</a>
-						</div>
-						<div class="post-content">
-							<a href="life-style.html" class="rt-post-cat-normal">Fashion</a>
-							<h4 class="post-title">
-								<a href="single-post1.html"> Beste ampute Speak Market </a>
-							</h4>
-							<span class="rt-meta">
-								<i class="far fa-calendar-alt icon"></i>
-								DECEMBER 9, 2022
-							</span>
-						</div>
-					</div>
-				</div>
-				<!-- col-6 -->
-
-				<div class="col-6">
-					<div class="rt-post-grid post-grid-md grid-meta">
-						<div class="post-img">
-							<a href="single-post1.html">
-								<img
-									src="/images/gallery/post-grid-md_6.jpg"
-									alt="post"
-									width="343"
-									height="250"
-								/>
-							</a>
-						</div>
-						<div class="post-content">
-							<a href="gaming.html" class="rt-post-cat-normal">Music</a>
-							<h4 class="post-title">
-								<a href="single-post1.html"> Beste ampute arey Market </a>
-							</h4>
-							<span class="rt-meta">
-								<i class="far fa-calendar-alt icon"></i>
-								DECEMBER 9, 2022
-							</span>
-						</div>
-					</div>
-				</div>
-				<!-- col-6 -->
+				{{ end }}
 			</div>
 			<!-- end row -->
 		</div>

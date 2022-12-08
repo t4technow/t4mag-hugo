@@ -35,12 +35,8 @@
 						<h3 class="post-title">
 							<a href="{{ .Page.RelPermalink }}"> {{ .Page.Title }} </a>
 						</h3>
-						{{ $dateTime := .PublishDate.Format "2006-01-02" }} {{ $dateFormat
-						:= .Site.Params.dateFormat | default "January 2, 2006" }}
-						<span class="rt-meta">
-							<i class="far fa-calendar-alt icon"></i>
-							{{ .PublishDate.Format $dateFormat }}
-						</span>
+						
+						{{- partial "published-date.html" . -}}
 					</div>
 				</div>
 			</div>

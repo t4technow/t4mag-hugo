@@ -1,20 +1,19 @@
 ---
-title: "My First Post"
-date: 2020-01-26T23:11:13Z
-featured_image: /images/gallery/post-sm_1.jpg
+title: "Yet Another New Android Reviews Coming Through Again"
 
-category: games
+date: 2022-12-08T23:17:52+05:30
+url: /yet-another-new-android-reviews-coming-through-again/
+
+featured_image: /images/gallery/post-xl_2.jpg
+
+category: android
 tags: ["web", "linux"]
 
-featured: true
-featured-sm: true
+featured: false
+featured-sm: false
 
 draft: false
 ---
-
-Otherwise you wrap your where clause in another one to exclude the current post:
-
-`{{ range first 3 (shuffle (where (where .Site.RegularPages "Section" "blog") "Title" "!=" .Title ))`
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Pellentesque eu tincidunt tortor

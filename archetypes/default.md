@@ -6,10 +6,10 @@ url: /{{ .Name }}/
 
 featured_image: /images/gallery/{{ .Name }}.jpg
 
-category: gaming
+category: linux
 tags: ["web", "linux"]
 
-featured: true
+featured: false
 featured-sm: false
 
 draft: false

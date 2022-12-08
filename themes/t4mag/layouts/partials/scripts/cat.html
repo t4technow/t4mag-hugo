@@ -1,0 +1,15 @@
+{{ $v1 := where .Site.Pages "Params.category" "=" "android" }}
+{{ $v2 := where .Site.Pages "Params.tags" "intersect" (slice "android") }}
+{{ $android := $v1 | union $v2 }}
+
+{{ $v1 := where .Site.Pages "Params.category" "=" "games" }}
+{{ $v2 := where .Site.Pages "Params.tags" "intersect" (slice "games") }}
+{{ $games := $v1 | union $v2 }}
+
+{{ $v1 := where .Site.Pages "Params.category" "=" "linux" }}
+{{ $v2 := where .Site.Pages "Params.tags" "intersect" (slice "linux") }}
+{{ $linux := $v1 | union $v2 }}
+
+{{ $v1 := where .Site.Pages "Params.category" "=" "windows" }}
+{{ $v2 := where .Site.Pages "Params.tags" "intersect" (slice "windows") }}
+{{ $windows := $v1 | union $v2 }}
