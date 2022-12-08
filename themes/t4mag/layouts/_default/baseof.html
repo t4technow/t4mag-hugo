@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+	{{- partial "head.html" . -}}
+
+	<body>
+		<!-- Start wrapper -->
+		<div id="wrapper" class="wrapper">
+			<!-- start perloader -->
+			{{- partial "preloader.html" . -}}
+			<!-- end perloader -->
+
+			<!-- Start main-content -->
+			<div id="main_content" class="footer-fixed">
+				<!-- Header -->
+				{{- partial "header.html" . -}}
+				<!-- end header -->
+
+				<!-- start rt-mobile-header -->
+				{{- partial "mobile-header.html" . -}}
+				<!-- end rt-mobile-header -->
+
+				<!-- Start Main -->
+				<main>
+					<!-- start feature-section-style-1  -->
+					{{- partial "feature-section-1.html" . -}}
+					<!-- end feature-section-style-1  -->
+
+					<!-- start main post section style 1 -->
+					{{- partial "main-post-section.html" . -}}
+					<!-- end main post section style 1 -->
+
+					<!-- start rt ad banner -->
+					{{- partial "ad-banner-1.html" . -}}
+					<!-- end rt ad banner -->
+
+					<!-- start top stories style 1 -->
+					{{- partial "top-stories.html" . -}}
+					<!-- end top stories style 1 -->
+
+					<!-- start what's new section -->
+					{{- partial "hot.html" . -}}
+					<!-- end what's new section -->
+
+					<!-- start video section style 1 -->
+					{{- partial "video-section.html" . -}}
+					<!-- end video section style 1 -->
+
+					<!-- start news and feature  section -->
+					{{- partial "news-and-featured.html" . -}}
+					<!-- end news and feature section -->
+
+					<!-- start subscribe section -->
+					{{- partial "subscribe.html" . -}}
+					<!-- end subscribe section -->
+				</main>
+				<!-- End Main -->
+
+				<!-- Start Footer -->
+				{{- partial "footer.html" . -}}
+				<!-- End  Footer -->
+			</div>
+			<!-- End main-content -->
+
+			<!-- Start  offcanvas menu -->
+			{{- partial "off-canvas-menu.html" . -}}
+			<!-- End  offcanvas menu -->
+
+			<!-- Start Cart Wrap -->
+			<div class="cart-wrap" id="cart-wrap" data-position="left">
+				<div class="cart-content">
+					<div class="cart-header">
+						<span class="cart-title d-inlie-block">Cart</span>
+						<button type="button" class="cart-menu-btn menu-close-btn">
+							<span class="menu-btn-icon">
+								<i class="fas fa-times"></i>
+							</span>
+						</button>
+					</div>
+					<ul class="cart-items">
+						<li class="d-flex">
+							<div class="item-figure">
+								<a href="#">
+									<img
+										src="media/gallery/ins-gallery_1.jpg"
+										alt="Cart"
+										width="100"
+										height="90"
+									/>
+								</a>
+								<div class="item-dismiss">
+									<a href="#"><i class="fas fa-times"></i></a>
+								</div>
+							</div>
+							<div class="item-description">
+								<span class="item-main-title"><a href="#">Animal</a></span>
+								<span class="item-amount d-flex align-items-center"
+									><span class="item-quantity">1</span>X<span class="item-price"
+										>$12.00</span
+									></span
+								>
+							</div>
+						</li>
+						<li class="d-flex">
+							<div class="item-figure">
+								<a href="#">
+									<img
+										src="media/gallery/ins-gallery_2.jpg"
+										alt="Cart"
+										width="100"
+										height="90"
+									/>
+								</a>
+								<div class="item-dismiss">
+									<a href="#"><i class="fas fa-times"></i></a>
+								</div>
+							</div>
+							<div class="item-description">
+								<span class="item-main-title"><a href="#">Sports</a></span>
+								<span class="item-amount d-flex align-items-center"
+									><span class="item-quantity">1</span>X<span class="item-price"
+										>$18.00</span
+									></span
+								>
+							</div>
+						</li>
+						<li class="d-flex">
+							<div class="item-figure">
+								<a href="#">
+									<img
+										src="media/gallery/ins-gallery_3.jpg"
+										alt="Cart"
+										width="100"
+										height="90"
+									/>
+								</a>
+								<div class="item-dismiss">
+									<a href="#"><i class="fas fa-times"></i></a>
+								</div>
+							</div>
+							<div class="item-description">
+								<span class="item-main-title"><a href="#">Fashion</a></span>
+								<span class="item-amount d-flex align-items-center"
+									><span class="item-quantity">1</span>X<span class="item-price"
+										>$20.00</span
+									></span
+								>
+							</div>
+						</li>
+					</ul>
+					<div class="cart-footer">
+						<ul class="total-amount">
+							<li class="title">Subtotal:</li>
+							<li class="amount">$50.00</li>
+						</ul>
+						<ul class="action-buttons">
+							<li><a href="#" class="rt-submit-btn">VIEW CART</a></li>
+							<li><a href="#" class="rt-submit-btn">CHECKOUT</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- End Cart Wrap -->
+
+			<!-- Start Search  -->
+			{{- partial "search.html" . -}}
+			<!-- End Search -->
+
+			<!-- theme-switch-box -->
+			<div class="theme-switch-box-wrap">
+				<div class="theme-switch-box">
+					<span class="theme-switch-box__theme-status"
+						><i class="fas fa-cog"></i
+					></span>
+					<label class="theme-switch-box__label" for="themeSwitchCheckbox">
+						<input
+							class="theme-switch-box__input"
+							type="checkbox"
+							name="themeSwitchCheckbox"
+							id="themeSwitchCheckbox"
+						/>
+						<span class="theme-switch-box__main"></span>
+					</label>
+					<span class="theme-switch-box__theme-status"
+						><i class="fas fa-moon"></i
+					></span>
+				</div>
+			</div>
+			<!-- end theme-switch-box -->
+
+			<!-- start back to top -->
+			<a href="javascript:void(0)" id="back-to-top">
+				<i class="fas fa-angle-double-up"></i>
+			</a>
+			<!-- End back to top -->
+		</div>
+		<!-- End wrapper -->
+
+		<!-- Scripts -->
+		{{- partial "scripts.html" . -}}
+	</body>
+</html>
