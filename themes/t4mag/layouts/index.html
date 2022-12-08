@@ -1,5 +1,33 @@
 {{ define "main" }}
-<div id="home-jumbotron" class="jumbotron text-center">
-	<h1 class="title">{{ .Site.Title }}</h1>
-</div>
+<!-- start feature-section-style-1  -->
+{{- partial "feature-section-1.html" . -}}
+<!-- end feature-section-style-1  -->
+
+<!-- start main post section style 1 -->
+{{- partial "main-post-section.html" . -}}
+<!-- end main post section style 1 -->
+
+<!-- start rt ad banner -->
+{{- partial "ad-banner-1.html" . -}}
+<!-- end rt ad banner -->
+
+<!-- start top stories style 1 -->
+{{- partial "top-stories.html" . -}}
+<!-- end top stories style 1 -->
+
+<!-- start what's new section -->
+{{- partial "hot.html" . -}}
+<!-- end what's new section -->
+
+<!-- start video section style 1 -->
+{{- partial "video-section.html" . -}}
+<!-- end video section style 1 -->
+
+<!-- start news and feature  section -->
+{{- partial "news-and-featured.html" . -}}
+<!-- end news and feature section -->
+
+<!-- start subscribe section -->
+{{- partial "subscribe.html" . -}}
+<!-- end subscribe section -->
 {{ end }}

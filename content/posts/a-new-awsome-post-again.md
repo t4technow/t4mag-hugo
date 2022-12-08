@@ -1,15 +1,15 @@
 ---
-title: "My First Post"
-date: 2020-01-26T23:11:13Z
-featured_image: /images/gallery/post-sm_1.jpg
+title: "A New Awesome Post Again"
+date: 2022-12-08T18:20:51+05:30
 
 category: games
-tags: ["web", "linux"]
+tags: ["web", "linux", "games"]
 
 featured: true
-featured-sm: true
+featured-sm: false
 
 draft: false
+featured_image: /images/gallery/post-md_6.jpg
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor

@@ -1303,18 +1303,18 @@ section,
 .politics,
 .cycling,
 .fighter,
-.animal,
+.windows,
 .racing,
-.travel,
+.networking,
 .mission,
-.technology,
+.linux,
 .football,
 .action,
-.food,
+.games,
 .world,
 .ragbi,
-.fashion-black,
-.fashion,
+.downloads-black,
+.downloads,
 .life-style,
 .tennis,
 .rt-cat-primary {
@@ -1349,18 +1349,18 @@ section,
 .politics:hover,
 .cycling:hover,
 .fighter:hover,
-.animal:hover,
+.windows:hover,
 .racing:hover,
-.travel:hover,
+.networking:hover,
 .mission:hover,
-.technology:hover,
+.linux:hover,
 .football:hover,
 .action:hover,
-.food:hover,
+.games:hover,
 .world:hover,
 .ragbi:hover,
-.fashion-black:hover,
-.fashion:hover,
+.downloads-black:hover,
+.downloads:hover,
 .life-style:hover,
 .tennis:hover,
 .rt-cat-primary:hover {
@@ -1386,18 +1386,18 @@ section,
 [data-theme="dark"] .politics,
 [data-theme="dark"] .cycling,
 [data-theme="dark"] .fighter,
-[data-theme="dark"] .animal,
+[data-theme="dark"] .windows,
 [data-theme="dark"] .racing,
-[data-theme="dark"] .travel,
+[data-theme="dark"] .networking,
 [data-theme="dark"] .mission,
-[data-theme="dark"] .technology,
+[data-theme="dark"] .linux,
 [data-theme="dark"] .football,
 [data-theme="dark"] .action,
-[data-theme="dark"] .food,
+[data-theme="dark"] .games,
 [data-theme="dark"] .world,
 [data-theme="dark"] .ragbi,
-[data-theme="dark"] .fashion-black,
-[data-theme="dark"] .fashion,
+[data-theme="dark"] .downloads-black,
+[data-theme="dark"] .downloads,
 [data-theme="dark"] .life-style,
 [data-theme="dark"] .tennis,
 [data-theme="dark"] .rt-cat-primary {
@@ -1408,39 +1408,39 @@ section,
 	background-color: var(--color-primary);
 }
 
-.fashion,
+.downloads,
 .life-style,
 .tennis {
 	background-color: #ff3385;
 }
 
-.fashion-black {
+.downloads-black {
 	background-color: var(--color-black);
 }
-[data-theme="dark"] .fashion-black {
+[data-theme="dark"] .downloads-black {
 	color: #fff;
 	background-color: var(--color-primary);
 }
 
 .action,
-.food,
+.games,
 .world,
 .ragbi {
 	background-color: #ffaf25;
 }
 
 .mission,
-.technology,
+.linux,
 .football {
 	background-color: #0073ff;
 }
 
 .racing,
-.travel {
+.networking {
 	background-color: #ff3d00;
 }
 
-.animal {
+.windows {
 	background-color: #678c9d;
 }
 
@@ -6504,6 +6504,8 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 .post-md.style-10 .post-img {
 	min-width: 180px;
 	max-width: 180px;
+	min-height: 156px;
+	max-height: 156px;
 }
 .post-md.style-10 .post-img > a:first-of-type {
 	width: 100%;

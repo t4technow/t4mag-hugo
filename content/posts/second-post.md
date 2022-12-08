@@ -1,17 +1,18 @@
 ---
-title: "My First Post"
-date: 2020-01-26T23:11:13Z
-featured_image: /images/gallery/post-sm_1.jpg
+title: "Second Post"
+date: 2022-12-08T12:56:39+05:30
+draft: false
 
-category: games
-tags: ["web", "linux"]
+category: code
+tags: ["bash", "linux"]
 
 featured: true
 featured-sm: true
 
-draft: false
+featured_image: /images/gallery/post-sm_2.jpg
 ---
 
+![image!](/images/gallery/post-xl_1.jpg)
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Pellentesque eu tincidunt tortor
 aliquam nulla facilisi cras fermentum odio. A erat nam at lectus urna duis.
@@ -19,9 +20,7 @@ Sed velit dignissim sodales ut eu sem. Lectus urna duis convallis convallis
 tellus. Diam sit amet nisl suscipit adipiscing bibendum est. Sed felis eget
 velit aliquet sagittis id consectetur. Vulputate dignissim suspendisse in est
 ante in nibh mauris cursus. Morbi quis commodo odio aenean. Mollis nunc sed id
-semper risus in hendrerit gravida rutrum. <!--more-->
-
-![image!](/images/gallery/post-xl_1.jpg)
+semper risus in hendrerit gravida rutrum.
 
 <!--more-->
 

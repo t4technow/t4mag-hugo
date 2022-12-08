@@ -1,7 +1,207 @@
 {{ define "main" }}
+
+		
+      	<article id="content">
+
+					<!-- <pre>{{ printf "%#v" . }}</pre> -->
+
+
+					<pre>LIST TITLE: {{ .Title }}</pre>
+
+					<hr>
+
+					<h1>Test 1: .Data.Pages.GroupBy "Section"</h1>
+
+					<!-- Groups content according to content section.-->
+					{{ range $s := .Data.Pages.GroupBy "Section" }}
+
+						<!-- <pre>{{ printf "%#v" . }}</pre> -->
+						<!-- Checks for existence of _index.md for a section; if available, pulls from "title" in front matter -->
+						{{ with $.Site.GetPage "section" .Key }}
+							<h3>{{.Title}}</h3>
+						{{ else }}
+							<!-- If no _index.md is available, ".Key" defaults to the section title and filters to title casing -->
+							<h3>{{ .Key | title }}</h3>
+						{{ end }}
+
+						<ul>
+						    {{ range $s.Pages }}
+						    <li>
+						    <a href="{{ .Permalink }}">{{ .Title }}</a>
+						    	<div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
+						    </li>
+						    {{ end }}
+						</ul>
+					{{ end }}
+
+
+					<hr>
+
+
+					<h1>range $.Site.Home.Sections</h1>
+
+					{{ range $.Site.Home.Sections }}
+						{{ if .Section }}
+						  <h3>Section: {{ .Title }}</h3>
+							<p>{{ .Content }}</p>
+
+							{{ range .Pages }}
+						     <h4>Section Page: {{ .Title }}</h4>
+						  {{ end }}
+
+						  {{ range .Sections }}
+						     <h2>Subsection: {{ .Title }}</h2>
+								 <!-- {{ .Content }} -->
+
+						     {{ range .Pages }}
+
+                  <!-- this <div> includes the title summary -->
+                  <div>
+                    <h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
+                    <p>
+                      {{ .Summary }}
+                      {{ if .Truncated }}
+                        <!-- This <div> includes a read more link, but only if the summary is truncated... -->
+                        <!-- <a href="{{ .RelPermalink }}">Read More…</a> -->
+                      {{ end }}
+                    </p>
+                  </div>
+
+						     {{ end }}
+						  {{ end }}
+						{{ end}}
+
+					{{ end }}
+
+
+					<hr>
+
+
+					<h1>range .Pages</h1>
+
+					{{ range .Sections }}
+					  <h3>Page: {{ .Title }}</h3>
+						<p>{{ .Summary }}</p>
+
+						{{ range .Pages }}
+					     <h4>Section Page: {{ .Title }}</h4>
+					  {{ end }}
+
+					  {{ range .Sections }}
+					     <h2>Subsection: {{ .Title }}</h2>
+							 <!-- {{ .Content }} -->
+
+					     {{ range .Pages }}
+
+                <!-- this <div> includes the title summary -->
+                <div>
+                  <h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
+                  <p>
+                    {{ .Summary }}
+                    {{ if .Truncated }}
+                      <!-- This <div> includes a read more link, but only if the summary is truncated... -->
+                      <!-- <a href="{{ .RelPermalink }}">Read More…</a> -->
+                    {{ end }}
+                  </p>
+                </div>
+
+					     {{ end }}
+					  {{ end }}
+					{{ end}}
+
+
+
+					<hr>
+
+
+					<h1>Test Sections</h1>
+					<ul>
+						{{ range $.Site.Home.Sections }}
+						  <li>Section: {{ .Title }}
+								<ul>
+								  {{ range .Pages }}
+								     <li>Section Page: {{ .Title }}</li>
+								  {{ end }}
+								</ul>
+							</li>
+						{{ end }}
+					</ul>
+
+
+					<hr>
+
+
+					<h1>Test 2</h1>
+
+					<ul>
+			    <!-- Ranges through content/post/*.md -->
+			    {{ range .Data.Pages }}
+			        <li>
+			            <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+
+									<ul>
+							    <!-- Ranges through content/post/*.md -->
+							    {{ range .Data.Pages }}
+							        <li>
+							            <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+													<ul>
+											    <!-- Ranges through content/post/*.md -->
+											    {{ range .Data.Pages }}
+											        <li>
+											            <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+											        </li>
+											    {{ end }}
+											    </ul>
+							        </li>
+							    {{ end }}
+							    </ul>
+			        </li>
+			    {{ end }}
+			    </ul>
+
+
+					<h1>Test 3: Tags template</h1>
+
+          <h3>Article Topics</h3>
+          <ul class="tags">
+            {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+              <li><a style="text-transform: capitalize" href="#{{ $name | urlize}}">{{ $name }}</a>
+                <!-- <span>({{ len $taxonomy }})</span> -->
+              </li>
+            {{ end }}
+          </ul>
+
+          <br><br><hr>
+
+           <div class="page-tags" id="tags">
+               {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+
+                <h3 style="text-transform: capitalize" id="{{ $name | urlize }}">{{ $name }}</h3>
+                {{ range $taxonomy }}
+                  <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+                  <p>{{ .Description }}</p>
+                {{ end }}
+
+               {{ end }}
+           </div>
+
+           {{ partial "footer.html" . }}
+
+				 </article>
+			 
+
+	<h3>Featured Posts</h3>
+	<ul>
+		{{ range first 3 (where (where .Site.RegularPages "Type" "in" site.Params.mainSections) ".Params.featured" "=" true) }}`
+		  <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+		  </li>
+	  {{ end }}
+	</ul>
+
 <h1>{{ .Title }}</h1>
 {{ range .Pages.ByPublishDate.Reverse }}
 <p>
+
     <h3><a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
     {{ partial "metadata.html" . }}
     <a class="summary" href="{{ .RelPermalink }}">

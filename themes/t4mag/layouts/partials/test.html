@@ -1,0 +1,5 @@
+<h2>test</h2>
+{{ $p := where site.RegularPages "Type" "posts" }} {{ $p = where $p
+"Params.tags" "intersect" (slice "web") }} {{ range first 3 $p }}
+<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+{{ end }}

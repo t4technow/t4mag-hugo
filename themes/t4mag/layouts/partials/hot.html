@@ -22,7 +22,7 @@
 										aria-controls="menu-1"
 										aria-selected="true"
 									>
-										World
+										Linux
 									</a>
 								</li>
 								<li class="menu-item" role="presentation">
@@ -35,7 +35,7 @@
 										aria-controls="menu-2"
 										aria-selected="false"
 									>
-										Travel
+										Windows
 									</a>
 								</li>
 								<li class="menu-item" role="presentation">
@@ -48,7 +48,7 @@
 										aria-controls="menu-3"
 										aria-selected="false"
 									>
-										Food
+										Android
 									</a>
 								</li>
 								<li class="menu-item" role="presentation">
@@ -61,7 +61,7 @@
 										aria-controls="menu-4"
 										aria-selected="false"
 									>
-										Technology</a
+										Software</a
 									>
 								</li>
 							</ul>
@@ -80,9 +80,9 @@
 									<div class="col-lg-7">
 										<div class="rt-post-overlay rt-post-overlay-lg">
 											<div class="post-img">
-												<a href="single-post1.html" class="img-link">
+												<a href="{{ .Permalink }}" class="img-link">
 													<img
-														src="media/gallery/post-xl_2.jpg"
+														src="/images/gallery/post-xl_2.jpg"
 														alt="post-xl-2"
 														width="900"
 														height="600"
@@ -92,7 +92,7 @@
 											<div class="post-content">
 												<a href="life-style.html" class="world">World</a>
 												<h3 class="post-title bold-underline">
-													<a href="single-post1.html">
+													<a href="{{ .Permalink }}">
 														African Nations Are Strugling To Save Their Wildlife
 													</a>
 												</h3>
@@ -124,120 +124,54 @@
 											</div>
 										</div>
 									</div>
+
 									<div class="col-lg-5">
-										<div class="row gutter-24">
+										<div class="row gutter-24"> 
+
+											{{ $v1 := where .Site.Pages "Params.category" "=" "linux" }}
+											{{ $v2 := where .Site.Pages "Params.tags" "intersect" (slice "linux") }}
+											{{ $filtered := $v1 | union $v2 }}
+											{{ range $filtered }}
 											<div class="col-12">
 												<div class="rt-post post-sm style-2">
 													<div class="post-content">
-														<a href="gaming.html" class="rt-post-cat-normal"
-															>Sports</a
-														>
+														<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}"
+														class="rt-post-cat-normal">
+														{{ .Params.category }}
+														</a>
 														<h4 class="post-title">
-															<a href="single-post1.html">
-																Top Beste ampute are Speak Market.
+															<a href="{{ .Permalink }}">
+																{{ .Page.Title }}
 															</a>
 														</h4>
 														<span class="rt-meta">
+															{{ $dateTime := .PublishDate.Format "2006-01-02" }} 
+															{{ $dateFormat := .Site.Params.dateFormat | default "January 2,2006" }}
 															<i class="far fa-calendar-alt icon"></i>
-															DECEMBER 9, 2022
+															{{ .PublishDate.Format $dateFormat }}
 														</span>
 													</div>
 													<div class="post-img">
-														<a href="single-post1.html">
+														<a href="{{ .Permalink }}">
+															{{ with .Param "featured_image" }}
 															<img
-																src="media/gallery/post-sm_5.jpg"
-																alt="post"
+																src="{{ . }}" alt="{{ $.Title }}"
 																width="143"
 																height="110"
 															/>
+															{{ else }}
+															<img
+															src="/images/gallery/post-lg_2.jpg"
+															alt="{{ $.Title }}"
+															width="143"
+															height="110"
+														/>
+														{{ end }}
 														</a>
 													</div>
 												</div>
 											</div>
-											<div class="col-12">
-												<div class="rt-post post-sm style-2">
-													<div class="post-content">
-														<a href="life-style.html" class="rt-post-cat-normal"
-															>World</a
-														>
-														<h4 class="post-title">
-															<a href="single-post1.html">
-																Top Beste ampute are Speak Market.
-															</a>
-														</h4>
-														<span class="rt-meta">
-															<i class="far fa-calendar-alt icon"></i>
-															DECEMBER 9, 2022
-														</span>
-													</div>
-													<div class="post-img">
-														<a href="single-post1.html">
-															<img
-																src="media/gallery/post-sm_6.jpg"
-																alt="post"
-																width="143"
-																height="110"
-															/>
-														</a>
-													</div>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="rt-post post-sm style-2">
-													<div class="post-content">
-														<a href="life-style.html" class="rt-post-cat-normal"
-															>Food</a
-														>
-														<h4 class="post-title">
-															<a href="single-post1.html">
-																Top Beste ampute are Speak Market.
-															</a>
-														</h4>
-														<span class="rt-meta">
-															<i class="far fa-calendar-alt icon"></i>
-															DECEMBER 9, 2022
-														</span>
-													</div>
-													<div class="post-img">
-														<a href="single-post1.html">
-															<img
-																src="media/gallery/post-sm_7.jpg"
-																alt="post"
-																width="143"
-																height="110"
-															/>
-														</a>
-													</div>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="rt-post post-sm style-2">
-													<div class="post-content">
-														<a href="technology.html" class="rt-post-cat-normal"
-															>Technology</a
-														>
-														<h4 class="post-title">
-															<a href="single-post1.html">
-																Top Beste ampute are Speak Market.
-															</a>
-														</h4>
-														<span class="rt-meta">
-															<i class="far fa-calendar-alt icon"></i>
-															DECEMBER 9, 2022
-														</span>
-													</div>
-													<div class="post-img">
-														<a href="single-post1.html">
-															<img
-																src="media/gallery/post-sm_8.jpg"
-																alt="post"
-																width="143"
-																height="110"
-															/>
-														</a>
-													</div>
-												</div>
-											</div>
+											{{ end }}
 										</div>
 									</div>
 								</div>
@@ -254,9 +188,9 @@
 									<div class="col-lg-7">
 										<div class="rt-post-overlay rt-post-overlay-lg">
 											<div class="post-img">
-												<a href="single-post1.html" class="img-link">
+												<a href="{{ .Permalink }}" class="img-link">
 													<img
-														src="media/gallery/post-xl_2.jpg"
+														src="/images/gallery/post-xl_2.jpg"
 														alt="post-xl_2"
 														width="900"
 														height="600"
@@ -266,7 +200,7 @@
 											<div class="post-content">
 												<a href="life-style.html" class="world">World</a>
 												<h3 class="post-title">
-													<a href="single-post1.html">
+													<a href="{{ .Permalink }}">
 														African Nations Are Strugling To Save Their Wildlife
 													</a>
 												</h3>
@@ -298,120 +232,53 @@
 											</div>
 										</div>
 									</div>
+
 									<div class="col-lg-5">
 										<div class="row gutter-24">
+											{{ $v1 := where .Site.Pages "Params.category" "=" "windows" }}
+											{{ $v2 := where .Site.Pages "Params.tags" "intersect" (slice "windows") }}
+											{{ $filtered := $v1 | union $v2 }}
+											{{ range $filtered }}
 											<div class="col-12">
 												<div class="rt-post post-sm style-2">
 													<div class="post-content">
-														<a href="gaming.html" class="rt-post-cat-normal"
-															>Sports</a
-														>
+														<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}"
+														class="rt-post-cat-normal">
+														{{ .Params.category }}
+														</a>
 														<h4 class="post-title">
-															<a href="single-post1.html">
-																Top Beste ampute are Speak Market.
+															<a href="{{ .Permalink }}">
+																{{ .Page.Title }}
 															</a>
 														</h4>
 														<span class="rt-meta">
+															{{ $dateTime := .PublishDate.Format "2006-01-02" }} 
+															{{ $dateFormat := .Site.Params.dateFormat | default "January 2,2006" }}
 															<i class="far fa-calendar-alt icon"></i>
-															DECEMBER 9, 2022
+															{{ .PublishDate.Format $dateFormat }}
 														</span>
 													</div>
 													<div class="post-img">
-														<a href="single-post1.html">
+														<a href="{{ .Permalink }}">
+															{{ with .Param "featured_image" }}
 															<img
-																src="media/gallery/post-sm_5.jpg"
-																alt="post"
+																src="{{ . }}" alt="{{ $.Title }}"
 																width="143"
 																height="110"
 															/>
+															{{ else }}
+															<img
+															src="/images/gallery/post-lg_2.jpg"
+															alt="{{ $.Title }}"
+															width="143"
+															height="110"
+														/>
+														{{ end }}
 														</a>
 													</div>
 												</div>
 											</div>
-											<div class="col-12">
-												<div class="rt-post post-sm style-2">
-													<div class="post-content">
-														<a href="life-style.html" class="rt-post-cat-normal"
-															>World</a
-														>
-														<h4 class="post-title">
-															<a href="single-post1.html">
-																Top Beste ampute are Speak Market.
-															</a>
-														</h4>
-														<span class="rt-meta">
-															<i class="far fa-calendar-alt icon"></i>
-															DECEMBER 9, 2022
-														</span>
-													</div>
-													<div class="post-img">
-														<a href="single-post1.html">
-															<img
-																src="media/gallery/post-sm_6.jpg"
-																alt="post"
-																width="143"
-																height="110"
-															/>
-														</a>
-													</div>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="rt-post post-sm style-2">
-													<div class="post-content">
-														<a href="life-style.html" class="rt-post-cat-normal"
-															>Food</a
-														>
-														<h4 class="post-title">
-															<a href="single-post1.html">
-																Top Beste ampute are Speak Market.
-															</a>
-														</h4>
-														<span class="rt-meta">
-															<i class="far fa-calendar-alt icon"></i>
-															DECEMBER 9, 2022
-														</span>
-													</div>
-													<div class="post-img">
-														<a href="single-post1.html">
-															<img
-																src="media/gallery/post-sm_7.jpg"
-																alt="post"
-																width="143"
-																height="110"
-															/>
-														</a>
-													</div>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="rt-post post-sm style-2">
-													<div class="post-content">
-														<a href="technology.html" class="rt-post-cat-normal"
-															>Technology</a
-														>
-														<h4 class="post-title">
-															<a href="single-post1.html">
-																Top Beste ampute are Speak Market.
-															</a>
-														</h4>
-														<span class="rt-meta">
-															<i class="far fa-calendar-alt icon"></i>
-															DECEMBER 9, 2022
-														</span>
-													</div>
-													<div class="post-img">
-														<a href="single-post1.html">
-															<img
-																src="media/gallery/post-sm_8.jpg"
-																alt="post"
-																width="143"
-																height="110"
-															/>
-														</a>
-													</div>
-												</div>
-											</div>
+											{{ end }}
 										</div>
 									</div>
 								</div>
@@ -428,9 +295,9 @@
 									<div class="col-lg-7">
 										<div class="rt-post-overlay rt-post-overlay-lg">
 											<div class="post-img">
-												<a href="single-post1.html" class="img-link">
+												<a href="{{ .Permalink }}" class="img-link">
 													<img
-														src="media/gallery/post-xl_2.jpg"
+														src="/images/gallery/post-xl_2.jpg"
 														alt="post-xl-2"
 														width="900"
 														height="600"
@@ -440,7 +307,7 @@
 											<div class="post-content">
 												<a href="life-style.html" class="world">World</a>
 												<h3 class="post-title">
-													<a href="single-post1.html">
+													<a href="{{ .Permalink }}">
 														African Nations Are Strugling To Save Their Wildlife
 													</a>
 												</h3>
@@ -472,120 +339,53 @@
 											</div>
 										</div>
 									</div>
+
 									<div class="col-lg-5">
 										<div class="row gutter-24">
+											{{ $v1 := where .Site.Pages "Params.category" "=" "android" }}
+											{{ $v2 := where .Site.Pages "Params.tags" "intersect" (slice "android") }}
+											{{ $filtered := $v1 | union $v2 }}
+											{{ range $filtered }}
 											<div class="col-12">
 												<div class="rt-post post-sm style-2">
 													<div class="post-content">
-														<a href="gaming.html" class="rt-post-cat-normal"
-															>Sports</a
-														>
+														<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}"
+														class="rt-post-cat-normal">
+														{{ .Params.category }}
+														</a>
 														<h4 class="post-title">
-															<a href="single-post1.html">
-																Top Beste ampute are Speak Market.
+															<a href="{{ .Permalink }}">
+																{{ .Page.Title }}
 															</a>
 														</h4>
 														<span class="rt-meta">
+															{{ $dateTime := .PublishDate.Format "2006-01-02" }} 
+															{{ $dateFormat := .Site.Params.dateFormat | default "January 2,2006" }}
 															<i class="far fa-calendar-alt icon"></i>
-															DECEMBER 9, 2022
+															{{ .PublishDate.Format $dateFormat }}
 														</span>
 													</div>
 													<div class="post-img">
-														<a href="single-post1.html">
+														<a href="{{ .Permalink }}">
+															{{ with .Param "featured_image" }}
 															<img
-																src="media/gallery/post-sm_5.jpg"
-																alt="post"
+																src="{{ . }}" alt="{{ $.Title }}"
 																width="143"
 																height="110"
 															/>
+															{{ else }}
+															<img
+															src="/images/gallery/post-lg_2.jpg"
+															alt="{{ $.Title }}"
+															width="143"
+															height="110"
+														/>
+														{{ end }}
 														</a>
 													</div>
 												</div>
 											</div>
-											<div class="col-12">
-												<div class="rt-post post-sm style-2">
-													<div class="post-content">
-														<a href="life-style.html" class="rt-post-cat-normal"
-															>World</a
-														>
-														<h4 class="post-title">
-															<a href="single-post1.html">
-																Top Beste ampute are Speak Market.
-															</a>
-														</h4>
-														<span class="rt-meta">
-															<i class="far fa-calendar-alt icon"></i>
-															DECEMBER 9, 2022
-														</span>
-													</div>
-													<div class="post-img">
-														<a href="single-post1.html">
-															<img
-																src="media/gallery/post-sm_6.jpg"
-																alt="post"
-																width="143"
-																height="110"
-															/>
-														</a>
-													</div>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="rt-post post-sm style-2">
-													<div class="post-content">
-														<a href="life-style.html" class="rt-post-cat-normal"
-															>Food</a
-														>
-														<h4 class="post-title">
-															<a href="single-post1.html">
-																Top Beste ampute are Speak Market.
-															</a>
-														</h4>
-														<span class="rt-meta">
-															<i class="far fa-calendar-alt icon"></i>
-															DECEMBER 9, 2022
-														</span>
-													</div>
-													<div class="post-img">
-														<a href="single-post1.html">
-															<img
-																src="media/gallery/post-sm_7.jpg"
-																alt="post"
-																width="143"
-																height="110"
-															/>
-														</a>
-													</div>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="rt-post post-sm style-2">
-													<div class="post-content">
-														<a href="technology.html" class="rt-post-cat-normal"
-															>Technology</a
-														>
-														<h4 class="post-title">
-															<a href="single-post1.html">
-																Top Beste ampute are Speak Market.
-															</a>
-														</h4>
-														<span class="rt-meta">
-															<i class="far fa-calendar-alt icon"></i>
-															DECEMBER 9, 2022
-														</span>
-													</div>
-													<div class="post-img">
-														<a href="single-post1.html">
-															<img
-																src="media/gallery/post-sm_8.jpg"
-																alt="post"
-																width="143"
-																height="110"
-															/>
-														</a>
-													</div>
-												</div>
-											</div>
+											{{ end }}
 										</div>
 									</div>
 								</div>
@@ -602,9 +402,9 @@
 									<div class="col-lg-7">
 										<div class="rt-post-overlay rt-post-overlay-lg">
 											<div class="post-img">
-												<a href="single-post1.html" class="img-link">
+												<a href="{{ .Permalink }}" class="img-link">
 													<img
-														src="media/gallery/post-xl_2.jpg"
+														src="/images/gallery/post-xl_2.jpg"
 														alt="post-xl-2"
 														width="900"
 														height="600"
@@ -614,7 +414,7 @@
 											<div class="post-content">
 												<a href="life-style.html" class="world">World</a>
 												<h3 class="post-title">
-													<a href="single-post1.html">
+													<a href="{{ .Permalink }}">
 														African Nations Are Strugling To Save Their Wildlife
 													</a>
 												</h3>
@@ -646,120 +446,53 @@
 											</div>
 										</div>
 									</div>
+
 									<div class="col-lg-5">
 										<div class="row gutter-24">
+											{{ $v1 := where .Site.Pages "Params.category" "=" "android" }}
+											{{ $v2 := where .Site.Pages "Params.tags" "intersect" (slice "android") }}
+											{{ $filtered := $v1 | union $v2 }}
+											{{ range $filtered }}
 											<div class="col-12">
 												<div class="rt-post post-sm style-2">
 													<div class="post-content">
-														<a href="gaming.html" class="rt-post-cat-normal"
-															>Sports</a
-														>
+														<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}"
+														class="rt-post-cat-normal">
+														{{ .Params.category }}
+														</a>
 														<h4 class="post-title">
-															<a href="single-post1.html">
-																Top Beste ampute are Speak Market.
+															<a href="{{ .Permalink }}">
+																{{ .Page.Title }}
 															</a>
 														</h4>
 														<span class="rt-meta">
+															{{ $dateTime := .PublishDate.Format "2006-01-02" }} 
+															{{ $dateFormat := .Site.Params.dateFormat | default "January 2,2006" }}
 															<i class="far fa-calendar-alt icon"></i>
-															DECEMBER 9, 2022
+															{{ .PublishDate.Format $dateFormat }}
 														</span>
 													</div>
 													<div class="post-img">
-														<a href="single-post1.html">
+														<a href="{{ .Permalink }}">
+															{{ with .Param "featured_image" }}
 															<img
-																src="media/gallery/post-sm_5.jpg"
-																alt="post"
+																src="{{ . }}" alt="{{ $.Title }}"
 																width="143"
 																height="110"
 															/>
+															{{ else }}
+															<img
+															src="/images/gallery/post-lg_2.jpg"
+															alt="{{ $.Title }}"
+															width="143"
+															height="110"
+														/>
+														{{ end }}
 														</a>
 													</div>
 												</div>
 											</div>
-											<div class="col-12">
-												<div class="rt-post post-sm style-2">
-													<div class="post-content">
-														<a href="life-style.html" class="rt-post-cat-normal"
-															>World</a
-														>
-														<h4 class="post-title">
-															<a href="single-post1.html">
-																Top Beste ampute are Speak Market.
-															</a>
-														</h4>
-														<span class="rt-meta">
-															<i class="far fa-calendar-alt icon"></i>
-															DECEMBER 9, 2022
-														</span>
-													</div>
-													<div class="post-img">
-														<a href="single-post1.html">
-															<img
-																src="media/gallery/post-sm_6.jpg"
-																alt="post"
-																width="143"
-																height="110"
-															/>
-														</a>
-													</div>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="rt-post post-sm style-2">
-													<div class="post-content">
-														<a href="life-style.html" class="rt-post-cat-normal"
-															>Food</a
-														>
-														<h4 class="post-title">
-															<a href="single-post1.html">
-																Top Beste ampute are Speak Market.
-															</a>
-														</h4>
-														<span class="rt-meta">
-															<i class="far fa-calendar-alt icon"></i>
-															DECEMBER 9, 2022
-														</span>
-													</div>
-													<div class="post-img">
-														<a href="single-post1.html">
-															<img
-																src="media/gallery/post-sm_7.jpg"
-																alt="post"
-																width="143"
-																height="110"
-															/>
-														</a>
-													</div>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="rt-post post-sm style-2">
-													<div class="post-content">
-														<a href="technology.html" class="rt-post-cat-normal"
-															>Technology</a
-														>
-														<h4 class="post-title">
-															<a href="single-post1.html">
-																Top Beste ampute are Speak Market.
-															</a>
-														</h4>
-														<span class="rt-meta">
-															<i class="far fa-calendar-alt icon"></i>
-															DECEMBER 9, 2022
-														</span>
-													</div>
-													<div class="post-img">
-														<a href="single-post1.html">
-															<img
-																src="media/gallery/post-sm_8.jpg"
-																alt="post"
-																width="143"
-																height="110"
-															/>
-														</a>
-													</div>
-												</div>
-											</div>
+											{{ end }}
 										</div>
 									</div>
 								</div>
@@ -769,191 +502,7 @@
 						<!-- end /.tab-content -->
 					</div>
 
-					<div class="wrap">
-						<h2 class="rt-section-heading">
-							<span class="rt-section-text">Life Style </span>
-							<span class="rt-section-dot"></span>
-							<span class="rt-section-line"></span>
-						</h2>
-						<div class="row gutter-10">
-							<div
-								class="col-lg-6 wow fadeInUp"
-								data-wow-delay="200ms"
-								data-wow-duration="800ms"
-							>
-								<div class="rt-post-overlay rt-post-overlay-md">
-									<div class="post-img">
-										<a href="single-post1.html" class="img-link">
-											<img
-												src="media/gallery/post-xl_4.jpg"
-												alt="post-xl_4"
-												width="900"
-												height="600"
-											/>
-										</a>
-									</div>
-									<div class="post-content">
-										<h3 class="post-title bold-underline">
-											<a href="single-post1.html">
-												Moon TheyLanding How are Main Close Space Really
-											</a>
-										</h3>
-
-										<div class="post-meta">
-											<ul>
-												<li>
-													<span class="rt-meta">
-														by
-														<a href="author.html" class="name">Willum Skeem</a>
-													</span>
-												</li>
-												<li>
-													<span class="rt-meta">
-														<i class="far fa-calendar-alt icon"></i>
-														DECEMBER 9, 2022
-													</span>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- end col -->
-
-							<div
-								class="col-lg-6 wow fadeInUp"
-								data-wow-delay="400ms"
-								data-wow-duration="800ms"
-							>
-								<div class="rt-post-overlay rt-post-overlay-md">
-									<div class="post-img">
-										<a href="single-post1.html" class="img-link">
-											<img
-												src="media/gallery/post-xl_5.jpg"
-												alt="post-xl_5"
-												width="900"
-												height="600"
-											/>
-										</a>
-									</div>
-									<div class="post-content">
-										<h3 class="post-title bold-underline">
-											<a href="single-post1.html">
-												Moon TheyLanding How are Main Close Space Really
-											</a>
-										</h3>
-
-										<div class="post-meta">
-											<ul>
-												<li>
-													<span class="rt-meta">
-														by
-														<a href="author.html" class="name">Willum Skeem</a>
-													</span>
-												</li>
-												<li>
-													<span class="rt-meta">
-														<i class="far fa-calendar-alt icon"></i>
-														DECEMBER 9, 2022
-													</span>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- end col -->
-
-							<div
-								class="col-lg-6 wow fadeInUp"
-								data-wow-delay="600ms"
-								data-wow-duration="800ms"
-							>
-								<div class="rt-post-overlay rt-post-overlay-md">
-									<div class="post-img">
-										<a href="single-post1.html" class="img-link">
-											<img
-												src="media/gallery/post-xl_6.jpg"
-												alt="post-xl_6"
-												width="900"
-												height="600"
-											/>
-										</a>
-									</div>
-									<div class="post-content">
-										<h3 class="post-title bold-underline">
-											<a href="single-post1.html">
-												Moon TheyLanding How are Main Close Space Really
-											</a>
-										</h3>
-
-										<div class="post-meta">
-											<ul>
-												<li>
-													<span class="rt-meta">
-														by
-														<a href="author.html" class="name">Willum Skeem</a>
-													</span>
-												</li>
-												<li>
-													<span class="rt-meta">
-														<i class="far fa-calendar-alt icon"></i>
-														DECEMBER 9, 2022
-													</span>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- end col -->
-
-							<div
-								class="col-lg-6 wow fadeInUp"
-								data-wow-delay="800ms"
-								data-wow-duration="800ms"
-							>
-								<div class="rt-post-overlay rt-post-overlay-md">
-									<div class="post-img">
-										<a href="single-post1.html" class="img-link">
-											<img
-												src="media/gallery/post-xl_7.jpg"
-												alt="post-xl_7"
-												width="900"
-												height="600"
-											/>
-										</a>
-									</div>
-									<div class="post-content">
-										<h3 class="post-title bold-underline">
-											<a href="single-post1.html">
-												Moon TheyLanding How are Main Close Space Really
-											</a>
-										</h3>
-
-										<div class="post-meta">
-											<ul>
-												<li>
-													<span class="rt-meta">
-														by
-														<a href="author.html" class="name">Willum Skeem</a>
-													</span>
-												</li>
-												<li>
-													<span class="rt-meta">
-														<i class="far fa-calendar-alt icon"></i>
-														DECEMBER 9, 2022
-													</span>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- end col -->
-						</div>
-						<!-- end inner row -->
-					</div>
+					{{- partial "post-md.html" . -}}
 				</div>
 				<!-- end featured-area-style-1 -->
 			</div>
