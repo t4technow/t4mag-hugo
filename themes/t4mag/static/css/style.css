@@ -3153,7 +3153,7 @@ Modal
 // pre-loader
 =====================================*/
 #preloader {
-	background: url("../../media/t4_intro.gif") rgba(0, 0, 0, 1) no-repeat scroll
+	background: url("../../images/t4_intro.gif") rgba(0, 0, 0, 1) no-repeat scroll
 		center center;
 	height: 100%;
 	left: 0;
