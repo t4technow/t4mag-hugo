@@ -15,3 +15,7 @@
 
 <!-- custom -->
 <script src="/js/app.js"></script>
+{{ if (findRE "<pre" .Content 1) }}
+    <script src="/js/code-copy.js"></script>
+{{ end }}
+

@@ -11,7 +11,7 @@ theme = "t4mag"
       xHTML = true
   [markup.highlight]
     codeFences = true
-    lineNos = true
+    lineNos = false
     lineNumbersInTable = true
     noClasses = false
   [markup.tableOfContents]

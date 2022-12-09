@@ -22,7 +22,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 Otherwise you wrap your where clause in another one to exclude the current post:
 
-`{{ range first 3 (shuffle (where (where .Site.RegularPages "Section" "blog") "Title" "!=" .Title ))`
+
+
+```md
+This is mutiline code
+{{ range first 3 (shuffle (where (where .Site.RegularPages "Section" "blog") "Title" "!=" .Title ))
+```
 
 
 

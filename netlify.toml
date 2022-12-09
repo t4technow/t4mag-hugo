@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://t4technow.tk/win"
+  to = "https://raw.githubusercontent.com/ChrisTitusTech/winutil/main/winutil.ps1"
+  status = 301
+  force = true
