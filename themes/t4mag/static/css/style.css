@@ -7306,7 +7306,7 @@ video {
 	border-radius: var(--border-radius-xs);
 }
 .rt-main-post-single .post-body > p:first-child {
-	float: left;
+	/* float: left; */
 }
 .rt-main-post-single .post-body > p:first-child::first-letter {
 	font-size: 60px;
@@ -11577,4 +11577,22 @@ video {
 	.social-wrapper-line-style .wrapper-line {
 		display: none;
 	}
+}
+
+.rt-main-post-single .post-body p {
+	text-align: justify;
+}
+
+.box {
+    font-size: .925rem;
+    font-family: montserrat,sans-serif;
+    word-break: keep-all;
+    padding: 0.5rem;
+    margin: 2rem 0;
+    border-radius: 0.5rem;
+	background-color: var(--color-gray);
+}
+
+[data-theme="dark"] .box {
+	background-color: var(--color-dark-bg_2);
 }

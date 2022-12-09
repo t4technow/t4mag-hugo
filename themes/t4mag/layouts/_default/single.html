@@ -3,24 +3,7 @@
 	<!-- Start inner page Banner -->
 	<div class="banner inner-banner">
 		<div class="container">
-			<nav class="rt-breadcrumb-wrap" aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item">
-						<a href="index.html">
-							<i class="fas fa-home"></i>
-							Home
-						</a>
-					</li>
-					<li class="breadcrumb-item">
-						<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}"> {{ .Params.category }} </a>
-					</li>
-					<li class="breadcrumb-item active" aria-current="page">
-						<span class="rt-text-truncate">
-							{{ .Title }}
-						</span>
-					</li>
-				</ol>
-			</nav>
+			{{ partial "breadcrumbs.html" . }}
 		</div>
 	</div>
 	<!-- End inner page Banner -->
@@ -51,303 +34,16 @@
 						<div class="rt-left-sidebar-sapcer-5">
 							<div class="rt-main-post-single grid-meta">
 								<!-- start post header -->
-								<div class="post-header">
-									<span class="rt-cat-primary">{{ .Params.category }}</span>
-									<h2 class="title">
-										{{ .Title }}
-									</h2>
-									<div class="post-meta">
-										<ul>
-											<li>
-												<span class="rt-meta">
-													by <a href="author.html" class="name">T4Technow</a>
-												</span>
-											</li>
-											<li>
-												{{- partial "published-date.html" . -}}
-											</li>
-											<li>
-												<span class="rt-meta">
-													<i class="far fa-comments icon"></i>
-													250 Comments
-												</span>
-											</li>
-											<li>
-												<span class="rt-meta">
-													<i class="far fa-clock icon"></i>
-													2 minute read
-												</span>
-											</li>
-											<li>
-												<span class="rt-meta">
-													<i class="fas fa-signal icon"></i>
-													3,250 Views
-												</span>
-											</li>
-										</ul>
-									</div>
-									<div class="share-box-area">
-										<div class="left-area">
-											<div class="social-share-box">
-												<div class="share-text mb--10">
-													<span class="rt-meta">
-														<i class="fas fa-share-alt icon"></i>
-														Share: 1,509
-													</span>
-												</div>
-												<ul class="social-share-style-1 mb--10">
-													<li>
-														<a
-															class="fb"
-															target="_blank"
-															href="https://www.facebook.com/"
-														>
-															<i class="social-icon fab fa-facebook-f"></i>
-														</a>
-													</li>
-													<li>
-														<a
-															class="tw"
-															target="_blank"
-															href="https://twitter.com/"
-														>
-															<i class="social-icon fab fa-twitter"></i>
-														</a>
-													</li>
-													<li>
-														<a
-															class="yu"
-															target="_blank"
-															href="https://www.youtube.com/"
-														>
-															<i class="social-icon fab fa-youtube"></i>
-														</a>
-													</li>
-													<li>
-														<a
-															class="dr"
-															target="_blank"
-															href="https://dribbble.com/"
-														>
-															<i class="social-icon fab fa-dribbble"></i>
-														</a>
-													</li>
-													<li>
-														<a
-															class="dw"
-															target="_blank"
-															href="https://cloud.google.com/"
-														>
-															<i class="social-icon fas fa-cloud"></i>
-														</a>
-													</li>
-
-													<li>
-														<a
-															class="wh"
-															target="_blank"
-															href="https://www.whatsapp.com/"
-														>
-															<i class="social-icon fab fa-whatsapp"></i>
-														</a>
-													</li>
-												</ul>
-											</div>
-										</div>
-										<div class="right-area">
-											<ul class="social-share-style-1 layout-2 mb--10">
-												<li>
-													<a target="_blank" href="https://www.facebook.com/">
-														<i class="social-icon fas fa-envelope"></i>
-													</a>
-												</li>
-												<li>
-													<a target="_blank" href="https://twitter.com/">
-														<i class="social-icon fas fa-print"></i>
-													</a>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
+								{{ partial "metadata.html" . }}
 								<!-- end post-header -->
-
-								<!-- strat post img -->
-								<!-- <figure class="post-img">
-									<img
-										src="media/gallery/post-ex_6.jpg"
-										alt="post-img"
-										width="960"
-										height="520"
-									/>
-								</figure> -->
-								<!-- end post-img -->
 
 								<!-- strat psot body -->
 								<div class="post-body">
 
                                         {{ .Content }}
-										
-									<figure class="rt-blockquote-area">
-										<blockquote class="rt-blockquote">
-											<i class="fas fa-quote-left"></i>
-											<p>
-												when an unknown printer took a galley of type and
-												scrambled it to make a type area specimen book It has
-												survived not only five centuries.but also the leap
-												introduce electronic typesetting, remaining essentially
-												unchanged.
-											</p>
-											<span class="name">Willum Skeener</span>
-										</blockquote>
-									</figure>
-									<p>
-										Struggling to sell one multi-million dollar home currently
-										on the market won’t stop actress and singer Jennifer Lopez
-										from expanding her propestate holdings an eight-plus acre
-										estate in Bel-Air anchored by a Struggling to sell one
-										multi-million dollar home uiurrently on the market won’t
-										stop actress and singer Jennifer.
-									</p>
-
-									<!-- middle post -->
-									<div class="single-content">
-										<h3 class="title">Middle Post Heading</h3>
-										<p class="mb--25">
-											Our should never complain, complaining is a weak emotion,
-											you got life, we breathing, we blessed. Surround yourself
-											with angels. They never said winning was easy. Some people
-											can’t handle success, I can. Look at the sunset, life is
-											amazing, life is beautiful, life is what A federal
-											government initiated report conducted by the.
-										</p>
-										<div class="thumb-vidided mb--30">
-											<div class="row gutter-24">
-												<div class="col-lg-6">
-													<img
-														src="media/gallery/single-post-img_1.jpg"
-														alt="post-img"
-														width="696"
-														height="540"
-													/>
-												</div>
-												<div class="col-lg-6">
-													<p>
-														Prom should never complain, complaining is a weak
-														emoti you got life, we breathing, we blessed.
-														Surround yourself with an gels. They never said
-														winning.
-													</p>
-													<ul class="list-style-6">
-														<li>Pasting their cartoon to form over bags</li>
-														<li>Certified emergency medical technician was</li>
-														<li>Galaxy’s Edge the best thing about</li>
-														<li>Phone owner uses</li>
-													</ul>
-													<p>
-														Prom should never complain, complaining is a weak
-														emoti you got life, we breathing, we blessed.
-														Surround yourself with an gels. They never said
-														winning.Prom should never complain, com plaining is
-														a weak emoti you got life, we breathing, we blessed
-														urround yourself with angels. They never said
-														winning.
-													</p>
-												</div>
-											</div>
-										</div>
-										<p>
-											Our should never complain, complaining is a weak emotion,
-											you got life, we breathing, we blessed. Surround yourself
-											with angels. They never said winning was easy. Some people
-											can’t handle success, I can. Look at the sunset, life is
-											amazing, life is beautiful, life is what A federal
-											government initiated report conducted by the.
-										</p>
-									</div>
-
-									<!-- end post -->
-									<div class="single-content">
-										<h3 class="title">
-											Success is how high you bounce when you hit bottom
-										</h3>
-										<p class="mb--25">
-											Our should never complain, complaining is a weak emotion,
-											you gotlife, we breathing, we blessed. Surround yourself
-											with angels. They never said winning was easy. Some people
-											can’t handle success I can. Look at the sunset.Nmply dummy
-											text of the printing and typ esetting industry. Lorem
-											Ipsum has been the industry’s st andard dummy text ever
-											since the 1500s, when an unknown printer took a galley of
-											type andse aerr crambled it to make a type specimen book.
-										</p>
-										<div class="thumb-post-area mb--30">
-											<div class="row gutter-24">
-												<div class="col-lg-6">
-													<div class="item-img">
-														<img
-															src="media/gallery/single-post-img_2.jpg"
-															alt="post-img"
-															width="696"
-															height="540"
-														/>
-														<a
-															href="http://www.youtube.com/watch?v=1iIZeIy7TqM"
-															class="play-btn play-btn-white_lg rt-play-over"
-														>
-															<i class="fas fa-play"></i>
-														</a>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<div class="item-img">
-														<img
-															src="media/gallery/single-post-img_3.jpg"
-															alt="post-img"
-															width="696"
-															height="540"
-														/>
-													</div>
-												</div>
-											</div>
-										</div>
-										<p>
-											Our should never complain, complaining is a weak emotion,
-											you gotlife, we breathing, we blessed. Surround yourself
-											with angels. They never said winning was easy. Some people
-											can’t handle success I can. Look at the sunset.Nmply dummy
-											text of the printing and typ esetting industry. Lorem
-											Ipsum has been the industry’s st andard dummy.
-										</p>
-										<ul class="list-style-6 layout-2">
-											<li>Crisp fresh iconic elegant timeless clean perfume</li>
-											<li>Neck straight sharp silhouette and dart detail</li>
-											<li>
-												Machine wash cold slim fit premium stretch selvedge
-												denim comfortable low waist
-											</li>
-										</ul>
-										<p>
-											Our should never complain, complaining is a weak emotion,
-											you gotlife, we breathing, we blessed. Surround yourself
-											with angels. They never said winning was easy. Some people
-											can’t handle success I can. Look at the sunset.Nmply dummy
-											text of the printing and typ esetting industry. Lorem
-											Ipsum has been the industry’s st andard dummy.
-										</p>
-									</div>
 
 									<!-- ad banner -->
-									<div class="ad-banner-img mt--45 mb--40">
-										<a href="#">
-											<img
-												src="media/gallery/ad-banner_4.jpg"
-												alt="ad-banner"
-												width="960"
-												height="150"
-											/>
-										</a>
-									</div>
+									{{ partial "single-post-ad.html" . }}
 								</div>
 								<!-- end post body -->
 
@@ -358,10 +54,10 @@
 											<div class="conent-block">
 												<h4 class="block-tile mb--20">Popular Tags:</h4>
 												<div class="tag-list">
-													<a href="#" class="tag-link">beautiful</a>
-													<a href="#" class="tag-link">travel</a>
-													<a href="#" class="tag-link">technology</a>
-													<a href="#" class="tag-link">politics</a>
+													{{ range $i, $e := .Params.tags -}}
+														{{- if $i -}} {{ end -}}
+														<a href='{{ "/tags/" | relLangURL }}{{ . | urlize }}' class="tag-link">{{ $e | humanize }}</a>
+													{{- end -}}
 												</div>
 											</div>
 										</div>
@@ -370,63 +66,7 @@
 										>
 											<div class="conent-block">
 												<h4 class="block-tile mb--20">Share This Post:</h4>
-												<ul class="social-share-style-1">
-													<li>
-														<a
-															class="fb"
-															target="_blank"
-															href="https://www.facebook.com/"
-														>
-															<i class="social-icon fab fa-facebook-f"></i>
-														</a>
-													</li>
-													<li>
-														<a
-															class="tw"
-															target="_blank"
-															href="https://twitter.com/"
-														>
-															<i class="social-icon fab fa-twitter"></i>
-														</a>
-													</li>
-													<li>
-														<a
-															class="yu"
-															target="_blank"
-															href="https://www.youtube.com/"
-														>
-															<i class="social-icon fab fa-youtube"></i>
-														</a>
-													</li>
-													<li>
-														<a
-															class="dr"
-															target="_blank"
-															href="https://dribbble.com/"
-														>
-															<i class="social-icon fab fa-dribbble"></i>
-														</a>
-													</li>
-													<li>
-														<a
-															class="dw"
-															target="_blank"
-															href="https://cloud.google.com/"
-														>
-															<i class="social-icon fas fa-cloud"></i>
-														</a>
-													</li>
-
-													<li>
-														<a
-															class="wh"
-															target="_blank"
-															href="https://www.whatsapp.com/"
-														>
-															<i class="social-icon fab fa-whatsapp"></i>
-														</a>
-													</li>
-												</ul>
+												{{ partial "social-share-1.html" . }}
 											</div>
 										</div>
 									</div>
@@ -434,104 +74,61 @@
 								<!-- end social-share-box-2 -->
 
 								<!-- start author box -->
-								<div class="author-box-style-1 mb--50">
-									<div class="author-img">
-										<img
-											src="media/gallery/author-img_1.jpg"
-											alt="author-img_1"
-											width="170"
-											height="170"
-										/>
-									</div>
-									<div class="author-content">
-										<h3 class="author-name">Mark Graham</h3>
-										<span class="author-role">Admin</span>
-										<p class="user-desc">
-											Tthe leap into electronic typesetting, remaining
-											essentiallyuncha opularisedthe with the release of
-											Letrasetsheets containingthe leap electrtypesetting
-											remaining essentially unchanged.
-										</p>
-										<ul class="social-style-5">
-											<li>
-												<a target="_blank" href="https://www.facebook.com/">
-													<i class="social-icon fab fa-facebook-f"></i>
-												</a>
-											</li>
-											<li>
-												<a target="_blank" href="https://twitter.com/">
-													<i class="social-icon fab fa-twitter"></i>
-												</a>
-											</li>
-											<li>
-												<a target="_blank" href="https://www.pinterest.com/">
-													<i class="fab fa-pinterest-p"></i>
-												</a>
-											</li>
-											<li>
-												<a target="_blank" href="https://www.instagram.com/">
-													<i class="fab fa-instagram"></i>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
+							
 								<!-- end author box -->
 
 								<!-- start post-pagination-box -->
 								<div class="post-pagination-box mb--40">
 									<div class="row gutter-30">
-										<div class="col-lg-6">
+										{{ if .PrevPage }}
+										<div class="col-lg-6 pvnx">
 											<div class="next-prev-wrap">
 												<div class="item-icon">
-													<a href="#">
+													<a href="{{ .PrevPage.Permalink }}?ref=footer">
 														<i class="fas fa-chevron-left"></i>
 														Previous Article
 													</a>
 												</div>
 												<div class="content">
 													<h4 class="title">
-														<a href="#">
-															Top Best Compu follower career games are Speak
-															Market Reseach.
+														<a href="{{ .PrevPage.Permalink }}?ref=footer">
+															{{ .PrevPage.Title | truncate 50 "..."}}
 														</a>
 													</h4>
-													<span class="rt-meta">
-														<i class="far fa-calendar-alt icon"></i>
-														DECEMBER 9, 2022
-													</span>
+													{{ partial "published-date.html" . }}
 												</div>
 											</div>
 										</div>
 
-										<div class="col-lg-6">
+										{{ end }}
+
+										{{ if .NextPage }}
+										<div class="col-lg-6 pvnx">
 											<div class="next-prev-wrap next-wrap">
 												<div class="item-icon">
-													<a href="#">
+													<a href="{{ .NextPage.Permalink }}?ref=footer">
 														Next Article
 														<i class="fas fa-chevron-right"></i>
 													</a>
 												</div>
 												<div class="content">
 													<h4 class="title">
-														<a href="#">
-															Best Technology Compu follower Career Speak Market
-															Reseach
+														<a href="{{ .NextPage.Permalink }}?ref=footer">
+															{{ .NextPage.Title | truncate 50 "..." }}
 														</a>
 													</h4>
-													<span class="rt-meta">
-														<i class="far fa-calendar-alt icon"></i>
-														DECEMBER 9, 2022
-													</span>
+													{{ partial "published-date.html" . }}
 												</div>
 											</div>
 										</div>
+										{{ end }}	
+										
 									</div>
 								</div>
 								<!-- end pagination box -->
 
 								<!-- start blog-post-comment -->
-								<div class="blog-post-comment mb--50">
+								<!-- <div class="blog-post-comment mb--50">
 									<form
 										action="#"
 										class="rt-contact-form comments-form-style-1"
@@ -620,7 +217,7 @@
 											<div class="form-response"></div>
 										</div>
 									</form>
-								</div>
+								</div> -->
 								<!-- end blog-post-comment -->
 
 								<!-- start related-post-box -->
@@ -663,121 +260,61 @@
 												transform: translate3d(-2886px, 0px, 0px);
 											"
 										>
-											<div
-												class="swiper-slide swiper-slide-duplicate"
-												data-swiper-slide-index="3"
-												style="width: 296.667px; margin-right: 24px"
-												role="group"
-												aria-label="1 / 12"
-											>
-												<div class="slide-item">
-													<div class="rt-post-grid grid-meta">
-														<div class="post-img">
-															<a href="single-post1.html">
-																<img
-																	src="media/gallery/post-md_45.jpg"
-																	alt="post"
-																	width="551"
-																	height="431"
-																/>
-															</a>
-														</div>
-														<div class="post-content">
-															<a href="graphics.html" class="rt-post-cat-normal"
-																>Design</a
-															>
-															<h4 class="post-title">
-																<a href="single-post1.html">
-																	After The Moon How Close gea Is Space Travel
-																	Reall.
-																</a>
-															</h4>
-															<span class="rt-meta">
-																<i class="far fa-calendar-alt icon"></i>
-																DECEMBER 9, 2022
-															</span>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div
-												class="swiper-slide swiper-slide-duplicate"
-												data-swiper-slide-index="4"
-												style="width: 296.667px; margin-right: 24px"
-												role="group"
-												aria-label="2 / 12"
-											>
-												<div class="slide-item">
-													<div class="rt-post-grid grid-meta">
-														<div class="post-img">
-															<a href="single-post1.html">
-																<img
-																	src="media/gallery/post-md_46.jpg"
-																	alt="post"
-																	width="551"
-																	height="431"
-																/>
-															</a>
-														</div>
-														<div class="post-content">
-															<a href="graphics.html" class="rt-post-cat-normal"
-																>Design</a
-															>
-															<h4 class="post-title">
-																<a href="single-post1.html">
-																	After The Moon How Close gea Is Space Travel
-																	Reall.
-																</a>
-															</h4>
-															<span class="rt-meta">
-																<i class="far fa-calendar-alt icon"></i>
-																DECEMBER 9, 2022
-															</span>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div
-												class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev"
-												data-swiper-slide-index="5"
-												style="width: 296.667px; margin-right: 24px"
-												role="group"
-												aria-label="3 / 12"
-											>
-												<div class="slide-item">
-													<div class="rt-post-grid grid-meta">
-														<div class="post-img">
-															<a href="single-post1.html">
-																<img
-																	src="media/gallery/post-md_47.jpg"
-																	alt="post"
-																	width="551"
-																	height="431"
-																/>
-															</a>
-														</div>
-														<div class="post-content">
-															<a href="graphics.html" class="rt-post-cat-normal"
-																>Design</a
-															>
-															<h4 class="post-title">
-																<a href="single-post1.html">
-																	After The Moon How Close gea Is Space Travel
-																	Reall.
-																</a>
-															</h4>
-															<span class="rt-meta">
-																<i class="far fa-calendar-alt icon"></i>
-																DECEMBER 9, 2022
-															</span>
-														</div>
-													</div>
-												</div>
-											</div>
 
-											<div
+											{{ $related :=  .Site.RegularPages.Related . }}
+											{{ range first 5 $related }}
+
+										<div
+											class="swiper-slide swiper-slide-duplicate-active"
+											data-swiper-slide-index="3"
+											style="width: 296.667px; margin-right: 24px"
+											role="group"
+											aria-label="4 / 12"
+										>
+											<div class="slide-item">
+												<div class="rt-post-grid grid-meta">
+													<div class="post-img">
+														<a href="{{ .Permalink }}">
+															{{ with .Param "featured_image" }}
+															<img
+																src="{{ . }}" alt="{{ $.Title }}"
+																width="551"
+																height="431"
+															/>
+															{{ else }}
+															<img
+																src="/images/gallery/post-lg_5.jpg"
+																alt="{{ .Title }}"
+																width="551"
+																height="431"
+															/>
+															{{end}}
+														</a>
+													</div>
+													<div class="post-content">
+														<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="rt-post-cat-normal"
+															>{{ .Params.category }}</a
+														>
+														<h4 class="post-title">
+															<a href="{{ .Permalink }}">
+																{{ .Title }}
+															</a>
+														</h4>
+
+														<span class="rt-meta">
+															<i class="far fa-calendar-alt icon"></i>
+															DECEMBER 9, 2022
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- end swiper slide -->
+										{{ end }}
+
+											<!-- <div
 												class="swiper-slide swiper-slide-duplicate-active"
-												data-swiper-slide-index="0"
+												data-swiper-slide-index="3"
 												style="width: 296.667px; margin-right: 24px"
 												role="group"
 												aria-label="4 / 12"
@@ -785,9 +322,9 @@
 												<div class="slide-item">
 													<div class="rt-post-grid grid-meta">
 														<div class="post-img">
-															<a href="single-post1.html">
+															<a href="{{ .Permalink }}">
 																<img
-																	src="media/gallery/post-md_42.jpg"
+																	src="/images/gallery/post-md_42.jpg"
 																	alt="post"
 																	width="551"
 																	height="431"
@@ -799,7 +336,7 @@
 																>Design</a
 															>
 															<h4 class="post-title">
-																<a href="single-post1.html">
+																<a href="{{ .Permalink }}">
 																	After The Moon How Close gea Is Space Travel
 																	Reall.
 																</a>
@@ -813,11 +350,11 @@
 													</div>
 												</div>
 											</div>
-
-											<!-- end swiper slide -->
+											
+											
 											<div
 												class="swiper-slide swiper-slide-duplicate-next"
-												data-swiper-slide-index="1"
+												data-swiper-slide-index="4"
 												style="width: 296.667px; margin-right: 24px"
 												role="group"
 												aria-label="5 / 12"
@@ -825,9 +362,9 @@
 												<div class="slide-item">
 													<div class="rt-post-grid grid-meta">
 														<div class="post-img">
-															<a href="single-post1.html">
+															<a href="{{ .Permalink }}">
 																<img
-																	src="media/gallery/post-md_43.jpg"
+																	src="/images/gallery/post-md_43.jpg"
 																	alt="post"
 																	width="551"
 																	height="431"
@@ -839,7 +376,7 @@
 																>Design</a
 															>
 															<h4 class="post-title">
-																<a href="single-post1.html">
+																<a href="{{ .Permalink }}">
 																	After The Moon How Close gea Is Space Travel
 																	Reall.
 																</a>
@@ -852,11 +389,11 @@
 													</div>
 												</div>
 											</div>
-											<!-- end swiper slide -->
+											
 
 											<div
 												class="swiper-slide"
-												data-swiper-slide-index="2"
+												data-swiper-slide-index="5"
 												style="width: 296.667px; margin-right: 24px"
 												role="group"
 												aria-label="6 / 12"
@@ -864,9 +401,9 @@
 												<div class="slide-item">
 													<div class="rt-post-grid grid-meta">
 														<div class="post-img">
-															<a href="single-post1.html">
+															<a href="{{ .Permalink }}">
 																<img
-																	src="media/gallery/post-md_44.jpg"
+																	src="/images/gallery/post-md_44.jpg"
 																	alt="post"
 																	width="551"
 																	height="431"
@@ -878,7 +415,7 @@
 																>Design</a
 															>
 															<h4 class="post-title">
-																<a href="single-post1.html">
+																<a href="{{ .Permalink }}">
 																	After The Moon How Close gea Is Space Travel
 																	Reall.
 																</a>
@@ -891,11 +428,11 @@
 													</div>
 												</div>
 											</div>
-											<!-- end swiper slide -->
+											
 
 											<div
 												class="swiper-slide"
-												data-swiper-slide-index="3"
+												data-swiper-slide-index="6"
 												style="width: 296.667px; margin-right: 24px"
 												role="group"
 												aria-label="7 / 12"
@@ -903,9 +440,9 @@
 												<div class="slide-item">
 													<div class="rt-post-grid grid-meta">
 														<div class="post-img">
-															<a href="single-post1.html">
+															<a href="{{ .Permalink }}">
 																<img
-																	src="media/gallery/post-md_45.jpg"
+																	src="/images/gallery/post-md_45.jpg"
 																	alt="post"
 																	width="551"
 																	height="431"
@@ -930,11 +467,11 @@
 													</div>
 												</div>
 											</div>
-											<!-- end swiper slide -->
+											
 
 											<div
 												class="swiper-slide"
-												data-swiper-slide-index="4"
+												data-swiper-slide-index="7"
 												style="width: 296.667px; margin-right: 24px"
 												role="group"
 												aria-label="8 / 12"
@@ -944,7 +481,7 @@
 														<div class="post-img">
 															<a href="single-post1.html">
 																<img
-																	src="media/gallery/post-md_46.jpg"
+																	src="/images/gallery/post-md_46.jpg"
 																	alt="post"
 																	width="551"
 																	height="431"
@@ -969,11 +506,11 @@
 													</div>
 												</div>
 											</div>
-											<!-- end swiper slide -->
+											
 
 											<div
 												class="swiper-slide swiper-slide-prev"
-												data-swiper-slide-index="5"
+												data-swiper-slide-index="8"
 												style="width: 296.667px; margin-right: 24px"
 												role="group"
 												aria-label="9 / 12"
@@ -983,7 +520,7 @@
 														<div class="post-img">
 															<a href="single-post1.html">
 																<img
-																	src="media/gallery/post-md_47.jpg"
+																	src="/images/gallery/post-md_47.jpg"
 																	alt="post"
 																	width="551"
 																	height="431"
@@ -1007,121 +544,10 @@
 														</div>
 													</div>
 												</div>
-											</div>
-											<!-- end swiper slide -->
+											</div> -->
+											
 
-											<div
-												class="swiper-slide swiper-slide-duplicate swiper-slide-active"
-												data-swiper-slide-index="0"
-												style="width: 296.667px; margin-right: 24px"
-												role="group"
-												aria-label="10 / 12"
-											>
-												<div class="slide-item">
-													<div class="rt-post-grid grid-meta">
-														<div class="post-img">
-															<a href="single-post1.html">
-																<img
-																	src="media/gallery/post-md_42.jpg"
-																	alt="post"
-																	width="551"
-																	height="431"
-																/>
-															</a>
-														</div>
-														<div class="post-content">
-															<a href="graphics.html" class="rt-post-cat-normal"
-																>Design</a
-															>
-															<h4 class="post-title">
-																<a href="single-post1.html">
-																	After The Moon How Close gea Is Space Travel
-																	Reall.
-																</a>
-															</h4>
-
-															<span class="rt-meta">
-																<i class="far fa-calendar-alt icon"></i>
-																DECEMBER 9, 2022
-															</span>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div
-												class="swiper-slide swiper-slide-duplicate swiper-slide-next"
-												data-swiper-slide-index="1"
-												style="width: 296.667px; margin-right: 24px"
-												role="group"
-												aria-label="11 / 12"
-											>
-												<div class="slide-item">
-													<div class="rt-post-grid grid-meta">
-														<div class="post-img">
-															<a href="single-post1.html">
-																<img
-																	src="media/gallery/post-md_43.jpg"
-																	alt="post"
-																	width="551"
-																	height="431"
-																/>
-															</a>
-														</div>
-														<div class="post-content">
-															<a href="graphics.html" class="rt-post-cat-normal"
-																>Design</a
-															>
-															<h4 class="post-title">
-																<a href="single-post1.html">
-																	After The Moon How Close gea Is Space Travel
-																	Reall.
-																</a>
-															</h4>
-															<span class="rt-meta">
-																<i class="far fa-calendar-alt icon"></i>
-																DECEMBER 9, 2022
-															</span>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div
-												class="swiper-slide swiper-slide-duplicate"
-												data-swiper-slide-index="2"
-												role="group"
-												aria-label="12 / 12"
-												style="width: 296.667px; margin-right: 24px"
-											>
-												<div class="slide-item">
-													<div class="rt-post-grid grid-meta">
-														<div class="post-img">
-															<a href="single-post1.html">
-																<img
-																	src="media/gallery/post-md_44.jpg"
-																	alt="post"
-																	width="551"
-																	height="431"
-																/>
-															</a>
-														</div>
-														<div class="post-content">
-															<a href="graphics.html" class="rt-post-cat-normal"
-																>Design</a
-															>
-															<h4 class="post-title">
-																<a href="single-post1.html">
-																	After The Moon How Close gea Is Space Travel
-																	Reall.
-																</a>
-															</h4>
-															<span class="rt-meta">
-																<i class="far fa-calendar-alt icon"></i>
-																DECEMBER 9, 2022
-															</span>
-														</div>
-													</div>
-												</div>
-											</div>
+									
 										</div>
 										<!-- end swiper wrapper -->
 										<span
@@ -1241,196 +667,7 @@
 							</div>
 							<!-- end sidebar wrap -->
 
-							<div class="sidebar-wrap mb--40">
-								<div class="post-banner-style-1">
-									<a href="#" class="image-link">&nbsp;</a>
-									<div class="post-content">
-										<div class="logo">
-											<a href="index.html">
-												<img
-													src="media/logo/logo-light.svg"
-													alt="logo"
-													width="162"
-													height="52"
-												/>
-											</a>
-										</div>
-										<h3 class="title">
-											<a href="#">
-												The Most Powerful
-												<span>News &amp; Magazine WP Theme</span>
-											</a>
-										</h3>
-										<div class="btn-wrap">
-											<a href="#" class="btn-white-sm"> shop now </a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- end slidebar wrap  -->
-
-							<div class="sidebar-wrap mb--40">
-								<h2 class="rt-section-heading style-2 mb--30">
-									<span class="rt-section-text">Stay Connected </span>
-									<span class="rt-section-dot"></span>
-									<span class="rt-section-line"></span>
-								</h2>
-								<ul class="social-connection">
-									<li>
-										<a href="https://www.facebook.com/">
-											<i class="fab fa-facebook-f facebook"></i>
-											<span class="text"><span>15,985</span> Fans</span>
-										</a>
-									</li>
-									<li>
-										<a href="https://twitter.com/">
-											<i class="fab fa-twitter twitter"></i>
-											<span class="text"><span>20,751</span> Follower</span>
-										</a>
-									</li>
-									<li>
-										<a href="https://www.youtube.com/">
-											<i class="fab fa-youtube youtube"></i>
-											<span class="text"><span>35,999</span> Subscriber</span>
-										</a>
-									</li>
-									<li>
-										<a href="https://cloud.google.com/">
-											<i class="fas fa-cloud cloud"></i>
-											<span class="text"><span>35,999</span> Subscriber</span>
-										</a>
-									</li>
-									<li>
-										<a href="https://dribbble.com/">
-											<i class="fab fa-dribbble dribbble"></i>
-											<span class="text"><span>35,999</span> Subscriber</span>
-										</a>
-									</li>
-								</ul>
-							</div>
-							<!-- end slidebar wrap  -->
-
-							<div class="sidebar-wrap mb--40">
-								<h2 class="rt-section-heading style-2 mb--30">
-									<span class="rt-section-text">Popular News </span>
-									<span class="rt-section-dot"></span>
-									<span class="rt-section-line"></span>
-								</h2>
-								<div class="post-list">
-									<div class="item">
-										<div class="rt-post post-sm style-1">
-											<div class="post-img">
-												<a href="single-post1.html">
-													<img
-														src="media/gallery/post-sm_1.jpg"
-														alt="post"
-														width="100"
-														height="100"
-													/>
-												</a>
-											</div>
-											<div class="ms-4 post-content">
-												<a href="gaming.html" class="rt-post-cat-normal"
-													>Sports</a
-												>
-												<h4 class="post-title">
-													<a href="single-post1.html">
-														Top Beste ampute are Speak Market.
-													</a>
-												</h4>
-												<span class="rt-meta">
-													<i class="far fa-calendar-alt icon"></i>
-													DECEMBER 9, 2022
-												</span>
-											</div>
-										</div>
-									</div>
-									<div class="item">
-										<div class="rt-post post-sm style-1">
-											<div class="post-img">
-												<a href="single-post1.html">
-													<img
-														src="media/gallery/post-sm_2.jpg"
-														alt="post"
-														width="100"
-														height="100"
-													/>
-												</a>
-											</div>
-											<div class="ms-4 post-content">
-												<a href="gaming.html" class="rt-post-cat-normal"
-													>Sports</a
-												>
-												<h4 class="post-title">
-													<a href="single-post1.html">
-														Top Beste ampute are Speak Market.
-													</a>
-												</h4>
-												<span class="rt-meta">
-													<i class="far fa-calendar-alt icon"></i>
-													DECEMBER 9, 2022
-												</span>
-											</div>
-										</div>
-									</div>
-									<div class="item">
-										<div class="rt-post post-sm style-1">
-											<div class="post-img">
-												<a href="single-post1.html">
-													<img
-														src="media/gallery/post-sm_3.jpg"
-														alt="post"
-														width="100"
-														height="100"
-													/>
-												</a>
-											</div>
-											<div class="ms-4 post-content">
-												<a href="gaming.html" class="rt-post-cat-normal"
-													>Sports</a
-												>
-												<h4 class="post-title">
-													<a href="single-post1.html">
-														Top Beste ampute are Speak Market.
-													</a>
-												</h4>
-												<span class="rt-meta">
-													<i class="far fa-calendar-alt icon"></i>
-													DECEMBER 9, 2022
-												</span>
-											</div>
-										</div>
-									</div>
-									<div class="item">
-										<div class="rt-post post-sm style-1">
-											<div class="post-img">
-												<a href="single-post1.html">
-													<img
-														src="media/gallery/post-sm_4.jpg"
-														alt="post"
-														width="100"
-														height="100"
-													/>
-												</a>
-											</div>
-											<div class="ms-4 post-content">
-												<a href="gaming.html" class="rt-post-cat-normal"
-													>Sports</a
-												>
-												<h4 class="post-title">
-													<a href="single-post1.html">
-														Top Beste ampute are Speak Market.
-													</a>
-												</h4>
-												<span class="rt-meta">
-													<i class="far fa-calendar-alt icon"></i>
-													DECEMBER 9, 2022
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							{{ partial "sidebar/popular-circle.html" . }}
 							<!-- end slidebar wrap  -->
 
 							<div class="sidebar-wrap mb--40">
@@ -1443,8 +680,8 @@
 									<li>
 										<a
 											href="gaming.html"
-											data-bg-image="media/gallery/cat_1.jpg"
-											style="background-image: url('media/gallery/cat_1.jpg')"
+											data-bg-image="/images/gallery/cat_1.jpg"
+											style="background-image: url('/images/gallery/cat_1.jpg')"
 										>
 											<span class="cat-name">Sports</span>
 											<span class="count">59</span>
@@ -1453,8 +690,8 @@
 									<li>
 										<a
 											href="life-style.html"
-											data-bg-image="media/gallery/cat_2.jpg"
-											style="background-image: url('media/gallery/cat_2.jpg')"
+											data-bg-image="/images/gallery/cat_2.jpg"
+											style="background-image: url('/images/gallery/cat_2.jpg')"
 										>
 											<span class="cat-name">World</span>
 											<span class="count">12</span>
@@ -1463,8 +700,8 @@
 									<li>
 										<a
 											href="technology.html"
-											data-bg-image="media/gallery/cat_3.jpg"
-											style="background-image: url('media/gallery/cat_3.jpg')"
+											data-bg-image="/images/gallery/cat_3.jpg"
+											style="background-image: url('/images/gallery/cat_3.jpg')"
 										>
 											<span class="cat-name">Technology</span>
 											<span class="count">59</span>
@@ -1473,8 +710,8 @@
 									<li>
 										<a
 											href="life-style.html"
-											data-bg-image="media/gallery/cat_4.jpg"
-											style="background-image: url('media/gallery/cat_4.jpg')"
+											data-bg-image="/images/gallery/cat_4.jpg"
+											style="background-image: url('/images/gallery/cat_4.jpg')"
 										>
 											<span class="cat-name">Food</span>
 											<span class="count">12</span>
@@ -1483,8 +720,8 @@
 									<li>
 										<a
 											href="life-style.html"
-											data-bg-image="media/gallery/cat_5.jpg"
-											style="background-image: url('media/gallery/cat_5.jpg')"
+											data-bg-image="/images/gallery/cat_5.jpg"
+											style="background-image: url('/images/gallery/cat_5.jpg')"
 										>
 											<span class="cat-name">Travel</span>
 											<span class="count">12</span>
@@ -1497,8 +734,8 @@
 							<div class="sidebar-wrap mb--40">
 								<div
 									class="subscribe-box-style-1"
-									data-bg-image="media/elements/element_5.png"
-									style="background-image: url('media/elements/element_5.png')"
+									data-bg-image="/images/elements/element_5.png"
+									style="background-image: url('/images/elements/element_5.png')"
 								>
 									<div class="subscribe-content">
 										<h3 class="title">Subscribe To Our Newsletter</h3>
@@ -1537,15 +774,17 @@
 									<span class="rt-section-line"></span>
 								</h2>
 								<div class="tag-list">
-									<a href="#" class="tag-link">beautiful</a>
-									<a href="#" class="tag-link">travel</a>
-									<a href="#" class="tag-link">technology</a>
-									<a href="#" class="tag-link">chemical</a>
-									<a href="#" class="tag-link">chemical</a>
-									<a href="#" class="tag-link">politics</a>
-									<a href="#" class="tag-link">business</a>
-									<a href="#" class="tag-link">makeup</a>
-									<a href="#" class="tag-link">social</a>
+									{{range $name, $taxonomy := .Site.Taxonomies.tags}} {{ $cnt := .Count }}
+									{{ with $.Site.GetPage (printf "/tags/%s" $name) }}
+		
+										<a href={{ .RelPermalink }} title="All pages with tag <i>{{$name}}" class="tag-link">{{$name}}</a>
+									
+									{{end}}
+									{{end}}
+
+									{{range ($.Site.GetPage "taxonomyTerm" "category").Pages }}
+   <a href="{{.Permalink}}">{{.Title}}</a></li>
+{{end}}
 								</div>
 							</div>
 							<!-- end sidebar wrap -->
