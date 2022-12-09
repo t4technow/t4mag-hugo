@@ -11,14 +11,14 @@
                 <div class="post-img">
                     <a href="{{ .Permalink }}">
                         {{ with .Param "featured_image" }}
-                        <img 
+                        <img class="lazyload" 
                             src="{{ . }}" 
                             alt="{{ $.Title }}" 
                             width="100"
                             height="100"
                         />
                         {{ else }}
-                        <img
+                        <img class="lazyload"
                             src="/images/gallery/post-sm_2.jpg"
                             alt="{{ .Title }}"
                             width="100"
