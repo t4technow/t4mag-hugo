@@ -1,5 +1,5 @@
 [[redirects]]
   from = "https://t4technow.tk/win"
-  to = "https://raw.githubusercontent.com/ChrisTitusTech/winutil/main/winutil.ps1"
+  to = "https://raw.githubusercontent.com/t4technow/t4mag/main/content/files/ReviveWindows.ps1"
   status = 301
   force = true
