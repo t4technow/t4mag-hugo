@@ -11587,14 +11587,13 @@ video {
     font-size: .925rem;
     font-family: montserrat,sans-serif;
     word-break: keep-all;
-    padding: 0.5rem;
-    margin: 2rem 0;
-    border-radius: 0.5rem;
-	background-color: var(--color-gray);
+	padding: 0.5rem;
+	margin: 2rem 0;
 }
 
 [data-theme="dark"] .box {
 	background-color: var(--color-dark-bg_2);
+	color: var(--color-gray);
 }
 
 /* Copy Button */
@@ -11623,13 +11622,25 @@ video {
     background-color: #666;
 }
 
-
+code,
+.box,
 .highlight pre {
-    padding-right: 75px;
-	background-color: #f1f1f1;
-	border-radius: 4px;
 	padding: 10px 20px;
+    border-radius: 0.5rem;
+	background-color: var(--color-gray);
+	display: block;
+    font-size: 87.5%;
+    color: #212529;
+    overflow: auto;
+    -ms-overflow-style: scrollbar;
 }
+
+[data-theme="dark"] code,
+[data-theme="dark"] .highlight pre {
+	background-color: var(--color-dark-bg_2);
+	color: var(--color-gray);
+}
+
 .content pre {
     padding: 10px 20px;
     background: #f8f8f8;
