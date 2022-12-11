@@ -1,0 +1,159 @@
+<footer class="footer">
+	<div class="footer-top footer-style-1">
+		<div class="container">
+			<div class="row gutter-30">
+				<div
+					class="col-xl-3 col-md-6 wow fadeInUp"
+					data-wow-delay="200ms"
+					data-wow-duration="800ms"
+				>
+					<div class="footer-widget">
+						<div class="logo footer-logo">
+							<a class="dark-logo" href="index.html">
+								<img
+									width="162"
+									height="52"
+									src="/images/logo/logo-light.png"
+									alt="T4Mag"
+								/>
+							</a>
+						</div>
+						<p class="text">
+							{{ .Site.Params.description }}
+						</p>
+						{{- partial "footer/social.html" -}}
+					</div>
+				</div>
+				<!-- end col -->
+
+				<div
+					class="col-xl-3 col-md-6 wow fadeInUp"
+					data-wow-delay="400ms"
+					data-wow-duration="800ms"
+				>
+					{{- partial "footer/recent-posts.html" . -}}
+				</div>
+				<!-- end col -->
+
+				<div
+					class="col-xl-3 col-md-6 wow fadeInUp d-flex justify-content-xl-center justify-content-start"
+					data-wow-delay="400ms"
+					data-wow-duration="800ms"
+				>
+					<div class="footer-widget">
+						<h3 class="footer-widget-title">Categories</h3>
+						<ul class="widget-list cat-list">
+
+							{{ range $key, $value := .Site.Taxonomies.categories }}
+	<li><a href="{{ .Site.baseURL  }}categories/{{ $key | urlize  }}">{{ $key | humanize }}</a> ({{ len $value }})</li>
+	{{ end }}
+
+							<li class="widget-list-item">
+								<a href="politics.html" class="widget-list-link"> Politics </a>
+							</li>
+							<li class="widget-list-item">
+								<a href="politics.html" class="widget-list-link"> Business </a>
+							</li>
+							<li class="widget-list-item">
+								<a href="technology.html" class="widget-list-link">
+									Technology
+								</a>
+							</li>
+							<li class="widget-list-item">
+								<a href="life-style.html" class="widget-list-link"> Health </a>
+							</li>
+							<li class="widget-list-item">
+								<a href="life-style.html" class="widget-list-link"> Sports </a>
+							</li>
+							<li class="widget-list-item">
+								<a href="gaming.html" class="widget-list-link">
+									Entertainment
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- end col -->
+
+				<div
+					class="col-xl-3 col-md-6 wow fadeInUp"
+					data-wow-delay="600ms"
+					data-wow-duration="800ms"
+				>
+					<div class="footer-widget">
+						<h3 class="footer-widget-title">Instagram</h3>
+						<div class="insta-gallery">
+							<div class="galleryitem">
+								<a href="https://www.instagram.com/">
+									<img
+										src="/images/gallery/ins-gallery_1.jpg"
+										width="100"
+										height="90"
+										alt="gallery1"
+									/>
+								</a>
+							</div>
+							<div class="galleryitem">
+								<a href="https://www.instagram.com/">
+									<img
+										src="/images/gallery/ins-gallery_2.jpg"
+										width="100"
+										height="90"
+										alt="gallery2"
+									/>
+								</a>
+							</div>
+							<div class="galleryitem">
+								<a href="https://www.instagram.com/">
+									<img
+										src="/images/gallery/ins-gallery_3.jpg"
+										width="100"
+										height="90"
+										alt="gallery3"
+									/>
+								</a>
+							</div>
+							<div class="galleryitem">
+								<a href="https://www.instagram.com/">
+									<img
+										src="/images/gallery/ins-gallery_4.jpg"
+										width="100"
+										height="90"
+										alt="gallery4"
+									/>
+								</a>
+							</div>
+							<div class="galleryitem">
+								<a href="https://www.instagram.com/">
+									<img
+										src="/images/gallery/ins-gallery_5.jpg"
+										width="100"
+										height="90"
+										alt="gallery5"
+									/>
+								</a>
+							</div>
+							<div class="galleryitem">
+								<a href="https://www.instagram.com/">
+									<img
+										src="/images/gallery/ins-gallery_6.jpg"
+										width="100"
+										height="90"
+										alt="gallery6"
+									/>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end col -->
+			</div>
+		</div>
+	</div>
+	<!-- End footer top -->
+
+	<div class="footer-bottom">
+		{{ partial "footer/site-info.html" }}
+	</div>
+	<!-- End footer bottom -->
+</footer>

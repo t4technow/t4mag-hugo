@@ -10,12 +10,18 @@ tags:
     - windows
 
 featured: true
-featured-sm: true
+pinned: true
 
-featured_image: /images/gallery/post-sm_4.jpg
+featured_image: post-sm_4.jpg
 ---
 
-{{< img src="/images/gallery/post-xl_1.jpg" title="Sample Image" caption="Image with title, caption, alt, ..." alt="image alt" class="post-img"  width="960px">}}
+
+{{< img 
+    src="/images/gallery/post-xl_10.jpg" 
+    title="Sample Image" 
+    caption="Image with title, caption, alt, ..." alt="image alt" 
+    class="post-img"  
+>}}
 
 ``` code
 code block

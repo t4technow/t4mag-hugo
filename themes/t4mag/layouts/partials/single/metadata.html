@@ -1,0 +1,68 @@
+<div class="post-header">
+    <span class="rt-cat-primary">{{ .Params.category }}</span>
+    <h2 class="title">
+        {{ .Title }}
+    </h2>
+    <div class="post-meta">
+        <ul>
+            <li>
+                <span class="rt-meta">
+                    by <a href="author.html" class="name">T4Technow</a>
+                </span>
+            </li>
+            <li>
+                {{- partial "body/published-date.html" . -}}
+            </li>
+            <li>
+                <span class="rt-meta">
+                    <i class="far fa-comments icon"></i>
+                    250 Comments
+                </span>
+            </li>
+            <li>
+                <span class="rt-meta">
+                    <i class="far fa-clock icon"></i>
+                    {{ if lt (math.Round (div (countwords .Content) 250.0)) 1 }}1{{ else }}{{ (math.Round (div (countwords .Content) 250.0)) }}{{ end }} minute read
+                </span>
+                
+            </li>
+            <li>
+                <span class="rt-meta">
+                    <i class="fas fa-signal icon"></i>
+                    3,250 Views
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="share-box-area">
+        <div class="left-area">
+            <div class="social-share-box">
+                <div class="share-text mb--10">
+                    <span class="rt-meta">
+                        <i class="fas fa-share-alt icon"></i>
+                        Share: 1,509
+                    </span>
+                </div>
+                <div class="mb--10">
+                    {{ partial "single/social-share-1.html" . }}
+                </div>
+
+            </div>
+        </div>
+        <div class="right-area">
+            <ul class="social-share-style-1 layout-2 mb--10">
+                <li>
+                    <a target="_blank" href="https://www.facebook.com/">
+                        <i class="social-icon fas fa-envelope"></i>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://twitter.com/">
+                        <i class="social-icon fas fa-print"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

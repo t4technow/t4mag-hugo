@@ -1,0 +1,58 @@
+<div class="col-xl-3 col-lg-8 mx-auto sticky-coloum-item">
+	<div class="rt-sidebar">
+		<div class="sidebar-wrap mb--40">
+			{{- partial "sidebar/subscribe.html" . -}}
+		</div>
+		<!-- end sidebar wrap -->
+
+		<div class="sidebar-wrap mb--40">
+			<h2 class="rt-section-heading style-2 mb--30">
+				<span class="rt-section-text">Hot Categories </span>
+				<span class="rt-section-dot"></span>
+				<span class="rt-section-line"></span>
+			</h2>
+			<ul class="rt-categories">
+				<li>
+					<a href="gaming.html" data-bg-image="/images/gallery/cat_1.jpg">
+						<span class="cat-name">Sports</span>
+						<span class="count">59</span>
+					</a>
+				</li>
+				<li>
+					<a href="life-style.html" data-bg-image="/images/gallery/cat_2.jpg">
+						<span class="cat-name">World</span>
+						<span class="count">12</span>
+					</a>
+				</li>
+				<li>
+					<a href="technology.html" data-bg-image="/images/gallery/cat_3.jpg">
+						<span class="cat-name">Technology</span>
+						<span class="count">59</span>
+					</a>
+				</li>
+				<li>
+					<a href="life-style.html" data-bg-image="/images/gallery/cat_4.jpg">
+						<span class="cat-name">Food</span>
+						<span class="count">12</span>
+					</a>
+				</li>
+				<li>
+					<a href="life-style.html" data-bg-image="/images/gallery/cat_5.jpg">
+						<span class="cat-name">Travel</span>
+						<span class="count">12</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!-- end slidebar wrap  -->
+
+		<div class="sidebar-wrap mb--40">
+			{{- partial "ads/ad-banner-sidebar.html" . -}}
+		</div>
+		<!-- end slidebar wrap  -->
+
+		{{ partial "sidebar/popular-news.html" . }}
+		<!-- end slidebar wrap  -->
+	</div>
+	<!-- end rt-sidebar -->
+</div>

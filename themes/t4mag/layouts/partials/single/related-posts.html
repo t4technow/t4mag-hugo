@@ -1,0 +1,100 @@
+<div class="related-post-box">
+    <div class="titile-wrapper mb--40">
+        <h2 class="rt-section-heading mb-0 flex-grow-1 me-3">
+            <span class="rt-section-text">Related Post </span>
+            <span class="rt-section-dot"></span>
+            <span class="rt-section-line"></span>
+        </h2>
+
+        <div class="slider-navigation style-2">
+            <i
+                class="fas fa-chevron-left slider-btn btn-prev"
+                tabindex="0"
+                role="button"
+                aria-label="Previous slide"
+                aria-controls="swiper-wrapper-cf10eaabca2a83c210"
+            ></i>
+            <i
+                class="fas fa-chevron-right slider-btn btn-next"
+                tabindex="0"
+                role="button"
+                aria-label="Next slide"
+                aria-controls="swiper-wrapper-cf10eaabca2a83c210"
+            ></i>
+        </div>
+    </div>
+    <!-- end titile-wrapper -->
+
+    <div
+        class="swiper-container rt-post-slider-style-5 swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events"
+    >
+        <div
+            class="swiper-wrapper"
+            id="swiper-wrapper-cf10eaabca2a83c210"
+            aria-live="off"
+            style="
+                transition-duration: 0ms;
+                transform: translate3d(-2886px, 0px, 0px);
+            "
+        >
+
+            {{ $related :=  .Site.RegularPages.Related . }}
+            {{ range first 5 $related }}
+
+        <div
+            class="swiper-slide swiper-slide-duplicate-active"
+            data-swiper-slide-index="3"
+            style="width: 296.667px; margin-right: 24px"
+            role="group"
+            aria-label="4 / 12"
+        >
+            <div class="slide-item">
+                <div class="rt-post-grid grid-meta">
+                    <div class="post-img">
+                        <a href="{{ .Permalink }}">
+                            {{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+                            {{ with $image }}
+                            <img
+                                src="{{ ( $image.Resize "551x431" ).RelPermalink }}" alt="{{ $.Title }}"
+                                width="551"
+                                height="431"
+                            />
+                            {{ else }}
+                            <img
+                                src="/images/gallery/post-lg_5.jpg"
+                                alt="{{ .Title }}"
+                                width="551"
+                                height="431"
+                            />
+                            {{end}}
+                        </a>
+                    </div>
+                    <div class="post-content">
+                        <a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="rt-post-cat-normal"
+                            >{{ .Params.category }}</a
+                        >
+                        <h4 class="post-title">
+                            <a href="{{ .Permalink }}">
+                                {{ .Title }}
+                            </a>
+                        </h4>
+
+                        {{- partial "body/published-date.html" . -}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end swiper slide -->
+        {{ end }}
+
+    
+        </div>
+        <!-- end swiper wrapper -->
+        <span
+            class="swiper-notification"
+            aria-live="assertive"
+            aria-atomic="true"
+        ></span>
+    </div>
+    <!-- end swiper container + editor-choice-slider-style-1  -->
+</div>

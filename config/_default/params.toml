@@ -1,0 +1,11 @@
+author = 'T4Technow'
+description = 'Looking for Tech based news, solutions or looking for softwares or best android applications? T4Technow is just the place.'
+
+[socialOptions]
+  email = "mailto:your@email.com"
+  phone = "+91 6282585980"
+  facebook = "http://facebook.com/t4technow/"
+  twitter = "http://twitter.com/t4technow43/"
+  github = "https://github.com/t4technow/"
+  youtube = "https://www.youtube.com/@t4technow976/"
+  telegram = "https://t.me/t4technow/"

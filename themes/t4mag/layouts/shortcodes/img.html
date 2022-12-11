@@ -1,10 +1,11 @@
 <figure {{ with .Get "class" }}class="{{ . }}" {{ end }}>
   {{ with .Get "link"}}<a href="{{ . }}">{{ end }}
-  
+    
+  {{ $image := resources.Get ( .Get "src" ) }}
   {{ if or (eq (.Get "lazy") false) (eq (.Get "lazy") "false") }}
-    <img src="{{ .Get "src" | relURL }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} style="width:{{ .Get "width" }};height:{{ .Get "height" }};"/>
+    <img src="{{( $image.Resize "960x" ).RelPermalink}}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} />
   {{ else }}
-    <img data-src="{{ .Get "src" | relURL }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} data-caption="{{ .Get "caption" }}" src="{{ .Get "src" | relURL }}" class="lazyload" style="width:{{ .Get "width" }};height:{{ .Get "height" }};"/>
+    <img data-src="{{( $image.Resize "960x" ).RelPermalink}}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} data-caption="{{ .Get "caption" }}" src="{{( $image.Resize "960x" ).RelPermalink}}" class="lazyload" />
   {{ end }}
 
   {{ if .Get "link"}}</a>{{ end }}
@@ -18,5 +19,6 @@
         {{ if .Get "attrlink"}}</a> {{ end }}
       {{ end }}
     </figcaption>
+
   {{ end }}
 </figure>

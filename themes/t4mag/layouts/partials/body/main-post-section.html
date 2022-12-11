@@ -1,0 +1,123 @@
+<section class="rt-main-post-section main-post-section-style-1 section-padding">
+	<div class="container">
+		<div class="row gutter-24">
+			{{ range ( where .Site.RegularPages "Type" "posts" | first 1 ) }}
+			<div
+				class="col-xl-7 col-lg-6 wow fadeInUp"
+				data-wow-delay="200ms"
+				data-wow-duration="800ms"
+			>
+				<div class="rt-post-overlay rt-post-overlay-xl layout-1">
+					<div class="post-img">
+						<a href="{{ .Permalink }}" class="img-link">
+
+							{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+                        
+                        {{ with $image }}
+							<img
+								src="{{ ( $image.Resize "900x600" ).RelPermalink }}" 
+								alt="{{ .Title }}"
+								width="900"
+								height="600"
+							/>
+							{{ else }}
+							<img
+								src="/images/gallery/post-lg_5.jpg"
+								alt="{{ .Title }}"
+								width="900"
+								height="600"
+							/>
+							{{end}}		
+						</a>
+					</div>
+					<div class="post-content">
+						<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="{{ .Params.category }}">{{ .Params.category }}</a>
+						<h3 class="post-title bold-underline">
+							<a href="{{ .Permalink }}">
+								{{ .Title }}
+							</a>
+						</h3>
+						<div class="post-meta">
+							<ul>
+								<li>
+									<span class="rt-meta">
+										by
+										<a href="author.html" class="name">T4Technow</a>
+									</span>
+								</li>
+								<li>
+									{{- partial "body/published-date.html" . -}}
+								</li>
+								<li>
+									<span class="rt-meta">
+										<i class="far fa-comments icon"></i>
+										<a href="#"> 3,250</a>
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			{{ end }}
+			<!-- end col -->
+
+			<div class="col-xl-5 col-lg-6">
+				<div class="row gutter-24">
+					{{ $counter := 0 }}
+					{{ range ( where .Site.RegularPages "Type" "posts" | first 4 ) }}
+					{{ $counter = add $counter 1 }}
+					{{ if (gt $counter 1) }} 
+					<div
+						class="col-12 wow fadeInUp"
+						data-wow-delay="400ms"
+						data-wow-duration="800ms"
+					>
+						<div class="rt-post post-md style-10">
+							<div class="post-img">
+								<a href="{{ .Permalink }}">
+									{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+                        
+                        {{ with $image }}
+									<img
+										src="{{ ( $image.Resize "696x491" ).RelPermalink }}"
+										alt="{{ .Title }}"
+										width="696"
+										height="491"
+									/>
+									{{ else }}
+									<img
+										src="/images/gallery/post-lg_5.jpg"
+										alt="{{ .Title }}"
+										width="696"
+										height="491"
+									/>
+									{{end}}
+								</a>
+							</div>
+							<div class="post-content">
+								<a
+									href="{{ $.Site.BaseURL }}category/{{ .Params.category }}"
+									class="{{ .Params.category }}"
+									>{{ .Params.category }}</a
+								>
+								<h3 class="post-title">
+									<a href="{{ .Permalink }}"> {{ .Title }} </a>
+								</h3>
+								
+								{{- partial "body/published-date.html" . -}}
+							</div>
+						</div>
+					</div>
+					<!-- end col -->
+					{{ end }}
+					{{ end }}
+					<!-- end col -->
+				</div>
+			</div>
+			<!-- end col -->
+		</div>
+		<!-- end row -->
+	</div>
+	<!-- end container -->
+</section>

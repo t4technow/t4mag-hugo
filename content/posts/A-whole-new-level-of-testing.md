@@ -4,7 +4,7 @@ title: "A Whole New Level of Testing - Took it to another level"
 date: 2022-12-09T16:46:06+05:30
 url: /A-whole-new-level-of-testing/
 
-featured_image: /images/gallery/post-xl_5.jpg
+featured_image: post-xl_5.jpg
 
 category: software
 tags:
@@ -14,15 +14,14 @@ tags:
 
 draft: false
 featured: false
-featured-sm: false
+pinned: false
 ---
 
 {{< img 
-    src="/images/gallery/post-xl_1.jpg" 
+    src="images/gallery/post-xl_1.jpg" 
     title="Sample Image" 
     caption="Image with title, caption, alt, ..." alt="image alt" 
     class="post-img"  
-    width="960px"
 >}}
 
 Ac ut consequat semper viverra nam. Hac habitasse platea dictumst vestibulum rhoncus. Amet porttitor eget dolor morbi non. Justo eget magna fermentum iaculis eu non. Id eu nisl nunc mi ipsum faucibus vitae aliquet nec. Aliquam id diam maecenas ultricies. Non sodales neque sodales ut etiam. Amet massa vitae tortor condimentum lacinia quis. Erat imperdiet sed euismod nisi porta. 

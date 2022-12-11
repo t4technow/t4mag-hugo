@@ -1,0 +1,98 @@
+<header class="rt-header sticky-on">
+	<!-- sticky-placeholder -->
+	<div id="sticky-placeholder"></div>
+
+	<!-- start  topbar -->
+	{{- partial "header/top-bar.html" . -}}
+	<!-- end topbar -->
+
+	<!-- Header Main -->
+	<div class="header-main header-main-style-1 navbar-wrap" id="navbar-wrap">
+		<div class="container">
+			<div class="row">
+				<div class="d-flex align-items-center justify-content-between">
+					<!-- start logo here -->
+					<div class="site-branding">
+						<a class="dark-logo" href="{{ .Site.BaseURL }}">
+							<img
+								width="162"
+								height="52"
+								src="/images/logo/logo-dark.png"
+								alt="T4Mag"
+							/>
+						</a>
+						<a class="light-logo" href="{{ .Site.BaseURL }}">
+							<img
+								width="162"
+								height="52"
+								src="/images/logo/logo-light.png"
+								alt="T4Mag"
+							/>
+						</a>
+					</div>
+					<!-- end logo here -->
+
+					<!-- start main menu -->
+					<div class="main-menu">
+						<nav class="main-menu__nav">
+							<ul>
+								<li class="main-menu__nav_sub active">
+									<a class="animation" href="{{ .Site.BaseURL }}">Home</a>
+								</li>
+								<li class="main-menu__nav_sub list">
+									<a class="animation" href="javascript:void(0)">How To</a>
+								</li>
+								<li class="main-menu__nav_sub list">
+									<a class="animation" href="javascript:void(0)">Categories </a>
+									<ul class="main-menu__dropdown">
+										<li><a href="life-style.html">Life Style</a></li>
+										<li><a href="technology.html">Technology</a></li>
+										<li><a href="gaming.html">Gaming</a></li>
+										<li><a href="graphics.html">Graphics</a></li>
+										<li><a href="politics.html">Politics</a></li>
+									</ul>
+								</li>
+								<li class="main-menu__nav_sub list">
+									<a class="animation" href="javascript:void(0)">Pages</a>
+									<ul class="main-menu__dropdown">
+										<li><a href="about.html">About Us</a></li>
+										<li><a href="contact.html">Contact Us</a></li>
+										<li><a href="404.html">404</a></li>
+									</ul>
+								</li>
+								<li class="main-menu__nav_sub list">
+									<a class="animation" href="javascript:void(0)">GitHub</a>
+									
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<!-- end main menu -->
+
+					<!-- start header actions -->
+					<ul class="header-action-items">
+						<li class="item">
+							<a href="#template-search"><i class="fas fa-search"></i></a>
+						</li>
+						<!-- <li class="item cart-icon">
+											<a
+												href="javascript:void(0)"
+												class="cart-menu-btn menu-open-btn"
+											>
+												<i class="fas fa-shopping-cart"></i>
+												<span class="item-count">0</span>
+											</a>
+										</li> -->
+						<li class="item humburger offcanvas-menu-btn menu-status-open">
+							<span></span>
+						</li>
+					</ul>
+					<!-- end header actions -->
+				</div>
+			</div>
+			<!-- end row -->
+		</div>
+		<!-- end container -->
+	</div>
+	<!-- End Header Main -->
+</header>

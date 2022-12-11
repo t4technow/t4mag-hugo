@@ -4,7 +4,7 @@ title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 url: /{{ .Name }}/
 
-featured_image: /images/gallery/{{ .Name }}.jpg
+featured_image: {{ .Name }}.jpg
 
 category: downloads
 tags:
@@ -14,15 +14,15 @@ tags:
 
 draft: false
 featured: false
-featured-sm: false
+pinned: false
 ---
 
 {{< img 
-    src="/images/gallery/post-xl_1.jpg" 
+    src="/images/gallery/{{ .Name }}.jpg" 
     title="Sample Image" 
-    caption="Image with title, caption, alt, ..." alt="image alt" 
+    caption="Image with title, caption, alt, ..." 
+    alt="image alt" 
     class="post-img"  
-    width="960px"
 >}}
 
 

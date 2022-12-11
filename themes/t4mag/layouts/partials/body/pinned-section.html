@@ -1,0 +1,50 @@
+<section
+	class="rt-feature-section feature-section-style-1 overflow-hidden"
+	data-bg-image="/images/elements/element_1.png"
+>
+	<div class="container">
+		<div class="row gutter-24">
+			{{ range first 4 (where (where .Site.RegularPages "Type" "in"
+			site.Params.mainSections) ".Params.pinned" "=" true) }} 
+			<div
+				class="col-xl-3 col-md-6 wow fadeInUp"
+				data-wow-delay="200ms"
+				data-wow-duration="800ms"
+			>
+				<div class="rt-post post-sm style-1">
+					<div class="post-img">
+						<a href="{{ .Page.RelPermalink }}">
+							{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+                        
+							{{ with $image }}
+							<img class="lazyload" src="{{ ( $image.Resize "100x100" ).RelPermalink }}" alt="{{ .Title }}" width="100" height="100" />
+							{{ else }}
+							<img class="lazyload"
+								src="/images/gallery/post-sm_2.jpg"
+								alt="{{ .Title }}"
+								width="100"
+								height="100"
+							/>
+							{{end}}
+						</a>
+					</div>
+					<div class="ms-4 post-content">
+						<a
+							href="{{ $.Site.BaseURL }}category/{{ .Params.category }}"
+							class="rt-post-cat-normal"
+							>{{ .Params.category }}</a
+						>
+						<h3 class="post-title">
+							<a href="{{ .Page.RelPermalink }}"> {{ .Page.Title | truncate 15 }} </a>
+						</h3>
+						
+						{{- partial "body/published-date.html" . -}}
+					</div>
+				</div>
+			</div>
+			{{ end }}
+		</div>
+		<!-- end row -->
+	</div>
+	<!-- end container -->
+</section>

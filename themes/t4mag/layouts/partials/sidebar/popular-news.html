@@ -11,10 +11,12 @@
             <div class="rt-post-grid post-grid-md popular grid-meta">
                 <div class="post-img">
                     <a href="{{ .Permalink }}">
-                        {{ with .Param "featured_image" }}
+                        {{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+                        
+                        {{ with $image }}
                         <img class="lazyload" 
-                            src="{{ . }}" 
-                            alt="{{ $.Title }}" 
+                            src="{{ ( $image.Resize "343x250" ).RelPermalink }}" 
+                            alt="{{ .Title }}" 
                             width="343"
                             height="250"
                         />
@@ -33,7 +35,7 @@
                     <h4 class="post-title">
                         <a href="{{ .Permalink }}"> {{ .Title | truncate 25 }} </a>
                     </h4>
-                    {{- partial "published-date.html" . -}}
+                    {{- partial "body/published-date.html" . -}}
                 </div>
             </div>
         </div>

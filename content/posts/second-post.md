@@ -7,12 +7,19 @@ category: code
 tags: ["bash", "linux"]
 
 featured: true
-featured-sm: true
+pinned: true
 
-featured_image: /images/gallery/post-sm_2.jpg
+featured_image: post-sm_2.jpg
 ---
 
-![image!](/images/gallery/post-xl_1.jpg)
+
+{{< img 
+    src="/images/gallery/post-xl_8.jpg" 
+    title="Sample Image" 
+    caption="Image with title, caption, alt, ..." 
+    alt="image alt" 
+    class="post-img"  
+>}}
 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum odio. A erat nam at lectus urna duis. Sed velit dignissim sodales ut eu sem. Lectus urna duis convallis convallis tellus. Diam sit amet nisl suscipit adipiscing bibendum est. Sed felis eget velit aliquet sagittis id consectetur. Vulputate dignissim suspendisse in est ante in nibh mauris cursus. Morbi quis commodo odio aenean. Mollis nunc sed id semper risus in hendrerit gravida rutrum. 

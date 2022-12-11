@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	{{- partial "head.html" . -}}
+	{{- partial "head/head.html" . -}}
 
 	<body>
 		<!-- Start wrapper -->
@@ -12,11 +12,11 @@
 			<!-- Start main-content -->
 			<div id="main_content" class="footer-fixed">
 				<!-- Header -->
-				{{- partial "header.html" . -}}
+				{{- partial "header/header.html" . -}}
 				<!-- end header -->
 
 				<!-- start rt-mobile-header -->
-				{{- partial "mobile-header.html" . -}}
+				{{- partial "header/mobile-header.html" . -}}
 				<!-- end rt-mobile-header -->
 
 				<!-- Start Main -->
@@ -24,109 +24,17 @@
 				<!-- End Main -->
 
 				<!-- Start Footer -->
-				{{- partial "footer.html" . -}}
+				{{- partial "footer/footer.html" . -}}
 				<!-- End  Footer -->
 			</div>
 			<!-- End main-content -->
 
 			<!-- Start  offcanvas menu -->
-			{{- partial "off-canvas-menu.html" . -}}
+			{{- partial "header/off-canvas-menu.html" . -}}
 			<!-- End  offcanvas menu -->
 
 			<!-- Start Cart Wrap -->
-			<div class="cart-wrap" id="cart-wrap" data-position="left">
-				<div class="cart-content">
-					<div class="cart-header">
-						<span class="cart-title d-inlie-block">Cart</span>
-						<button type="button" class="cart-menu-btn menu-close-btn">
-							<span class="menu-btn-icon">
-								<i class="fas fa-times"></i>
-							</span>
-						</button>
-					</div>
-					<ul class="cart-items">
-						<li class="d-flex">
-							<div class="item-figure">
-								<a href="#">
-									<img
-										src="media/gallery/ins-gallery_1.jpg"
-										alt="Cart"
-										width="100"
-										height="90"
-									/>
-								</a>
-								<div class="item-dismiss">
-									<a href="#"><i class="fas fa-times"></i></a>
-								</div>
-							</div>
-							<div class="item-description">
-								<span class="item-main-title"><a href="#">Animal</a></span>
-								<span class="item-amount d-flex align-items-center"
-									><span class="item-quantity">1</span>X<span class="item-price"
-										>$12.00</span
-									></span
-								>
-							</div>
-						</li>
-						<li class="d-flex">
-							<div class="item-figure">
-								<a href="#">
-									<img
-										src="media/gallery/ins-gallery_2.jpg"
-										alt="Cart"
-										width="100"
-										height="90"
-									/>
-								</a>
-								<div class="item-dismiss">
-									<a href="#"><i class="fas fa-times"></i></a>
-								</div>
-							</div>
-							<div class="item-description">
-								<span class="item-main-title"><a href="#">Sports</a></span>
-								<span class="item-amount d-flex align-items-center"
-									><span class="item-quantity">1</span>X<span class="item-price"
-										>$18.00</span
-									></span
-								>
-							</div>
-						</li>
-						<li class="d-flex">
-							<div class="item-figure">
-								<a href="#">
-									<img
-										src="media/gallery/ins-gallery_3.jpg"
-										alt="Cart"
-										width="100"
-										height="90"
-									/>
-								</a>
-								<div class="item-dismiss">
-									<a href="#"><i class="fas fa-times"></i></a>
-								</div>
-							</div>
-							<div class="item-description">
-								<span class="item-main-title"><a href="#">Fashion</a></span>
-								<span class="item-amount d-flex align-items-center"
-									><span class="item-quantity">1</span>X<span class="item-price"
-										>$20.00</span
-									></span
-								>
-							</div>
-						</li>
-					</ul>
-					<div class="cart-footer">
-						<ul class="total-amount">
-							<li class="title">Subtotal:</li>
-							<li class="amount">$50.00</li>
-						</ul>
-						<ul class="action-buttons">
-							<li><a href="#" class="rt-submit-btn">VIEW CART</a></li>
-							<li><a href="#" class="rt-submit-btn">CHECKOUT</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			{{- partial "body/cart-wrap.html" . -}}
 			<!-- End Cart Wrap -->
 
 			<!-- Start Search  -->

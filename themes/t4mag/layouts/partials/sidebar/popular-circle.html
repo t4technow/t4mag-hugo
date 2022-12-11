@@ -10,10 +10,13 @@
             <div class="rt-post post-sm style-1">
                 <div class="post-img">
                     <a href="{{ .Permalink }}">
-                        {{ with .Param "featured_image" }}
+                        
+                        {{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+                        
+                        {{ with $image }}
                         <img class="lazyload" 
-                            src="{{ . }}" 
-                            alt="{{ $.Title }}" 
+                            src="{{ ( $image.Resize "100x100" ).RelPermalink }}"
+                            alt="{{ .Title }}" 
                             width="100"
                             height="100"
                         />
@@ -34,7 +37,7 @@
                             {{ .Title | truncate 25 }}
                         </a>
                     </h4>
-                    {{- partial "published-date.html" . -}}
+                    {{- partial "body/published-date.html" . -}}
                 </div>
             </div>
         </div>
