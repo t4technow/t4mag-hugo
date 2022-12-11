@@ -9,27 +9,15 @@
                     </p>
                     <div class="rt-treding-slider1 swiper-container">
                         <div class="swiper-wrapper">
+                            {{ range ( shuffle ( where .Site.RegularPages "Type" "posts" | first 4 )) }}
                             <div class="swiper-slide">
                                 <div class="item">
                                     <p class="trending-slide-title">
-                                        newsan unknown printer took a galley of type andscrambled.
+                                        {{ .Title }}
                                     </p>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="item">
-                                    <p class="trending-slide-title">
-                                        newsan unknown printer took a galley of type andscrambled.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="item">
-                                    <p class="trending-slide-title">
-                                        newsan unknown printer took a galley of type andscrambled.
-                                    </p>
-                                </div>
-                            </div>
+                            {{ end }}
                         </div>
                     </div>
                 </div>

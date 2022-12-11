@@ -3459,7 +3459,7 @@ Modal
 	align-items: center;
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
-	justify-content: center;
+	justify-content: flex-start;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	cursor: pointer;
@@ -3761,6 +3761,7 @@ Modal
 	position: relative;
 	display: inline-block;
 	padding: 39px 6px;
+	text-transform: capitalize;
 }
 .header-main-style-5 .main-menu__nav ul li > a {
 	padding-top: 20px;
@@ -3872,7 +3873,7 @@ Modal
 	-moz-transition: all 0.3s ease;
 	-ms-transition: all 0.3s ease;
 }
-.main-menu__nav_sub > a::after {
+.main-menu__nav_sub.drop-down > a::after {
 	content: "";
 	font-family: "Font Awesome 5 Free";
 	font-weight: 600;
