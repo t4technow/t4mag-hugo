@@ -20,7 +20,9 @@
 				<!-- end rt-mobile-header -->
 
 				<!-- Start Main -->
-				<main>{{ block "main" . }} {{ end }}</main>
+				<main>{{ block "main" . }} 
+					{{ .Content }}	
+				{{ end }}</main>
 				<!-- End Main -->
 
 				<!-- Start Footer -->

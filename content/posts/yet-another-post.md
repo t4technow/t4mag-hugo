@@ -3,7 +3,7 @@ title: "Yet Another Post Coming On Your Way"
 date: 2022-12-08T12:56:53+05:30
 draft: false
 
-category: downloads
+category: software
 tags: 
     - crack
     - android

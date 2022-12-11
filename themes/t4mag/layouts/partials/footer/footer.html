@@ -21,7 +21,7 @@
 						<p class="text">
 							{{ .Site.Params.description }}
 						</p>
-						{{- partial "footer/social.html" -}}
+						{{- partial "footer/social.html" . -}}
 					</div>
 				</div>
 				<!-- end col -->
@@ -41,36 +41,7 @@
 					data-wow-duration="800ms"
 				>
 					<div class="footer-widget">
-						<h3 class="footer-widget-title">Categories</h3>
-						<ul class="widget-list cat-list">
-
-							{{ range $key, $value := .Site.Taxonomies.categories }}
-	<li><a href="{{ .Site.baseURL  }}categories/{{ $key | urlize  }}">{{ $key | humanize }}</a> ({{ len $value }})</li>
-	{{ end }}
-
-							<li class="widget-list-item">
-								<a href="politics.html" class="widget-list-link"> Politics </a>
-							</li>
-							<li class="widget-list-item">
-								<a href="politics.html" class="widget-list-link"> Business </a>
-							</li>
-							<li class="widget-list-item">
-								<a href="technology.html" class="widget-list-link">
-									Technology
-								</a>
-							</li>
-							<li class="widget-list-item">
-								<a href="life-style.html" class="widget-list-link"> Health </a>
-							</li>
-							<li class="widget-list-item">
-								<a href="life-style.html" class="widget-list-link"> Sports </a>
-							</li>
-							<li class="widget-list-item">
-								<a href="gaming.html" class="widget-list-link">
-									Entertainment
-								</a>
-							</li>
-						</ul>
+						{{- partial "footer/categories.html" . -}}
 					</div>
 				</div>
 				<!-- end col -->

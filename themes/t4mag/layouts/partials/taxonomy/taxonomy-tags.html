@@ -1,26 +1,15 @@
-{{ if and ($.Param "enableSidebarTags") (ne (len .Site.Taxonomies.tags) 0) }}
-<div class="taxo">
-    <section>
-        <span class="title p2">
-            <a href="{{ "/tags/" | relLangURL }}" class="taxo__title">
-                {{ i18n "tags"}}
-            </a>
-        </span>
-        {{ $minItemsToShowInTagCloud := $.Site.Params.minItemsToShowInTagCloud }}
-        {{ range $index, $element := .Site.Taxonomies.tags }}
-        {{ if and $index (ge (len $element) $minItemsToShowInTagCloud) }}
-            <span class="tag">
-                <a href="{{ $element.Page.RelPermalink }}" class="is-tags taxo__link" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
-                    <span class="taxo__text">
-                        {{ $element.Page.Title }}
-                    </span>
-                    <span class="taxo__num" dir="auto">
-                        {{ printf "%#v" (len $element) }}
-                    </span>
-                </a>
-            </span>
-        {{ end }}
-        {{ end }}
-    </section>
+<h2 class="rt-section-heading style-2 mb--30">
+    <span class="rt-section-text">Tags </span>
+    <span class="rt-section-dot"></span>
+    <span class="rt-section-line"></span>
+</h2>
+<div class="tag-list">
+    {{range $name, $taxonomy := .Site.Taxonomies.tags}}
+    {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
+
+        <a href={{ .RelPermalink }} title="All pages with tag <i>{{$name}}" class="tag-link">{{$name}}</a>
+    
+    {{end}}
+    {{end}}
+
 </div>
-{{ end }}

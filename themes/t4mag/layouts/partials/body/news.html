@@ -23,8 +23,7 @@
 					<div class="post-img">
 						<a href="{{ .Permalink }}">
 							{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
-                        
-                        {{ with $image }}
+							{{ with $image }}
 								<img 
 									src="{{ ( $image.Resize "696x491" ).RelPermalink }}" 
 									alt="{{ .Title }}" 
@@ -43,7 +42,7 @@
 						</a>
 					</div>
 					<div class="post-content">
-						<a href="{ $.Site.BaseURL }}category/{{ .Params.category }}" class="{{ .Params.category }}">{{ .Params.category }}</a>
+						<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="{{ .Params.category }}">{{ .Params.category }}</a>
 						<h3 class="post-title bold-underline">
 							<a href="{{ .Permalink }}">
 								{{ .Title }}

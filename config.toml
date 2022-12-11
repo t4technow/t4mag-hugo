@@ -3,6 +3,12 @@ languageCode = 'en-us'
 title = 'T4 Mag'
 theme = "t4mag"
 
+enableRobotsTXT = true
+
+[taxonomies]
+  tag = "tags"
+  category = "category"
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
@@ -18,10 +24,6 @@ theme = "t4mag"
     endLevel = 4
     ordered = false
     startLevel = 2
-
-[taxonomies]
-tag = "tags"
-category = "categories"
 
 [related]
   includeNewer = true
@@ -39,3 +41,4 @@ category = "categories"
   [[related.indices]]
   name = "date"
   weight = 10
+

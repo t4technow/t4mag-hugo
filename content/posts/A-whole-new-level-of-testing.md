@@ -11,6 +11,7 @@ tags:
     - crack
     - android
     - windows
+    - linux
 
 draft: false
 featured: false

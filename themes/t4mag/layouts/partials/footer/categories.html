@@ -1,0 +1,9 @@
+<h3 class="footer-widget-title">Categories</h3>
+<ul class="widget-list cat-list">
+	{{range ($.Site.GetPage "taxonomyTerm" "category").Pages }}
+	<li class="widget-list-item">
+		<a href="{{.Permalink}}" class="widget-list-link"> {{.Title}} </a>
+	</li>
+	{{end}}
+</ul>
+

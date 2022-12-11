@@ -3,7 +3,7 @@ title: "Another Post"
 date: 2022-12-08T12:56:47+05:30
 draft: false
 
-category: networking
+category: linux
 tags: ["web", "games"]
 
 featured: true

@@ -1,26 +1,18 @@
-{{ if and ($.Param "enableSidebarCategories") (ne (len .Site.Taxonomies.categories) 0) }}
-<div class="taxo">
-    <section>
-        <span class="title p2">
-            <a href="{{ "/categories/" | relLangURL }}" class="taxo__title">
-                {{ i18n "categories" }}
-            </a>
-        </span>
-        {{ $minItemsToShowInTagCloud := $.Site.Params.minItemsToShowInTagCloud }}
-        {{ range $index, $element := .Site.Taxonomies.categories }}
-        {{ if and $index (ge (len $element) $minItemsToShowInTagCloud) }}
-            <span class="tag">
-                <a href="{{ $element.Page.RelPermalink }}" class="is-categories taxo__link" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
-                    <span class="taxo__text">
-                        {{ $element.Page.Title }}
-                    </span>
-                    <span class="taxo__num" dir="auto">
-                        {{ printf "%#v" (len $element) }}
-                    </span>
-                </a>
-            </span>
-        {{ end }}
-        {{ end }}
-    </section>
-</div>
-{{ end }}
+<h2 class="rt-section-heading style-2 mb--30">
+    <span class="rt-section-text">Hot Categories </span>
+    <span class="rt-section-dot"></span>
+    <span class="rt-section-line"></span>
+</h2>
+<ul class="rt-categories">
+
+        
+    {{- range first 5 site.Taxonomies.category.ByCount }}
+    <li>
+        <a href="{{ .Page.RelPermalink }}" data-bg-image="/images/cat/{{- .Page.LinkTitle }}.jpg">
+            <span class="cat-name">{{- .Page.LinkTitle }}</span>
+            <span class="count">{{ .Count }}</span>
+        </a>
+    </li>
+    {{- end }}
+
+</ul>

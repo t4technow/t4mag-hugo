@@ -90,9 +90,8 @@
 											<div class="post-img">
 												<a href="{{ .Permalink }}" class="img-link">
 													{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
-                        
 													{{ with $image }}
-													<img
+													<img class="lazyload"
 														src="{{ ( $image.Resize "900x600" ).RelPermalink }}"
 														alt="{{ .Title }}"
 														width="900"
@@ -122,7 +121,7 @@
 															<span class="rt-meta">
 																by
 																<a href="author.html" class="name"
-																	>T4Technow</a
+																	>{{ .Site.Params.author }}</a
 																>
 															</span>
 														</li>
@@ -168,15 +167,14 @@
 													<div class="post-img">
 														<a href="{{ .Permalink }}">
 															{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
-                        
-                        {{ with $image }}
-															<img
+															{{ with $image }}
+															<img class="lazyload"
 																src="{{ ( $image.Resize "143x110" ).RelPermalink }}" alt="{{ .Title }}"
 																width="143"
 																height="110"
 															/>
 															{{ else }}
-															<img
+															<img class="lazyload"
 															src="/images/gallery/post-lg_2.jpg"
 															alt="{{ .Title }}"
 															width="143"

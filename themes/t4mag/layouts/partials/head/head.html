@@ -8,6 +8,18 @@
 	.Site.Title }}{{ end }}
 	<title>{{ $title }}</title>
 
+	{{- if .IsHome -}}
+  <meta name="description" content="{{ site.Params.Description }}" />
+{{- else -}}
+  <meta name="description" content="{{ .Params.Description }}" />
+{{- end }}
+
+{{- if isset .Params "canonical" -}}
+  <link rel="canonical" href="{{ .Params.canonical }}" />
+{{- else -}}
+  <link rel="canonical" href="{{ .Permalink }}" />
+{{- end }}
+
 	<!-- Favicon -->
 	<!-- <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" /> -->
 
@@ -93,5 +105,5 @@
 	<link rel="stylesheet" type="text/css" href="/css/magnific-popup.css" />
 
 	<!-- Site Stylesheet -->
-	<link rel="stylesheet" type="text/css" href="/css/master.css" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>

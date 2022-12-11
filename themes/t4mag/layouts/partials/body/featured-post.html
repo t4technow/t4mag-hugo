@@ -19,7 +19,7 @@
 							aria-controls="menu-11"
 							aria-selected="true"
 						>
-							World
+							Linux
 						</a>
 					</li>
 					<li class="menu-item" role="presentation">
@@ -32,7 +32,7 @@
 							aria-controls="menu-22"
 							aria-selected="false"
 						>
-							Travel
+							windows
 						</a>
 					</li>
 					<li class="menu-item" role="presentation">
@@ -45,7 +45,7 @@
 							aria-controls="menu-33"
 							aria-selected="false"
 						>
-							Food
+							android
 						</a>
 					</li>
 					<li class="menu-item" role="presentation">
@@ -58,7 +58,7 @@
 							aria-controls="menu-44"
 							aria-selected="false"
 						>
-							Technology</a
+							software</a
 						>
 					</li>
 				</ul>
@@ -74,23 +74,41 @@
 					aria-labelledby="menu-11-tab"
 				>
 					<div class="row gutter-24">
+						{{ $counter := 0 }}
+						{{ $v1 := where .Site.Pages "Params.category" "=" "linux" }}
+						{{ $v2 := where .Site.Pages "Params.tags" "intersect" (slice "linux") }}
+						{{ $filtered := $v1 | union $v2 }}
+						{{ range first 1 $filtered }}
+						{{ $counter = add $counter 1 }}
+						{{ if (eq $counter 1) }}
+
 						<div class="col-xl-4 col-lg-6">
 							<div class="rt-post-overlay rt-post-overlay-md">
 								<div class="post-img">
-									<a href="single-post1.html" class="img-link">
+									<a href="{{ .Permalink }}" class="img-link">
+										{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+										{{ with $image }}
 										<img class="lazyload"
-											src="/images/gallery/post-xl_3.jpg"
-											alt="post-xl-3"
+											src="{{ ( $image.Resize "900x600" ).RelPermalink }}"
+											alt="{{ .Title }}"
 											width="900"
 											height="600"
 										/>
+										{{ else }}
+										<img class="lazyload"
+											src="/images/gallery/post-lg_5.jpg"
+											alt="{{ .Title }}"
+											width="900"
+											height="600"
+										/>
+										{{ end }}
 									</a>
 								</div>
 								<div class="post-content">
-									<a href="life-style.html" class="music">Music</a>
+									<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="{{ .Params.category }}">{{ .Params.category }}</a>
 									<h3 class="post-title">
-										<a href="single-post1.html">
-											African ations Are Singing To Save Their Wildlife
+										<a href="{{ .Permalink }}">
+											{{ .Title }}
 										</a>
 									</h3>
 
@@ -99,7 +117,7 @@
 											<li>
 												<span class="rt-meta">
 													by
-													<a href="author.html" class="name">Willum Skeem</a>
+													<a href="author.html" class="name">{{ .Site.Params.author }}</a>
 												</span>
 											</li>
 											<li>
@@ -110,29 +128,46 @@
 								</div>
 							</div>
 						</div>
+
+						{{ end }}
+						{{ end }}
 						<!-- end col -->
 
 						<div class="col-xl-4 col-lg-6">
 							<div class="post-grid-md-list gutter-24">
+
+								{{ range first 5 $filtered }}
+								{{ $counter = add $counter 1 }}
+
+								{{ if and (gt $counter 2) (lt $counter 6) }}
 								<div class="item">
 									<div class="rt-post post-md style-8">
 										<div class="post-img">
-											<a href="single-post1.html">
+											<a href="{{ .Permalink }}">
+												{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+												{{ with $image }}
 												<img class="lazyload"
-													src="/images/gallery/post-md_4.jpg"
-													alt="post"
+													src="{{ ( $image.Resize "343x250" ).RelPermalink }}" alt="{{ .Title }}"
 													width="343"
 													height="250"
 												/>
+												{{ else }}
+												<img class="lazyload"
+												src="/images/gallery/post-lg_2.jpg"
+												alt="{{ .Title }}"
+												width="343"
+												height="250"
+											/>
+											{{ end }}
 											</a>
 										</div>
 										<div class="post-content">
-											<a href="technology.html" class="rt-post-cat-normal"
-												>Technology</a
+											<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="rt-post-cat-normal"
+												>{{ .Params.category }}</a
 											>
 											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
+												<a href="{{ .Permalink }}">
+													{{ .Title }}
 												</a>
 											</h4>
 											{{- partial "body/published-date.html" . -}}
@@ -140,59 +175,9 @@
 									</div>
 								</div>
 								<!-- end rt-post post-md item -->
-
-								<div class="item">
-									<div class="rt-post post-md style-8">
-										<div class="post-img">
-											<a href="single-post1.html">
-												<img class="lazyload"
-													src="/images/gallery/post-grid-md_7.jpg"
-													alt="post"
-													width="343"
-													height="250"
-												/>
-											</a>
-										</div>
-										<div class="post-content">
-											<a href="life-style.html" class="rt-post-cat-normal"
-												>Travel</a
-											>
-											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
-												</a>
-											</h4>
-											{{- partial "body/published-date.html" . -}}
-										</div>
-									</div>
-								</div>
-								<!-- end rt-post post-md item -->
-
-								<div class="item">
-									<div class="rt-post post-md style-8">
-										<div class="post-img">
-											<a href="single-post1.html">
-												<img class="lazyload"
-													src="/images/gallery/post-grid-md_8.jpg"
-													alt="post"
-													width="343"
-													height="250"
-												/>
-											</a>
-										</div>
-										<div class="post-content">
-											<a href="life-style.html" class="rt-post-cat-normal"
-												>Food</a
-											>
-											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
-												</a>
-											</h4>
-											{{- partial "body/published-date.html" . -}}
-										</div>
-									</div>
-								</div>
+								{{ end }}
+								{{ end }}
+								
 								<!-- end rt-post post-md item -->
 							</div>
 							<!-- end post grid md list -->
@@ -201,79 +186,39 @@
 
 						<div class="col-xl-4 col-lg-6">
 							<div class="post-grid-md-list gutter-24">
-								<div class="item">
-									<div class="rt-post post-md style-8">
-										<div class="post-img">
-											<a href="single-post1.html">
-												<img class="lazyload"
-													src="/images/gallery/post-grid-md_9.jpg"
-													alt="post"
-													width="343"
-													height="250"
-												/>
-											</a>
-										</div>
-										<div class="post-content">
-											<a href="life-style.html" class="rt-post-cat-normal"
-												>Travel</a
-											>
-											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
-												</a>
-											</h4>
-											{{- partial "body/published-date.html" . -}}
-										</div>
-									</div>
-								</div>
-								<!-- end rt-post post-md item -->
 
-								<div class="item">
-									<div class="rt-post post-md style-8">
-										<div class="post-img">
-											<a href="single-post1.html">
-												<img class="lazyload"
-													src="/images/gallery/post-grid-md_10.jpg"
-													alt="post"
-													width="343"
-													height="250"
-												/>
-											</a>
-										</div>
-										<div class="post-content">
-											<a href="technology.html" class="rt-post-cat-normal"
-												>Technology</a
-											>
-											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
-												</a>
-											</h4>
-											{{- partial "body/published-date.html" . -}}
-										</div>
-									</div>
-								</div>
-								<!-- end rt-post post-md item -->
+								{{ range first 9 $filtered }}
+								{{ $counter = add $counter 1 }}
 
+								{{ if and (gt $counter 6) (lt $counter 9) }}
 								<div class="item">
 									<div class="rt-post post-md style-8">
 										<div class="post-img">
-											<a href="single-post1.html">
+											<a href="{{ .Permalink }}">
+												{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+												{{ with $image }}
 												<img class="lazyload"
-													src="/images/gallery/post-grid-md_11.jpg"
-													alt="post"
+													src="{{ ( $image.Resize "343x250" ).RelPermalink }}" alt="{{ .Title }}"
 													width="343"
 													height="250"
 												/>
+												{{ else }}
+												<img class="lazyload"
+												src="/images/gallery/post-lg_2.jpg"
+												alt="{{ .Title }}"
+												width="343"
+												height="250"
+											/>
+											{{ end }}
 											</a>
 										</div>
 										<div class="post-content">
-											<a href="life-style.html" class="rt-post-cat-normal"
-												>World</a
+											<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="rt-post-cat-normal"
+												>{{ .Params.category }}</a
 											>
 											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
+												<a href="{{ .Permalink }}">
+													{{ .Title }}
 												</a>
 											</h4>
 											{{- partial "body/published-date.html" . -}}
@@ -281,6 +226,8 @@
 									</div>
 								</div>
 								<!-- end rt-post post-md item -->
+								{{ end }}
+								{{ end }}
 							</div>
 							<!-- end post grid md list -->
 						</div>
@@ -297,22 +244,41 @@
 					aria-labelledby="menu-22-tab"
 				>
 					<div class="row gutter-24">
+						{{ $counter := 0 }}
+						{{ $v1 := where .Site.Pages "Params.category" "=" "windows" }}
+						{{ $v2 := where .Site.Pages "Params.tags" "intersect" (slice "windows") }}
+						{{ $filtered := $v1 | union $v2 }}
+						{{ range first 1 $filtered }}
+						{{ $counter = add $counter 1 }}
+						{{ if (eq $counter 1) }}
+
 						<div class="col-xl-4 col-lg-6">
 							<div class="rt-post-overlay rt-post-overlay-md">
 								<div class="post-img">
-									<a href="single-post1.html" class="img-link">
+									<a href="{{ .Permalink }}" class="img-link">
+										{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+										{{ with $image }}
 										<img class="lazyload"
-											src="/images/gallery/post-xl_3.jpg"
-											alt="post-xl-3"
+											src="{{ ( $image.Resize "900x600" ).RelPermalink }}"
+											alt="{{ .Title }}"
 											width="900"
 											height="600"
 										/>
+										{{ else }}
+										<img class="lazyload"
+											src="/images/gallery/post-lg_5.jpg"
+											alt="{{ .Title }}"
+											width="900"
+											height="600"
+										/>
+										{{ end }}
 									</a>
 								</div>
 								<div class="post-content">
+									<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="{{ .Params.category }}">{{ .Params.category }}</a>
 									<h3 class="post-title">
-										<a href="single-post1.html">
-											African ations Are Singing To Save Their Wildlife
+										<a href="{{ .Permalink }}">
+											{{ .Title }}
 										</a>
 									</h3>
 
@@ -321,43 +287,57 @@
 											<li>
 												<span class="rt-meta">
 													by
-													<a href="author.html" class="name">Willum Skeem</a>
+													<a href="author.html" class="name">{{ .Site.Params.author }}</a>
 												</span>
 											</li>
 											<li>
-												<span class="rt-meta">
-													<i class="far fa-calendar-alt icon"></i>
-													DECEMBER 9, 2022
-												</span>
+												{{- partial "body/published-date.html" . -}}
 											</li>
 										</ul>
 									</div>
 								</div>
 							</div>
 						</div>
+
+						{{ end }}
+						{{ end }}
 						<!-- end col -->
 
 						<div class="col-xl-4 col-lg-6">
 							<div class="post-grid-md-list gutter-24">
+
+								{{ range first 5 $filtered }}
+								{{ $counter = add $counter 1 }}
+
+								{{ if and (gt $counter 2) (lt $counter 6) }}
 								<div class="item">
 									<div class="rt-post post-md style-8">
 										<div class="post-img">
-											<a href="single-post1.html">
+											<a href="{{ .Permalink }}">
+												{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+												{{ with $image }}
 												<img class="lazyload"
-													src="/images/gallery/post-md_4.jpg"
-													alt="post"
+													src="{{ ( $image.Resize "343x250" ).RelPermalink }}" alt="{{ .Title }}"
 													width="343"
 													height="250"
 												/>
+												{{ else }}
+												<img class="lazyload"
+												src="/images/gallery/post-lg_2.jpg"
+												alt="{{ .Title }}"
+												width="343"
+												height="250"
+											/>
+											{{ end }}
 											</a>
 										</div>
 										<div class="post-content">
-											<a href="technology.html" class="rt-post-cat-normal"
-												>Technology</a
+											<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="rt-post-cat-normal"
+												>{{ .Params.category }}</a
 											>
 											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
+												<a href="{{ .Permalink }}">
+													{{ .Title }}
 												</a>
 											</h4>
 											{{- partial "body/published-date.html" . -}}
@@ -365,59 +345,9 @@
 									</div>
 								</div>
 								<!-- end rt-post post-md item -->
-
-								<div class="item">
-									<div class="rt-post post-md style-8">
-										<div class="post-img">
-											<a href="single-post1.html">
-												<img class="lazyload"
-													src="/images/gallery/post-grid-md_7.jpg"
-													alt="post"
-													width="343"
-													height="250"
-												/>
-											</a>
-										</div>
-										<div class="post-content">
-											<a href="life-style.html" class="rt-post-cat-normal"
-												>Travel</a
-											>
-											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
-												</a>
-											</h4>
-											{{- partial "body/published-date.html" . -}}
-										</div>
-									</div>
-								</div>
-								<!-- end rt-post post-md item -->
-
-								<div class="item">
-									<div class="rt-post post-md style-8">
-										<div class="post-img">
-											<a href="single-post1.html">
-												<img class="lazyload"
-													src="/images/gallery/post-grid-md_8.jpg"
-													alt="post"
-													width="343"
-													height="250"
-												/>
-											</a>
-										</div>
-										<div class="post-content">
-											<a href="life-style.html" class="rt-post-cat-normal"
-												>Food</a
-											>
-											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
-												</a>
-											</h4>
-											{{- partial "body/published-date.html" . -}}
-										</div>
-									</div>
-								</div>
+								{{ end }}
+								{{ end }}
+								
 								<!-- end rt-post post-md item -->
 							</div>
 							<!-- end post grid md list -->
@@ -426,79 +356,39 @@
 
 						<div class="col-xl-4 col-lg-6">
 							<div class="post-grid-md-list gutter-24">
-								<div class="item">
-									<div class="rt-post post-md style-8">
-										<div class="post-img">
-											<a href="single-post1.html">
-												<img class="lazyload"
-													src="/images/gallery/post-grid-md_9.jpg"
-													alt="post"
-													width="343"
-													height="250"
-												/>
-											</a>
-										</div>
-										<div class="post-content">
-											<a href="life-style.html" class="rt-post-cat-normal"
-												>Travel</a
-											>
-											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
-												</a>
-											</h4>
-											{{- partial "body/published-date.html" . -}}
-										</div>
-									</div>
-								</div>
-								<!-- end rt-post post-md item -->
 
-								<div class="item">
-									<div class="rt-post post-md style-8">
-										<div class="post-img">
-											<a href="single-post1.html">
-												<img class="lazyload"
-													src="/images/gallery/post-grid-md_10.jpg"
-													alt="post"
-													width="343"
-													height="250"
-												/>
-											</a>
-										</div>
-										<div class="post-content">
-											<a href="technology.html" class="rt-post-cat-normal"
-												>Technology</a
-											>
-											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
-												</a>
-											</h4>
-											{{- partial "body/published-date.html" . -}}
-										</div>
-									</div>
-								</div>
-								<!-- end rt-post post-md item -->
+								{{ range first 10 $filtered }}
+								{{ $counter = add $counter 1 }}
 
+								{{ if and (gt $counter 6) (lt $counter 10) }}
 								<div class="item">
 									<div class="rt-post post-md style-8">
 										<div class="post-img">
-											<a href="single-post1.html">
+											<a href="{{ .Permalink }}">
+												{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+												{{ with $image }}
 												<img class="lazyload"
-													src="/images/gallery/post-grid-md_11.jpg"
-													alt="post"
+													src="{{ ( $image.Resize "343x250" ).RelPermalink }}" alt="{{ .Title }}"
 													width="343"
 													height="250"
 												/>
+												{{ else }}
+												<img class="lazyload"
+												src="/images/gallery/post-lg_2.jpg"
+												alt="{{ .Title }}"
+												width="343"
+												height="250"
+											/>
+											{{ end }}
 											</a>
 										</div>
 										<div class="post-content">
-											<a href="life-style.html" class="rt-post-cat-normal"
-												>World</a
+											<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="rt-post-cat-normal"
+												>{{ .Params.category }}</a
 											>
 											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
+												<a href="{{ .Permalink }}">
+													{{ .Title }}
 												</a>
 											</h4>
 											{{- partial "body/published-date.html" . -}}
@@ -506,6 +396,8 @@
 									</div>
 								</div>
 								<!-- end rt-post post-md item -->
+								{{ end }}
+								{{ end }}
 							</div>
 							<!-- end post grid md list -->
 						</div>
@@ -522,23 +414,41 @@
 					aria-labelledby="menu-33-tab"
 				>
 					<div class="row gutter-24">
+						{{ $counter := 0 }}
+						{{ $v1 := where .Site.Pages "Params.category" "=" "android" }}
+						{{ $v2 := where .Site.Pages "Params.tags" "intersect" (slice "android") }}
+						{{ $filtered := $v1 | union $v2 }}
+						{{ range first 1 $filtered }}
+						{{ $counter = add $counter 1 }}
+						{{ if (eq $counter 1) }}
+
 						<div class="col-xl-4 col-lg-6">
 							<div class="rt-post-overlay rt-post-overlay-md">
 								<div class="post-img">
-									<a href="single-post1.html" class="img-link">
+									<a href="{{ .Permalink }}" class="img-link">
+										{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+										{{ with $image }}
 										<img class="lazyload"
-											src="/images/gallery/post-xl_3.jpg"
-											alt="post-xl-3"
+											src="{{ ( $image.Resize "900x600" ).RelPermalink }}"
+											alt="{{ .Title }}"
 											width="900"
 											height="600"
 										/>
+										{{ else }}
+										<img class="lazyload"
+											src="/images/gallery/post-lg_5.jpg"
+											alt="{{ .Title }}"
+											width="900"
+											height="600"
+										/>
+										{{ end }}
 									</a>
 								</div>
 								<div class="post-content">
-									<a href="life-style.html" class="music">Music</a>
+									<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="{{ .Params.category }}">{{ .Params.category }}</a>
 									<h3 class="post-title">
-										<a href="single-post1.html">
-											African ations Are Singing To Save Their Wildlife
+										<a href="{{ .Permalink }}">
+											{{ .Title }}
 										</a>
 									</h3>
 
@@ -547,43 +457,57 @@
 											<li>
 												<span class="rt-meta">
 													by
-													<a href="author.html" class="name">Willum Skeem</a>
+													<a href="author.html" class="name">{{ .Site.Params.author }}</a>
 												</span>
 											</li>
 											<li>
-												<span class="rt-meta">
-													<i class="far fa-calendar-alt icon"></i>
-													DECEMBER 9, 2022
-												</span>
+												{{- partial "body/published-date.html" . -}}
 											</li>
 										</ul>
 									</div>
 								</div>
 							</div>
 						</div>
+
+						{{ end }}
+						{{ end }}
 						<!-- end col -->
 
 						<div class="col-xl-4 col-lg-6">
 							<div class="post-grid-md-list gutter-24">
+
+								{{ range first 5 $filtered }}
+								{{ $counter = add $counter 1 }}
+
+								{{ if and (gt $counter 2) (lt $counter 6) }}
 								<div class="item">
 									<div class="rt-post post-md style-8">
 										<div class="post-img">
-											<a href="single-post1.html">
+											<a href="{{ .Permalink }}">
+												{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+												{{ with $image }}
 												<img class="lazyload"
-													src="/images/gallery/post-md_4.jpg"
-													alt="post"
+													src="{{ ( $image.Resize "343x250" ).RelPermalink }}" alt="{{ .Title }}"
 													width="343"
 													height="250"
 												/>
+												{{ else }}
+												<img class="lazyload"
+												src="/images/gallery/post-lg_2.jpg"
+												alt="{{ .Title }}"
+												width="343"
+												height="250"
+											/>
+											{{ end }}
 											</a>
 										</div>
 										<div class="post-content">
-											<a href="technology.html" class="rt-post-cat-normal"
-												>Technology</a
+											<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="rt-post-cat-normal"
+												>{{ .Params.category }}</a
 											>
 											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
+												<a href="{{ .Permalink }}">
+													{{ .Title }}
 												</a>
 											</h4>
 											{{- partial "body/published-date.html" . -}}
@@ -591,59 +515,9 @@
 									</div>
 								</div>
 								<!-- end rt-post post-md item -->
-
-								<div class="item">
-									<div class="rt-post post-md style-8">
-										<div class="post-img">
-											<a href="single-post1.html">
-												<img class="lazyload"
-													src="/images/gallery/post-grid-md_7.jpg"
-													alt="post"
-													width="343"
-													height="250"
-												/>
-											</a>
-										</div>
-										<div class="post-content">
-											<a href="life-style.html" class="rt-post-cat-normal"
-												>Travel</a
-											>
-											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
-												</a>
-											</h4>
-											{{- partial "body/published-date.html" . -}}
-										</div>
-									</div>
-								</div>
-								<!-- end rt-post post-md item -->
-
-								<div class="item">
-									<div class="rt-post post-md style-8">
-										<div class="post-img">
-											<a href="single-post1.html">
-												<img class="lazyload"
-													src="/images/gallery/post-grid-md_8.jpg"
-													alt="post"
-													width="343"
-													height="250"
-												/>
-											</a>
-										</div>
-										<div class="post-content">
-											<a href="life-style.html" class="rt-post-cat-normal"
-												>Food</a
-											>
-											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
-												</a>
-											</h4>
-											{{- partial "body/published-date.html" . -}}
-										</div>
-									</div>
-								</div>
+								{{ end }}
+								{{ end }}
+								
 								<!-- end rt-post post-md item -->
 							</div>
 							<!-- end post grid md list -->
@@ -652,79 +526,39 @@
 
 						<div class="col-xl-4 col-lg-6">
 							<div class="post-grid-md-list gutter-24">
-								<div class="item">
-									<div class="rt-post post-md style-8">
-										<div class="post-img">
-											<a href="single-post1.html">
-												<img class="lazyload"
-													src="/images/gallery/post-grid-md_9.jpg"
-													alt="post"
-													width="343"
-													height="250"
-												/>
-											</a>
-										</div>
-										<div class="post-content">
-											<a href="life-style.html" class="rt-post-cat-normal"
-												>Travel</a
-											>
-											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
-												</a>
-											</h4>
-											{{- partial "body/published-date.html" . -}}
-										</div>
-									</div>
-								</div>
-								<!-- end rt-post post-md item -->
 
-								<div class="item">
-									<div class="rt-post post-md style-8">
-										<div class="post-img">
-											<a href="single-post1.html">
-												<img class="lazyload"
-													src="/images/gallery/post-grid-md_10.jpg"
-													alt="post"
-													width="343"
-													height="250"
-												/>
-											</a>
-										</div>
-										<div class="post-content">
-											<a href="technology.html" class="rt-post-cat-normal"
-												>Technology</a
-											>
-											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
-												</a>
-											</h4>
-											{{- partial "body/published-date.html" . -}}
-										</div>
-									</div>
-								</div>
-								<!-- end rt-post post-md item -->
+								{{ range first 10 $filtered }}
+								{{ $counter = add $counter 1 }}
 
+								{{ if and (gt $counter 6) (lt $counter 10) }}
 								<div class="item">
 									<div class="rt-post post-md style-8">
 										<div class="post-img">
-											<a href="single-post1.html">
+											<a href="{{ .Permalink }}">
+												{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+												{{ with $image }}
 												<img class="lazyload"
-													src="/images/gallery/post-grid-md_11.jpg"
-													alt="post"
+													src="{{ ( $image.Resize "343x250" ).RelPermalink }}" alt="{{ .Title }}"
 													width="343"
 													height="250"
 												/>
+												{{ else }}
+												<img class="lazyload"
+												src="/images/gallery/post-lg_2.jpg"
+												alt="{{ .Title }}"
+												width="343"
+												height="250"
+											/>
+											{{ end }}
 											</a>
 										</div>
 										<div class="post-content">
-											<a href="life-style.html" class="rt-post-cat-normal"
-												>World</a
+											<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="rt-post-cat-normal"
+												>{{ .Params.category }}</a
 											>
 											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
+												<a href="{{ .Permalink }}">
+													{{ .Title }}
 												</a>
 											</h4>
 											{{- partial "body/published-date.html" . -}}
@@ -732,6 +566,8 @@
 									</div>
 								</div>
 								<!-- end rt-post post-md item -->
+								{{ end }}
+								{{ end }}
 							</div>
 							<!-- end post grid md list -->
 						</div>
@@ -748,23 +584,41 @@
 					aria-labelledby="menu-44-tab"
 				>
 					<div class="row gutter-24">
+						{{ $counter := 0 }}
+						{{ $v1 := where .Site.Pages "Params.category" "=" "software" }}
+						{{ $v2 := where .Site.Pages "Params.tags" "intersect" (slice "software") }}
+						{{ $filtered := $v1 | union $v2 }}
+						{{ range first 1 $filtered }}
+						{{ $counter = add $counter 1 }}
+						{{ if (eq $counter 1) }}
+
 						<div class="col-xl-4 col-lg-6">
 							<div class="rt-post-overlay rt-post-overlay-md">
 								<div class="post-img">
-									<a href="single-post1.html" class="img-link">
+									<a href="{{ .Permalink }}" class="img-link">
+										{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+										{{ with $image }}
 										<img class="lazyload"
-											src="/images/gallery/post-xl_3.jpg"
-											alt="post-xl-3"
+											src="{{ ( $image.Resize "900x600" ).RelPermalink }}"
+											alt="{{ .Title }}"
 											width="900"
 											height="600"
 										/>
+										{{ else }}
+										<img class="lazyload"
+											src="/images/gallery/post-lg_5.jpg"
+											alt="{{ .Title }}"
+											width="900"
+											height="600"
+										/>
+										{{ end }}
 									</a>
 								</div>
 								<div class="post-content">
-									<a href="life-style.html" class="music">Music</a>
+									<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="{{ .Params.category }}">{{ .Params.category }}</a>
 									<h3 class="post-title">
-										<a href="single-post1.html">
-											African ations Are Singing To Save Their Wildlife
+										<a href="{{ .Permalink }}">
+											{{ .Title }}
 										</a>
 									</h3>
 
@@ -773,43 +627,57 @@
 											<li>
 												<span class="rt-meta">
 													by
-													<a href="author.html" class="name">Willum Skeem</a>
+													<a href="author.html" class="name">{{ .Site.Params.author }}</a>
 												</span>
 											</li>
 											<li>
-												<span class="rt-meta">
-													<i class="far fa-calendar-alt icon"></i>
-													DECEMBER 9, 2022
-												</span>
+												{{- partial "body/published-date.html" . -}}
 											</li>
 										</ul>
 									</div>
 								</div>
 							</div>
 						</div>
+
+						{{ end }}
+						{{ end }}
 						<!-- end col -->
 
 						<div class="col-xl-4 col-lg-6">
 							<div class="post-grid-md-list gutter-24">
+
+								{{ range first 5 $filtered }}
+								{{ $counter = add $counter 1 }}
+
+								{{ if and (gt $counter 2) (lt $counter 6) }}
 								<div class="item">
 									<div class="rt-post post-md style-8">
 										<div class="post-img">
-											<a href="single-post1.html">
+											<a href="{{ .Permalink }}">
+												{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+												{{ with $image }}
 												<img class="lazyload"
-													src="/images/gallery/post-md_4.jpg"
-													alt="post"
+													src="{{ ( $image.Resize "343x250" ).RelPermalink }}" alt="{{ .Title }}"
 													width="343"
 													height="250"
 												/>
+												{{ else }}
+												<img class="lazyload"
+												src="/images/gallery/post-lg_2.jpg"
+												alt="{{ .Title }}"
+												width="343"
+												height="250"
+											/>
+											{{ end }}
 											</a>
 										</div>
 										<div class="post-content">
-											<a href="technology.html" class="rt-post-cat-normal"
-												>Technology</a
+											<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="rt-post-cat-normal"
+												>{{ .Params.category }}</a
 											>
 											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
+												<a href="{{ .Permalink }}">
+													{{ .Title }}
 												</a>
 											</h4>
 											{{- partial "body/published-date.html" . -}}
@@ -817,59 +685,9 @@
 									</div>
 								</div>
 								<!-- end rt-post post-md item -->
-
-								<div class="item">
-									<div class="rt-post post-md style-8">
-										<div class="post-img">
-											<a href="single-post1.html">
-												<img class="lazyload"
-													src="/images/gallery/post-grid-md_7.jpg"
-													alt="post"
-													width="343"
-													height="250"
-												/>
-											</a>
-										</div>
-										<div class="post-content">
-											<a href="life-style.html" class="rt-post-cat-normal"
-												>Travel</a
-											>
-											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
-												</a>
-											</h4>
-											{{- partial "body/published-date.html" . -}}
-										</div>
-									</div>
-								</div>
-								<!-- end rt-post post-md item -->
-
-								<div class="item">
-									<div class="rt-post post-md style-8">
-										<div class="post-img">
-											<a href="single-post1.html">
-												<img class="lazyload"
-													src="/images/gallery/post-grid-md_8.jpg"
-													alt="post"
-													width="343"
-													height="250"
-												/>
-											</a>
-										</div>
-										<div class="post-content">
-											<a href="life-style.html" class="rt-post-cat-normal"
-												>Food</a
-											>
-											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
-												</a>
-											</h4>
-											{{- partial "body/published-date.html" . -}}
-										</div>
-									</div>
-								</div>
+								{{ end }}
+								{{ end }}
+								
 								<!-- end rt-post post-md item -->
 							</div>
 							<!-- end post grid md list -->
@@ -878,79 +696,39 @@
 
 						<div class="col-xl-4 col-lg-6">
 							<div class="post-grid-md-list gutter-24">
-								<div class="item">
-									<div class="rt-post post-md style-8">
-										<div class="post-img">
-											<a href="single-post1.html">
-												<img class="lazyload"
-													src="/images/gallery/post-grid-md_9.jpg"
-													alt="post"
-													width="343"
-													height="250"
-												/>
-											</a>
-										</div>
-										<div class="post-content">
-											<a href="life-style.html" class="rt-post-cat-normal"
-												>Travel</a
-											>
-											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
-												</a>
-											</h4>
-											{{- partial "body/published-date.html" . -}}
-										</div>
-									</div>
-								</div>
-								<!-- end rt-post post-md item -->
 
-								<div class="item">
-									<div class="rt-post post-md style-8">
-										<div class="post-img">
-											<a href="single-post1.html">
-												<img class="lazyload"
-													src="/images/gallery/post-grid-md_10.jpg"
-													alt="post"
-													width="343"
-													height="250"
-												/>
-											</a>
-										</div>
-										<div class="post-content">
-											<a href="technology.html" class="rt-post-cat-normal"
-												>Technology</a
-											>
-											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
-												</a>
-											</h4>
-											{{- partial "body/published-date.html" . -}}
-										</div>
-									</div>
-								</div>
-								<!-- end rt-post post-md item -->
+								{{ range first 10 $filtered }}
+								{{ $counter = add $counter 1 }}
 
+								{{ if and (gt $counter 6) (lt $counter 10) }}
 								<div class="item">
 									<div class="rt-post post-md style-8">
 										<div class="post-img">
-											<a href="single-post1.html">
+											<a href="{{ .Permalink }}">
+												{{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+												{{ with $image }}
 												<img class="lazyload"
-													src="/images/gallery/post-grid-md_11.jpg"
-													alt="post"
+													src="{{ ( $image.Resize "343x250" ).RelPermalink }}" alt="{{ .Title }}"
 													width="343"
 													height="250"
 												/>
+												{{ else }}
+												<img class="lazyload"
+												src="/images/gallery/post-lg_2.jpg"
+												alt="{{ .Title }}"
+												width="343"
+												height="250"
+											/>
+											{{ end }}
 											</a>
 										</div>
 										<div class="post-content">
-											<a href="life-style.html" class="rt-post-cat-normal"
-												>World</a
+											<a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="rt-post-cat-normal"
+												>{{ .Params.category }}</a
 											>
 											<h4 class="post-title">
-												<a href="single-post1.html">
-													After Moon They Land CloseSpace Really?
+												<a href="{{ .Permalink }}">
+													{{ .Title }}
 												</a>
 											</h4>
 											{{- partial "body/published-date.html" . -}}
@@ -958,6 +736,8 @@
 									</div>
 								</div>
 								<!-- end rt-post post-md item -->
+								{{ end }}
+								{{ end }}
 							</div>
 							<!-- end post grid md list -->
 						</div>

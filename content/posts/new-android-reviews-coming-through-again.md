@@ -7,7 +7,10 @@ url: /new-android-reviews-coming-through-again/
 featured_image: post-lg_2.jpg
 
 category: android
-tags: ["windows", "software"]
+tags:
+    - windows
+    - software
+    - linux
 
 featured: false
 pinned: false

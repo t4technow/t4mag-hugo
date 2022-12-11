@@ -6,7 +6,7 @@ url: /revive-windows/
 
 featured_image: revive-windows.jpg
 
-category: downloads
+category: software
 tags:
     - crack
     - android

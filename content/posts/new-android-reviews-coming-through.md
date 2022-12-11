@@ -6,7 +6,7 @@ url: /new-android-reviews-coming-through/
 
 featured_image: post-lg_5.jpg
 
-category: software
+category: linux
 tags: ["windows", "android"]
 
 featured: true

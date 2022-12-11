@@ -3,7 +3,7 @@ title: "Second Post"
 date: 2022-12-08T12:56:39+05:30
 draft: false
 
-category: code
+category: linux
 tags: ["bash", "linux"]
 
 featured: true

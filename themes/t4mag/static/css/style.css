@@ -1295,7 +1295,7 @@ section,
 .tr-america,
 .tr-asia,
 .tr-europe,
-.basketball,
+.android,
 .sports,
 .swimming,
 .animations,
@@ -1303,18 +1303,18 @@ section,
 .politics,
 .cycling,
 .fighter,
-.animal,
+.windows,
 .racing,
-.travel,
+.networking,
 .mission,
-.technology,
+.linux,
 .football,
 .action,
-.food,
-.world,
+.games,
+.software,
 .ragbi,
-.fashion-black,
-.fashion,
+.downloads-black,
+.downloads,
 .life-style,
 .tennis,
 .rt-cat-primary {
@@ -1341,7 +1341,7 @@ section,
 .tr-america:hover,
 .tr-asia:hover,
 .tr-europe:hover,
-.basketball:hover,
+.android:hover,
 .sports:hover,
 .swimming:hover,
 .animations:hover,
@@ -1349,18 +1349,18 @@ section,
 .politics:hover,
 .cycling:hover,
 .fighter:hover,
-.animal:hover,
+.windows:hover,
 .racing:hover,
-.travel:hover,
+.networking:hover,
 .mission:hover,
-.technology:hover,
+.linux:hover,
 .football:hover,
 .action:hover,
-.food:hover,
-.world:hover,
+.games:hover,
+.software:hover,
 .ragbi:hover,
-.fashion-black:hover,
-.fashion:hover,
+.downloads-black:hover,
+.downloads:hover,
 .life-style:hover,
 .tennis:hover,
 .rt-cat-primary:hover {
@@ -1378,7 +1378,7 @@ section,
 [data-theme="dark"] .tr-america,
 [data-theme="dark"] .tr-asia,
 [data-theme="dark"] .tr-europe,
-[data-theme="dark"] .basketball,
+[data-theme="dark"] .android,
 [data-theme="dark"] .sports,
 [data-theme="dark"] .swimming,
 [data-theme="dark"] .animations,
@@ -1386,18 +1386,18 @@ section,
 [data-theme="dark"] .politics,
 [data-theme="dark"] .cycling,
 [data-theme="dark"] .fighter,
-[data-theme="dark"] .animal,
+[data-theme="dark"] .windows,
 [data-theme="dark"] .racing,
-[data-theme="dark"] .travel,
+[data-theme="dark"] .networking,
 [data-theme="dark"] .mission,
-[data-theme="dark"] .technology,
+[data-theme="dark"] .linux,
 [data-theme="dark"] .football,
 [data-theme="dark"] .action,
-[data-theme="dark"] .food,
-[data-theme="dark"] .world,
+[data-theme="dark"] .games,
+[data-theme="dark"] .software,
 [data-theme="dark"] .ragbi,
-[data-theme="dark"] .fashion-black,
-[data-theme="dark"] .fashion,
+[data-theme="dark"] .downloads-black,
+[data-theme="dark"] .downloads,
 [data-theme="dark"] .life-style,
 [data-theme="dark"] .tennis,
 [data-theme="dark"] .rt-cat-primary {
@@ -1408,39 +1408,39 @@ section,
 	background-color: var(--color-primary);
 }
 
-.fashion,
+.downloads,
 .life-style,
 .tennis {
 	background-color: #ff3385;
 }
 
-.fashion-black {
+.downloads-black {
 	background-color: var(--color-black);
 }
-[data-theme="dark"] .fashion-black {
+[data-theme="dark"] .downloads-black {
 	color: #fff;
 	background-color: var(--color-primary);
 }
 
 .action,
-.food,
-.world,
+.games,
+.software,
 .ragbi {
 	background-color: #ffaf25;
 }
 
 .mission,
-.technology,
+.linux,
 .football {
 	background-color: #0073ff;
 }
 
 .racing,
-.travel {
+.networking {
 	background-color: #ff3d00;
 }
 
-.animal {
+.windows {
 	background-color: #678c9d;
 }
 
@@ -1463,7 +1463,7 @@ section,
 	background-color: #00a651;
 }
 
-.basketball {
+.android {
 	background-color: #7747ff;
 }
 
@@ -3153,7 +3153,7 @@ Modal
 // pre-loader
 =====================================*/
 #preloader {
-	background: url("../images/t4_intro.gif") rgba(0, 0, 0, 1) no-repeat scroll
+	background: url("../../images/t4_intro.gif") rgba(0, 0, 0, 1) no-repeat scroll
 		center center;
 	height: 100%;
 	left: 0;
@@ -5710,6 +5710,14 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 	content: counter(post-counter);
 	font-weight: 500;
 }
+
+.post-sm.style-2 .post-img img{
+	height: 112px;
+	width: 145px;
+	object-position: center;
+    object-fit: cover;
+}
+
 .whats-new-wrap .post-sm.style-2 .post-img::after {
 	background-color: var(--color-black);
 	color: var(--color-white);
@@ -6504,6 +6512,8 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 .post-md.style-10 .post-img {
 	min-width: 180px;
 	max-width: 180px;
+	min-height: 156px;
+	max-height: 156px;
 }
 .post-md.style-10 .post-img > a:first-of-type {
 	width: 100%;
@@ -6667,6 +6677,17 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 	-moz-transition: all 0.8s ease;
 	-ms-transition: all 0.8s ease;
 }
+
+.rt-post-grid:not(.popular) .post-img img{
+	min-height:220px;
+	height: 239.13px;
+}
+
+.rt-post-grid.popular .post-img img{
+	min-height:110px;
+	height: 110px;
+}
+
 .rt-post-grid .post-img .rt-meta-over {
 	position: absolute;
 	left: 20px;
@@ -7285,7 +7306,7 @@ video {
 	border-radius: var(--border-radius-xs);
 }
 .rt-main-post-single .post-body > p:first-child {
-	float: left;
+	/* float: left; */
 }
 .rt-main-post-single .post-body > p:first-child::first-letter {
 	font-size: 60px;
@@ -8469,8 +8490,9 @@ video {
 }
 .rt-categories .count {
 	font-size: 0.875rem;
-	color: var(--color-body);
-	background-color: var(--color-white);
+	color: var(--color-body-bg);
+	background-color: rgba(255,255,255,0.1);
+	backdrop-filter: blur(6px);
 	display: -webkit-inline-box;
 	display: -ms-inline-flexbox;
 	display: inline-flex;
@@ -11557,7 +11579,6 @@ video {
 		display: none;
 	}
 }
-
 
 .rt-main-post-single .post-body p {
 	text-align: justify;
