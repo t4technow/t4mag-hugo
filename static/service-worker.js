@@ -7,6 +7,7 @@ self.addEventListener("install", (event) => {
       .then((cache) => {
         return cache.addAll([
           "./",
+          "/404.html",
           "/css/style.css",
           "/css/bootstrap.min.css",
           "/css/all.min.css",
