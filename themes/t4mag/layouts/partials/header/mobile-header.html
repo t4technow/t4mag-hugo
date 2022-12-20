@@ -8,7 +8,7 @@
 	<div class="mobile-menu-bar-wrap" id="mobile-menu-bar-wrap">
 		<div class="mobile-menu-bar">
 			<div class="logo">
-				<a href="index.html">
+				<a href="{{ .Site.BaseURL }}">
 					<img
 						src="/images/logo/logo-dark.png"
 						alt="T4Mag"
@@ -32,34 +32,15 @@
 							<a class="animation" href="javascript:void(0)">Home</a>
 							
 						</li>
-						<li class="list menu-item-has-children">
+						<li class="list">
 							<a class="animation" href="javascript:void(0)">How To</a>
-							<ul class="main-menu__dropdown sub-menu">
-								<li class="list menu-item-has-children">
-									<a href="javascript:void(0)"> Post Layout </a>
-									<ul class="main-menu__dropdown sub-menu">
-										<li>
-											<a href="single-post1.html">Single Post 01</a>
-										</li>
-										<li>
-											<a href="single-post2.html">Single Post 02</a>
-										</li>
-										<li>
-											<a href="single-post3.html">Single Post 03</a>
-										</li>
-									</ul>
-								</li>
-								<li><a href="author.html">Author Deatils</a></li>
-							</ul>
 						</li>
 						<li class="list menu-item-has-children">
 							<a class="animation" href="javascript:void(0)">Categories</a>
 							<ul class="main-menu__dropdown sub-menu">
-								<li><a href="life-style.html">Life Style</a></li>
-								<li><a href="technology.html">Technology</a></li>
-								<li><a href="gaming.html">Gaming</a></li>
-								<li><a href="graphics.html">Graphics</a></li>
-								<li><a href="politics.html">Politics</a></li>
+								{{range ($.Site.GetPage "taxonomyTerm" "category").Pages }}
+								<li><a class="menu-item_link" href="{{.Permalink}}">{{.Title}}</a></li>
+								{{end}}
 							</ul>
 						</li>
 						<li class="list menu-item-has-children">
@@ -70,12 +51,8 @@
 								<li><a href="404.html">404</a></li>
 							</ul>
 						</li>
-						<li class="list menu-item-has-children">
+						<li class="list">
 							<a class="animation" href="javascript:void(0)">GitHub</a>
-							<ul class="main-menu__dropdown sub-menu">
-								<li><a href="shop.html">Shop</a></li>
-								<li><a href="single-shop.html">Shop Deatils</a></li>
-							</ul>
 						</li>
 					</ul>
 				</nav>

@@ -5039,6 +5039,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 .rt-breadcrumb-wrap .breadcrumb .breadcrumb-item {
 	font-size: 0.875rem;
 	padding-left: 8px;
+	text-transform: capitalize;
 }
 .rt-breadcrumb-wrap .breadcrumb .breadcrumb-item a {
 	font-size: 0.875rem;

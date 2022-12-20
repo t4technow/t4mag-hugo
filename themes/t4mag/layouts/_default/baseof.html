@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+	{{ $baseurl := .Site.BaseURL }}
 	{{- partial "head/head.html" . -}}
 
 	<body>
@@ -20,7 +21,8 @@
 				<!-- end rt-mobile-header -->
 
 				<!-- Start Main -->
-				<main>{{ block "main" . }} 
+				<main>{{ block "main" . }}
+					 
 					{{ .Content }}	
 				{{ end }}</main>
 				<!-- End Main -->
@@ -32,7 +34,7 @@
 			<!-- End main-content -->
 
 			<!-- Start  offcanvas menu -->
-			{{- partial "header/off-canvas-menu.html" . -}}
+			{{- partial "navbar/off-canvas-menu.html" . -}}
 			<!-- End  offcanvas menu -->
 
 			<!-- Start Cart Wrap -->

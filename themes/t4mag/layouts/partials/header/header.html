@@ -35,35 +35,7 @@
 					<!-- start main menu -->
 					<div class="main-menu">
 						<nav class="main-menu__nav">
-							<ul>
-								<li class="main-menu__nav_sub active">
-									<a class="animation" href="{{ .Site.BaseURL }}">Home</a>
-								</li>
-								<li class="main-menu__nav_sub list">
-									<a class="animation" href="javascript:void(0)">How To</a>
-								</li>
-								<li class="main-menu__nav_sub drop-down list">
-									<a class="animation" href="javascript:void(0)">Categories </a>
-									<ul class="main-menu__dropdown">
-										{{range ($.Site.GetPage "taxonomyTerm" "category").Pages }}
-										<li><a class="menu-item_link" href="{{.Permalink}}">{{.Title}}</a></li>
-										{{end}}
-
-									</ul>
-								</li>
-								<li class="main-menu__nav_sub drop-down list">
-									<a class="animation" href="javascript:void(0)">Pages</a>
-									<ul class="main-menu__dropdown">
-										<li><a href="about.html">About Us</a></li>
-										<li><a href="contact.html">Contact Us</a></li>
-										<li><a href="404.html">404</a></li>
-									</ul>
-								</li>
-								<li class="main-menu__nav_sub list">
-									<a class="animation" href="javascript:void(0)">GitHub</a>
-									
-								</li>
-							</ul>
+							{{- partial "navbar/main-menu.html" . -}}
 						</nav>
 					</div>
 					<!-- end main menu -->
@@ -74,14 +46,14 @@
 							<a href="#template-search"><i class="fas fa-search"></i></a>
 						</li>
 						<!-- <li class="item cart-icon">
-											<a
-												href="javascript:void(0)"
-												class="cart-menu-btn menu-open-btn"
-											>
-												<i class="fas fa-shopping-cart"></i>
-												<span class="item-count">0</span>
-											</a>
-										</li> -->
+							<a
+								href="javascript:void(0)"
+								class="cart-menu-btn menu-open-btn"
+							>
+								<i class="fas fa-shopping-cart"></i>
+								<span class="item-count">0</span>
+							</a>
+						</li> -->
 						<li class="item humburger offcanvas-menu-btn menu-status-open">
 							<span></span>
 						</li>

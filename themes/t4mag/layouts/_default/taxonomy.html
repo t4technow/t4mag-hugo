@@ -1,12 +1,136 @@
 {{ define "main" }}
-  <div class="container">
-    <h1>All posts for {{ .Type | singularize }} "{{ .Title }}"</h1>
-    <ul>
-      {{ range .Data.Pages }}
-        <li>
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </li>
-      {{ end }}
-    </ul>
-  </div>
+
+  {{ $baseurl := .Site.BaseURL }}
+	{{ $page := "taxonomy" }}
+	{{ $title := .Title }}
+  {{ $type := .Type }}
+	{{ $cat := .Params.category }}
+            <!-- Start inner page Banner -->
+            <div class="banner inner-banner">
+              <div class="container">
+                {{- partial "body/breadcrumbs.html" (dict "context" . "page" $page "title" $title "cat" $cat "baseurl" $baseurl "type" $type) . -}}
+              </div>
+           </div>
+           <!-- End inner page Banner -->            
+
+            <!-- start rt-sidebar-section-layout-1 -->
+            <section class="rt-sidebar-section-layout-1">
+               <div class="container">
+                  <div class="row gutter-40 sticky-coloum-wrap">
+                     <div class="col-xl-9 sticky-coloum-item">
+                        <div class="rt-left-sidebar-sapcer-5">
+
+                           <div class="post-list-style-4">
+
+                              
+                            {{ range .Data.Pages }}
+                              <div class="post-item wow fadeInUp" data-wow-delay="200ms" data-wow-duration="800ms">
+                                 <div class="rt-post post-md style-9 grid-meta">
+                                    <div class="post-img">
+                                      <a href="{{ .Permalink }}">
+                                        {{ $image := resources.Get ( printf "images/thumbs/%s" .Params.featured_image ) }}
+                                  
+                                        {{ with $image }}
+                                        <img class="lazyload" 
+                                            src="{{ ( $image.Resize "696x491" ).RelPermalink }}" 
+                                            alt="{{ .Title }}" 
+                                            width="696"
+                                            height="491"
+                                        />
+                                        {{ else }}
+                                        <img class="lazyload"
+                                            src="/images/gallery/post-sm_2.jpg"
+                                            alt="{{ .Title }}"
+                                            width="696"
+                                            height="491"
+                                        />
+                                        {{end}}
+                                      </a>
+                                    </div>
+                                    <div class="post-content">
+                                      <a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}" class="rt-cat-primary">{{ .Params.category }}</a>
+                                      <h3 class="post-title">
+                                         <a href="{{ .Permalink }}">
+                                            {{ .Title }}
+                                         </a>
+                                      </h3>
+                                      <p>
+                                         {{ .Summary | truncate 120 }}
+                                      </p>
+                                       <div class="post-meta">
+                                          <ul>
+                                             <li>
+                                                <span class="rt-meta">
+                                                   by <a href="{{.Site.BaseURL}}/author.html" class="name">{{ .Site.Params.author }}</a>
+                                                </span>
+                                             </li>
+                                             <li>
+                                                {{- partial "body/published-date.html" . -}}
+                                             </li>
+                                             <li>
+                                                <span class="rt-meta">
+                                                   <i class="fas fa-share-alt icon"></i>
+                                                   3,250
+                                                </span>
+                                             </li>
+                                          </ul>
+                                       </div>
+                                       <div class="btn-wrap mt--25">
+                                          <a href="{{ .Permalink }}" class="rt-read-more qodef-button-animation-out">
+                                             Read More
+                                             <svg width="34px" height="16px" viewBox="0 0 34.53 16"
+                                                xml:space="preserve">
+                                                <rect class="qodef-button-line" y="7.6" width="34" height=".4">
+                                                </rect>
+                                                <g class="qodef-button-cap-fake">
+                                                   <path class="qodef-button-cap"
+                                                      d="M25.83.7l.7-.7,8,8-.7.71Zm0,14.6,8-8,.71.71-8,8Z"></path>
+                                                </g>
+                                             </svg>
+                                          </a>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              
+                              {{ end }}
+                              <!-- end post-item -->
+
+                           </div>
+                           <!-- end post-list-style-4 -->
+
+                           <nav class="rt-pagination-area gap-top-90">
+                              <ul class="pagination rt-pagination justify-content-center">
+                                 <li class="page-item prev">
+                                    <a class="page-link" href="#"><i class="fas fa-angle-double-left"></i></a>
+                                 </li>
+                                 <li class="page-item active" aria-current="page">
+                                    <span class="page-link">1</span>
+                                 </li>
+                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                 <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                 <li class="page-item next">
+                                    <a class="page-link" href="#"><i class="fas fa-angle-double-right"></i></a>
+                                 </li>
+                              </ul>
+                           </nav>
+                           <!-- end rt-pagination-area -->
+
+                        </div>
+                        <!-- end rt-left-sidebar-sapcer-5 -->
+                     </div>
+                     <!-- end col-->
+
+                     {{- partial "sidebar/sidebar.html" . -}}
+                     <!-- end col -->
+
+                  </div>
+                  <!-- end row  -->
+               </div>
+               <!-- end container -->
+            </section>
+            <!-- end rt-sidebar-section-layout-1 -->
+
+
 {{ end}}

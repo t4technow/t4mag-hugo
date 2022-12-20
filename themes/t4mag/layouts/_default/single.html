@@ -1,450 +1,141 @@
 {{ define "main" }}
 
+	{{ $baseurl := .Site.BaseURL }}
+	{{ $page := "single" }}
+	{{ $title := .Title }}
+	{{ $cat := .Params.category }}
+
+
 	<!-- Start inner page Banner -->
-	<div class="banner inner-banner">
-		<div class="container">
-			{{ partial "body/breadcrumbs.html" . }}
-		</div>
-	</div>
+		{{- partial "body/breadcrumbs.html" (dict "context" . "page" $page "title" $title "cat" $cat "baseurl" $baseurl) . -}}
 	<!-- End inner page Banner -->
 
 	<!-- start rt-sidebar-section-layout-2 -->
-	<section class="rt-sidebar-section-layout-2" style="transform: none">
-		<div class="container" style="transform: none">
-			<div class="row gutter-40 sticky-coloum-wrap" style="transform: none">
-				<div
-					class="col-xl-9 sticky-coloum-item"
-					style="
-						position: relative;
-						overflow: visible;
-						box-sizing: border-box;
-						min-height: 1px;
-					"
-				>
-					<!-- end rt-left-sidebar-sapcer-5 -->
-					<div
-						class="theiaStickySidebar"
-						style="
-							padding-top: 0px;
-							padding-bottom: 1px;
-							position: static;
-							transform: none;
-						"
-					>
-						<div class="rt-left-sidebar-sapcer-5">
-							<div class="rt-main-post-single grid-meta">
-								<!-- start post header -->
-								{{ partial "single/metadata.html" . }}
-								<!-- end post-header -->
+	<section class="rt-sidebar-section-layout-2">
+		<div class="container">
+		   <div class="row gutter-40 sticky-coloum-wrap">
 
-								<!-- strat psot body -->
-								<div class="post-body">
+			  <div class="col-xl-9 sticky-coloum-item">
+				 <div class="rt-left-sidebar-sapcer-5">
 
-                                        {{ .Content }}
+					<div class="rt-main-post-single grid-meta">
 
-									<!-- ad banner -->
-									{{ partial "ads/single-post-ad.html" . }}
+					   <!-- start post header -->
+					   {{ partial "single/metadata.html" . }}
+
+					   <!-- end post-header -->
+
+					   <!-- strat psot body -->
+					   <div class="post-body">
+
+							 {{ .Content }}
+
+							 <!-- ad banner -->
+							 {{ partial "ads/single-post-ad.html" . }}
+						 </div>
+					   <!-- end post body -->
+
+					   <!-- start social-share-box-2 -->
+					   <div class="social-share-box-2 mb--40">
+						  <div class="row gutter-30">
+							 <div class="col-xl-7 col-lg-6">
+								<div class="conent-block">
+								   <h4 class="block-tile mb--20">Popular Tags:</h4>
+								   <div class="tag-list">
+									 {{ range $i, $e := .Params.tags -}}
+										 {{- if $i -}} {{ end -}}
+										 <a href='{{ "/tags/" | relLangURL }}{{ . | urlize }}' class="tag-link">{{ $e | humanize }}</a>
+									 {{- end -}}
+									 </div>
 								</div>
-								<!-- end post body -->
-
-								<!-- start social-share-box-2 -->
-								<div class="social-share-box-2 mb--40">
-									<div class="row gutter-30">
-										<div class="col-xl-7 col-lg-6">
-											<div class="conent-block">
-												<h4 class="block-tile mb--20">Popular Tags:</h4>
-												<div class="tag-list">
-													{{ range $i, $e := .Params.tags -}}
-														{{- if $i -}} {{ end -}}
-														<a href='{{ "/tags/" | relLangURL }}{{ . | urlize }}' class="tag-link">{{ $e | humanize }}</a>
-													{{- end -}}
-												</div>
-											</div>
-										</div>
-										<div
-											class="col-xl-5 col-lg-6 d-flex justify-content-start justify-content-lg-end"
-										>
-											<div class="conent-block">
-												<h4 class="block-tile mb--20">Share This Post:</h4>
-												{{ partial "single/social-share-1.html" . }}
-											</div>
-										</div>
-									</div>
+							 </div>
+							 <div class="col-xl-5 col-lg-6 d-flex justify-content-start justify-content-lg-end">
+								<div class="conent-block">
+								   <h4 class="block-tile mb--20">Share This Post:</h4>
+								   {{ partial "single/social-share-1.html" . }}
 								</div>
-								<!-- end social-share-box-2 -->
+							 </div>
+						  </div>
+					   </div>
+					   <!-- end social-share-box-2 -->
 
-								<!-- start author box -->
-							
-								<!-- end author box -->
+					   <!-- start author box -->
+					   
+					   <!-- end author box -->
 
-								<!-- start post-pagination-box -->
-								<div class="post-pagination-box mb--40">
-									<div class="row gutter-30">
-										{{ if .PrevPage }}
-										<div class="col-lg-6 pvnx">
-											<div class="next-prev-wrap">
-												<div class="item-icon">
-													<a href="{{ .PrevPage.Permalink }}?ref=footer">
-														<i class="fas fa-chevron-left"></i>
-														Previous Article
-													</a>
-												</div>
-												<div class="content">
-													<h4 class="title">
-														<a href="{{ .PrevPage.Permalink }}?ref=footer">
-															{{ .PrevPage.Title | truncate 50 "..."}}
-														</a>
-													</h4>
-													{{ partial "body/published-date.html" . }}
-												</div>
-											</div>
-										</div>
+					   <!-- start post-pagination-box -->
+					   <div class="post-pagination-box mb--40">
+						 <div class="row gutter-30">
+							 {{ if .PrevPage }}
+							 <div class="col-lg-6 pvnx">
+								 <div class="next-prev-wrap">
+									 <div class="item-icon">
+										 <a href="{{ .PrevPage.Permalink }}?ref=footer">
+											 <i class="fas fa-chevron-left"></i>
+											 Previous Article
+										 </a>
+									 </div>
+									 <div class="content">
+										 <h4 class="title">
+											 <a href="{{ .PrevPage.Permalink }}?ref=footer">
+												 {{ .PrevPage.Title | truncate 50 "..."}}
+											 </a>
+										 </h4>
+										 {{ partial "body/published-date.html" . }}
+									 </div>
+								 </div>
+							 </div>
 
-										{{ end }}
+							 {{ end }}
 
-										{{ if .NextPage }}
-										<div class="col-lg-6 pvnx">
-											<div class="next-prev-wrap next-wrap">
-												<div class="item-icon">
-													<a href="{{ .NextPage.Permalink }}?ref=footer">
-														Next Article
-														<i class="fas fa-chevron-right"></i>
-													</a>
-												</div>
-												<div class="content">
-													<h4 class="title">
-														<a href="{{ .NextPage.Permalink }}?ref=footer">
-															{{ .NextPage.Title | truncate 50 "..." }}
-														</a>
-													</h4>
-													{{ partial "body/published-date.html" . }}
-												</div>
-											</div>
-										</div>
-										{{ end }}	
-										
-									</div>
-								</div>
-								<!-- end pagination box -->
+							 {{ if .NextPage }}
+							 <div class="col-lg-6 pvnx">
+								 <div class="next-prev-wrap next-wrap">
+									 <div class="item-icon">
+										 <a href="{{ .NextPage.Permalink }}?ref=footer">
+											 Next Article
+											 <i class="fas fa-chevron-right"></i>
+										 </a>
+									 </div>
+									 <div class="content">
+										 <h4 class="title">
+											 <a href="{{ .NextPage.Permalink }}?ref=footer">
+												 {{ .NextPage.Title | truncate 50 "..." }}
+											 </a>
+										 </h4>
+										 {{ partial "body/published-date.html" . }}
+									 </div>
+								 </div>
+							 </div>
+							 {{ end }}	
+							 
+						 </div>
+					 </div>
+					   <!-- end pagination box -->
 
-								<!-- start blog-post-comment -->
-								<!-- <div class="blog-post-comment mb--50">
-									<form
-										action="#"
-										class="rt-contact-form comments-form-style-1"
-										novalidate="true"
-									>
-										<div class="row">
-											<div class="col-xl-4">
-												<div class="rt-form-group">
-													<label for="name">Your Name *</label>
-													<input
-														type="text"
-														name="name"
-														id="name"
-														class="form-control"
-														data-error="Name field is required"
-														required=""
-													/>
-													<div class="help-block with-errors"></div>
-												</div>
-											</div>
-											<div class="col-xl-4">
-												<div class="rt-form-group">
-													<label for="email">E-mail *</label>
-													<input
-														type="text"
-														name="email"
-														id="email"
-														class="form-control"
-														data-error="Email field is required"
-														required=""
-													/>
-													<div class="help-block with-errors"></div>
-												</div>
-											</div>
-											<div class="col-xl-4">
-												<div class="rt-form-group">
-													<label for="website">Website *</label>
-													<input
-														type="text"
-														name="website"
-														id="website"
-														class="form-control"
-														data-error="Web Url field is required"
-														required=""
-													/>
-													<div class="help-block with-errors"></div>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="rt-form-group">
-													<label for="comment">Comments *</label>
-													<textarea
-														name="comment"
-														id="comment"
-														class="form-control text-area"
-														data-error="Comment field is required"
-														required=""
-													></textarea>
-													<div class="help-block with-errors"></div>
-												</div>
-											</div>
-											<div class="col-12">
-												<div class="rt-form-group">
-													<div class="form-check">
-														<input
-															class="form-check-input"
-															type="checkbox"
-															value=""
-															id="comment-form-check1"
-														/>
-														<label
-															class="form-check-label"
-															for="comment-form-check1"
-														>
-															Save my name, email, and website in this browser
-															for the next time I comment.
-														</label>
-													</div>
-												</div>
-											</div>
-											<div class="col-12">
-												<button type="submit" class="submit-btn disabled">
-													Post Comment
-												</button>
-											</div>
-											<div class="form-response"></div>
-										</div>
-									</form>
-								</div> -->
-								<!-- end blog-post-comment -->
+					   <!-- start blog-post-comment -->
+					  
+					   <!-- end blog-post-comment -->
 
-								<!-- start related-post-box -->
-								{{- partial "single/related-posts.html" . -}}
-								<!-- end related-post-box -->
-							</div>
-							<!-- end rt-main-post-single -->
-						</div>
-						<div
-							class="resize-sensor"
-							style="
-								position: absolute;
-								inset: 0px;
-								overflow: hidden;
-								z-index: -1;
-								visibility: hidden;
-							"
-						>
-							<div
-								class="resize-sensor-expand"
-								style="
-									position: absolute;
-									left: 0;
-									top: 0;
-									right: 0;
-									bottom: 0;
-									overflow: hidden;
-									z-index: -1;
-									visibility: hidden;
-								"
-							>
-								<div
-									style="
-										position: absolute;
-										left: 0px;
-										top: 0px;
-										transition: all 0s ease 0s;
-										width: 1000px;
-										height: 5063px;
-									"
-								></div>
-							</div>
-							<div
-								class="resize-sensor-shrink"
-								style="
-									position: absolute;
-									left: 0;
-									top: 0;
-									right: 0;
-									bottom: 0;
-									overflow: hidden;
-									z-index: -1;
-									visibility: hidden;
-								"
-							>
-								<div
-									style="
-										position: absolute;
-										left: 0;
-										top: 0;
-										transition: 0s;
-										width: 200%;
-										height: 200%;
-									"
-								></div>
-							</div>
-						</div>
+					   <!-- start related-post-box -->
+					   {{- partial "single/related-posts.html" . -}}
+					   <!-- end related-post-box -->
+
 					</div>
-				</div>
-				<!-- end col-->
+					<!-- end rt-main-post-single -->
+				 </div>
+				 <!-- end rt-left-sidebar-sapcer-5 -->
+			  </div>
+			  <!-- end col-->
 
-				<div
-					class="col-xl-3 col-lg-8 mx-auto sticky-coloum-item"
-					style="
-						position: relative;
-						overflow: visible;
-						box-sizing: border-box;
-						min-height: 1px;
-					"
-				>
-					<!-- end rt-sidebar -->
-					<div
-						class="theiaStickySidebar"
-						style="
-							padding-top: 0px;
-							padding-bottom: 1px;
-							position: static;
-							transform: none;
-							top: 0px;
-							left: 1283.5px;
-						"
-					>
-						<div class="rt-sidebar sticky-wrap">
-							<div class="sidebar-wrap mb--40">
-								<div class="search-box">
-									<form action="#" class="form search-form-box">
-										<div class="form-group">
-											<input
-												type="text"
-												name="sarch"
-												id="search"
-												placeholder="Search..."
-												class="form-control rt-search-control"
-											/>
-											<button type="submit" class="search-submit">
-												<i class="fas fa-search"></i>
-											</button>
-										</div>
-									</form>
-								</div>
-							</div>
-							<!-- end sidebar wrap -->
+			  {{- partial "sidebar/sidebar.html" . -}}
+			  <!-- end col -->
 
-							{{ partial "sidebar/popular-circle.html" . }}
-							<!-- end slidebar wrap  -->
-
-							{{ partial "taxonomy/taxonomy-categories.html" . }}
-							<!-- end slidebar wrap  -->
-
-							<div class="sidebar-wrap mb--40">
-								<div
-									class="subscribe-box-style-1"
-									data-bg-image="/images/elements/element_5.png"
-									style="background-image: url('/images/elements/element_5.png')"
-								>
-									<div class="subscribe-content">
-										<h3 class="title">Subscribe To Our Newsletter</h3>
-										<p>
-											No spam, notifications only about new products, updates.
-										</p>
-										<form
-											action="#"
-											method="post"
-											class="subscribe-form rt-form"
-										>
-											<div class="rt-form-group">
-												<input
-													type="email"
-													name="email"
-													id="email_1"
-													placeholder="enter e-mail"
-													class="rt-form-control"
-												/>
-											</div>
-
-											<button type="submit" class="rt-submit-btn">
-												Subscribe Now
-											</button>
-										</form>
-										<div class="small-text">Don’t worry, we don’t spam</div>
-									</div>
-								</div>
-							</div>
-							<!-- end sidebar wrap -->
-
-							<div class="sidebar-wrap mb--40">
-								{{ partial "taxonomy/taxonomy-tags.html" . }}
-							</div>
-							<!-- end sidebar wrap -->
-						</div>
-						<div
-							class="resize-sensor"
-							style="
-								position: absolute;
-								inset: 0px;
-								overflow: hidden;
-								z-index: -1;
-								visibility: hidden;
-							"
-						>
-							<div
-								class="resize-sensor-expand"
-								style="
-									position: absolute;
-									left: 0;
-									top: 0;
-									right: 0;
-									bottom: 0;
-									overflow: hidden;
-									z-index: -1;
-									visibility: hidden;
-								"
-							>
-								<div
-									style="
-										position: absolute;
-										left: 0px;
-										top: 0px;
-										transition: all 0s ease 0s;
-										width: 340px;
-										height: 5063px;
-									"
-								></div>
-							</div>
-							<div
-								class="resize-sensor-shrink"
-								style="
-									position: absolute;
-									left: 0;
-									top: 0;
-									right: 0;
-									bottom: 0;
-									overflow: hidden;
-									z-index: -1;
-									visibility: hidden;
-								"
-							>
-								<div
-									style="
-										position: absolute;
-										left: 0;
-										top: 0;
-										transition: 0s;
-										width: 200%;
-										height: 200%;
-									"
-								></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- end col -->
-			</div>
-			<!-- end row  -->
+		   </div>
+		   <!-- end row  -->
 		</div>
 		<!-- end container -->
-	</section>
+	 </section>
 	<!-- end rt-sidebar-section-layout-2 -->
 
  {{ end }}

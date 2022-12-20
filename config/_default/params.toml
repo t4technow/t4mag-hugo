@@ -1,6 +1,15 @@
 author = 'T4Technow'
 description = 'Looking for Tech based news, solutions or looking for softwares or best android applications? T4Technow is just the place.'
 
+# sidebar
+enable-search = true
+enable-social = false
+enable-popular = true
+enable-categories = true
+enable-tags = true
+enable-ad-banner = false
+enable-Newsletter = true
+
 [socialOptions]
   email = "mailto:your@email.com"
   phone = "+91 6282585980"

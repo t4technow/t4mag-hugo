@@ -1,18 +1,28 @@
-<nav class="rt-breadcrumb-wrap" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="index.html">
-                <i class="fas fa-home"></i>
-                Home
-            </a>
-        </li>
-        <li class="breadcrumb-item">
-            <a href="{{ $.Site.BaseURL }}category/{{ .Params.category }}"> {{ .Params.category }} </a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">
-            <span class="rt-text-truncate">
-                {{ .Title }}
-            </span>
-        </li>
-    </ol>
-</nav>
+<div class="banner inner-banner">
+    <div class="container">
+        <nav class="rt-breadcrumb-wrap" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ .baseurl }}">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                {{ if (eq .page "taxonomy") }}
+                    <li class="breadcrumb-item">
+                        <a href="{{ .baseurl }}{{.type}}"> {{ .type }} </a>
+                    </li>
+                {{ else }}
+                    <li class="breadcrumb-item">
+                        <a href="{{ .baseurl }}category/{{ .cat }}"> {{ .cat }} </a>
+                    </li>
+                {{ end }}
+                <li class="breadcrumb-item active" aria-current="page">
+                    <span class="rt-text-truncate">
+                        {{ .title }}
+                    </span>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>

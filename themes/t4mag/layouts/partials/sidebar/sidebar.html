@@ -1,0 +1,64 @@
+<div class="col-xl-3 col-lg-8 mx-auto sticky-coloum-item">
+    <div class="rt-sidebar sticky-wrap">
+
+      {{ if $.Param "enable-search" }}
+       <div class="sidebar-wrap mb--40">
+          <div class="search-box">
+             <form action="#" class="form search-form-box">
+                <div class="form-group">
+                   <input type="text" name="sarch" id="search" placeholder="Search..."
+                      class="form-control rt-search-control">
+                   <button type="submit" class="search-submit">
+                      <i class="fas fa-search"></i>
+                   </button>
+                </div>
+             </form>
+          </div>
+       </div>
+       {{ end }}
+       
+       
+       
+       {{ if $.Param "enable-popular" }}
+       <!-- end sidebar wrap -->
+         {{- if (eq .Type "posts") }}
+         {{- partial "sidebar/popular-circle.html" . -}}
+         {{ else }}
+         {{- partial "sidebar/popular-news.html" . -}}
+         {{ end }}
+         <!-- end slidebar wrap  -->
+      {{ end }}
+
+       {{ if $.Param "enable-ad-banner" }}
+       <div class="sidebar-wrap mb--40">
+          <div class="ad-banner-img">
+             
+          </div>
+       </div>
+       <!-- end slidebar wrap  -->
+       {{ end }}
+
+       {{ if $.Param "enable-categories" }}
+       <div class="sidebar-wrap mb--40">
+        {{- partial "taxonomy/taxonomy-categories.html" . -}}
+       </div>
+       <!-- end slidebar wrap  -->
+       {{ end }}
+
+       {{ if $.Param "enable-Newsletter" }}
+       <div class="sidebar-wrap mb--40">
+        {{- partial "sidebar/subscribe.html" . -}}
+       </div>
+       <!-- end sidebar wrap -->
+       {{ end }}
+
+       {{ if $.Param "enable-tags" }}
+       <div class="sidebar-wrap">
+        {{- partial "taxonomy/taxonomy-tags.html" . -}}
+       </div>
+       <!-- end sidebar wrap -->
+       {{ end }}
+
+    </div>
+    <!-- end rt-sidebar -->
+ </div>
