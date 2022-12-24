@@ -11668,9 +11668,12 @@ pre {
 	.pinned-mobile {
 		display: flex;
 		overflow-x: auto;
+		scroll-snap-type: x mandatory;
 	}
 	.pinned-mobile-item {
 		flex-shrink: 0;
 		flex-basis: 100%;
+		scroll-snap-align: start;
+		padding: 12px !important;
 	}
 }
