@@ -11679,4 +11679,8 @@ pre {
 		scroll-snap-align: start;
 		padding: 12px !important;
 	}
+	.feature-section-style-1 {
+		padding-top: 12px;
+		padding-bottom: 12px;
+	}
 }
