@@ -13,7 +13,7 @@ tags:
     - android
     - windows
 
-draft: false
+draft: true
 featured: false
 pinned: false
 ---
