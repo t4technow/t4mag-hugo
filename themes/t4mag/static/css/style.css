@@ -11663,3 +11663,14 @@ pre {
     overflow: auto;
     -ms-overflow-style: scrollbar;
 }
+
+@media (max-width: 414px) {
+	.pinned-mobile {
+		display: flex;
+		overflow-x: auto;
+	}
+	.pinned-mobile-item {
+		flex-shrink: 0;
+		flex-basis: 100%;
+	}
+}

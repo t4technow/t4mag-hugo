@@ -3,11 +3,11 @@
 	data-bg-image="/images/elements/element_1.png"
 >
 	<div class="container">
-		<div class="row gutter-24">
+		<div class="row gutter-24 pinned-mobile">
 			{{ range first 4 (where (where .Site.RegularPages "Type" "in"
 			site.Params.mainSections) ".Params.pinned" "=" true) }} 
 			<div
-				class="col-xl-3 col-md-6 wow fadeInUp"
+				class="pinned-mobile-item col-xl-3 col-md-6 wow fadeInUp"
 				data-wow-delay="200ms"
 				data-wow-duration="800ms"
 			>
