@@ -84,7 +84,7 @@
 </style>
 
 <!-- Gallery -->
-<div id="slide-window col-sm-1">
+<div id="slide-window">
     <ol id="slides-list">
         {{- with (.Get "dir") -}} 
             {{- $files := readDir (print "/static/" .) }} 
