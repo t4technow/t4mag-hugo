@@ -11670,6 +11670,9 @@ pre {
 		overflow-x: auto;
 		scroll-snap-type: x mandatory;
 	}
+	.pinned-mobile::-webkit-scrollbar {
+		display: none;
+	}
 	.pinned-mobile-item {
 		flex-shrink: 0;
 		flex-basis: 100%;
