@@ -459,6 +459,8 @@ Branch:  Information Technology
 
 Constructors are generally used for instantiating an object. The task of constructors is to initialize(assign values) to the data members of the class when an object of the class is created. In Python the `__init__()` method is called the constructor and is always called when an object is created.  
 
+> Note: If we inherit a class we have to explicitely call `super().__init__()` in the `__init__()` of sub class
+
 syntax:
 ```python:
 def __init__(self):
