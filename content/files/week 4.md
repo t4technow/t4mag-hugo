@@ -26,7 +26,7 @@
 	- There is no separate controller and complete application is based on Model View and Template. That's why it is called MVT application.
 
 
-		     ![[https://github.com/t4technow/t4mag/blob/main/content/files/django-mvt-based-control-flow.png?raw=true]]
+		     ![image](https://user-images.githubusercontent.com/69504996/216521462-18333c9f-4369-43c1-9e99-cebeaffc281e.png)
 
 5. What is Middleware?
 	- Middleware is a lightweight plugin that processes during request and response execution. 
